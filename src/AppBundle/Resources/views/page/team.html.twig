@@ -1,0 +1,79 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ team.name }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <header class="page-header">
+            <h1>{{ team.name }}</h1>
+            <h3>{{ team.level }}</h3>
+        </header>
+        <div class="row">
+            <section class="col-sm-4">
+                <a href="{{ team.ranking }}" title="Classement {{ team.name }}">Résultats et Classement</a>
+                <h3>Palmares :</h3>
+                <br>
+                <p>{{ team.palmares }}</p>
+            </section>
+            <section class="col-sm-8">
+                {# On vérifie qu'une image soit bien associée à l'équipe #}
+                {% if team.image is not null %}
+                    <img class="thumbnail"
+                            src="{{ asset(team.image.webPath) }}"
+                            alt="{{ team.image.alt }}"
+                    />
+                {% endif %}
+
+            </section>
+        </div>
+        <div class="row">
+            <section class="col-sm-4">
+                <h3>Planning Entrainements:</h3>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Mardi</h2>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Salle des dervalières<span class="badge">20h00 - 22h00</span></li>
+                    </ul>
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Jeudi</h2>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Salle Longchamp<span class="badge">20h30 - 22h30</span></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="col-sm-8">
+                <h3>Effectif:</h3>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Joueurs :</h2>
+                    </div>
+                    <ul class="list-group">
+                        {% for number in 0..10 %}
+                            <li class="list-group-item">Kevin Leborgne <span class="badge">n°10</span></li>
+                        {% endfor %}
+                    </ul>
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Entraineurs :</h2>
+                        </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Michel Dumas</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+{% endblock %}

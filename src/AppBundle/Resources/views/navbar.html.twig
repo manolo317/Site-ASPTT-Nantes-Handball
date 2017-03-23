@@ -1,0 +1,89 @@
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('app_index') }}"><span class="glyphicon glyphicon-home"></a>
+        </div>
+
+        <div class="collapse navbar-collapse js-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Le Club <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="dropdown-header" href="#">Histoire du Club</a></li>
+                        <li><a class="dropdown-header" href="#">La charte du Club</a></li>
+                        <li class="divider"></li>
+                        <li><a class="dropdown-header" href="#">L'équipe administrative</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipes <span class="caret"></span></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ senior }}</li>
+                                {% for seniorTeam in seniorTeams %}
+                                <li><a href="{{ path('team_view', {'slug': seniorTeam.slug}) }}">{{ seniorTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ jeunes }}</li>
+                                {% for juniorTeam in juniorTeams %}
+                                    <li><a href="{{ path('team_view', {'slug': juniorTeam.slug}) }}">{{ juniorTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ kids }}</li>
+                                {% for kidsTeam in kidsTeams %}
+                                    <li><a href="{{ path('team_view', {'slug': kidsTeam.slug}) }}">{{ kidsTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ loisirs }}</li>
+                                {% for loisirsTeam in loisirsTeams %}
+                                    <li><a href="{{ path('team_view', {'slug': loisirsTeam.slug}) }}">{{ loisirsTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evénements <span class="caret"></span></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header"><a class="dropdown-header" href="#">Du club</a></li>
+                                <li><img class="menu-img" src="{{ asset('uploads/img/hand.jpg') }}" alt="handball-tour"></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header"><a class="dropdown-header" href="#">De la FFH</a></li>
+                                <li><img class="menu-img" src="{{ asset('uploads/img/france-islande-handball-2017.jpg') }}" alt="france-islande-handball-2017.jpg"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Planning</a></li>
+                <li><a href="#">Photos</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </nav>
+</div>
