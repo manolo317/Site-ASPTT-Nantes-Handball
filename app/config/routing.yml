@@ -1,3 +1,8 @@
+planning:
+    resource: "@PlanningBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
