@@ -161,5 +161,25 @@ class Post
     {
         return $this->image;
     }
+
+    /**
+     * Set seo
+     *
+     * @param Seo $seo
+     */
+    public function setSeo(Seo $seo)
+    {
+        $this->seo = $seo;
+    }
+
+    /**
+     * Get seo
+     *
+     * @return Seo
+     */
+    public function getSeo()
+    {
+        return $this->seo;
+    }
 }
 
