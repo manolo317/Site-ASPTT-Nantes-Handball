@@ -1,3 +1,7 @@
+event_post:
+    resource: "@EventBundle/Controller/PostController.php"
+    type:     annotation
+
 
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
