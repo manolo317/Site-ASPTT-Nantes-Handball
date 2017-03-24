@@ -42,6 +42,18 @@ class Post
      */
     private $author;
 
+    /**
+     * @var string
+     * One seo has One Seo.
+     * @OneToOne(targetEntity="Seo", cascade={"persist", "remove"})
+     * @JoinColumn(name="Seo_id", referencedColumnName="id")
+     */
+    private $seo;
+
+    /**
+    * @ORM\OneToOne(targetEntity="EventBundle\Entity\Image", cascade={"persist", "remove"})
+    */
+    private $image;
 
     /**
      * Get id
@@ -123,6 +135,31 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+
+    /**
+     * Set image
+     *
+     * @param \EventBundle\Entity\Image $image
+     *
+     * @return Event
+     */
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \EventBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
 
