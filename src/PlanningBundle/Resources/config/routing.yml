@@ -1,0 +1,30 @@
+event_index:
+    path:     /
+    defaults:
+        _controller: PlanningBundle:Event:index
+
+event_show:
+    path:     /{id}/show
+    defaults:
+        _controller: PlanningBundle:Event:show
+    requirements:
+        id: \d+
+
+event_new:
+    path:     /new
+    defaults:
+        _controller: PlanningBundle:Event:new
+
+event_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: PlanningBundle:Event:edit
+    requirements:
+            id: \d+
+
+event_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: PlanningBundle:Event:delete
+    requirements:
+            id: \d+

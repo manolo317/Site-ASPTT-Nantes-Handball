@@ -7,6 +7,5 @@ team:
     prefix:   /admin/team
 
 planning:
-    resource: "@PlanningBundle/Controller/"
-    type:     annotation
-    prefix:   /planning
+    resource: "@PlanningBundle/Resources/config/routing.yml"
+    prefix:   /admin/planning

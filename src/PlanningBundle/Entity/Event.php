@@ -4,6 +4,7 @@ namespace PlanningBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use TeamBundle\Entity\Team;
 
 /**
  * Event
@@ -40,7 +41,7 @@ class Event
     /**
      * Many Events have One Date.
      * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Date", inversedBy="events")
-     * @ORM\JoinColumn(name="event_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="date_id", referencedColumnName="id", nullable=false)
      */
     private $date;
 
