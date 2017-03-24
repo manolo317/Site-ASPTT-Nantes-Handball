@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace EventBundle\Entity;
 
@@ -15,16 +15,16 @@ class Seo
     /**
      * @var int
      *
-     * @ORM\Column(name="seo_id", type="integer")
-     * @ORM\Seo_d
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $seo_id;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
 
@@ -36,14 +36,14 @@ class Seo
     private $description;
 
 
-     /**
-     * Get seo_id
+    /**
+     * Get id
      *
      * @return int
      */
-    public function getSeo_id()
+    public function getId()
     {
-        return $this->seo_id;
+        return $this->id;
     }
 
     /**
@@ -51,7 +51,7 @@ class Seo
      *
      * @param string $title
      *
-     * @return Post
+     * @return Seo
      */
     public function setTitle($title)
     {
@@ -70,13 +70,12 @@ class Seo
         return $this->title;
     }
 
-
-        /**
+    /**
      * Set description
      *
      * @param string $description
      *
-     * @return Post
+     * @return Seo
      */
     public function setDescription($description)
     {
@@ -95,3 +94,4 @@ class Seo
         return $this->description;
     }
 }
+

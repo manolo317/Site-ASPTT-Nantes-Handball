@@ -137,51 +137,6 @@ class Post
     }
 
 
-    /**
-     * Set seo
-     *
-     * @param \EventBundle\Entity\Seo $seo
-     *
-     * @return Post
-     */
-    public function setSeo(\EventBundle\Entity\Seo $seo = null)
-    {
-        $this->seo = $seo;
-
-        return $this;
-    }
-
-    /**
-     * Get seo
-     *
-     * @return \EventBundle\Entity\Seo
-     */
-    public function getSeo()
-    {
-        return $this->seo;
-    }
-
-    /**
-     * Set image
-     *
-     * @param \TeamBundle\Entity\Image $image
-     *
-     * @return Post
-     */
-    public function setImage(\TeamBundle\Entity\Image $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \TeamBundle\Entity\Image
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
+    
 }
+
