@@ -3,6 +3,8 @@
 namespace EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EventBundle\Entity\Seo;
+use TeamBundle\Entity\Image;
 
 /**
  * Post
@@ -43,15 +45,15 @@ class Post
     private $author;
 
     /**
-     * @var string
-     * One seo has One Seo.
-     * @OneToOne(targetEntity="Seo", cascade={"persist", "remove"})
-     * @JoinColumn(name="Seo_id", referencedColumnName="id")
+     * 
+     * One post has One Seo.
+     * @ORM\@OneToOne(targetEntity="Seo", cascade={"persist", "remove"})
+     * @ORM\@JoinColumn(name="Seo_id", referencedColumnName="id")
      */
     private $seo;
 
     /**
-    * @ORM\OneToOne(targetEntity="EventBundle\Entity\Image", cascade={"persist", "remove"})
+    * @ORM\OneToOne(targetEntity="TeamBundle\Entity\Image", cascade={"persist", "remove"})
     */
     private $image;
 

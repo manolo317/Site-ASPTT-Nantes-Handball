@@ -15,8 +15,8 @@ class Seo
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
+     * @ORM\Column(name="seo_id", type="integer")
+     * @ORM\Seo_d
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $seo_id;
@@ -94,3 +94,4 @@ class Seo
     {
         return $this->description;
     }
+}
