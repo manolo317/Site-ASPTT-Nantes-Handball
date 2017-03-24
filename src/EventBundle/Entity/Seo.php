@@ -35,6 +35,14 @@ class Seo
      */
     private $description;
 
+    /** * Get the string representation.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    } 
 
     /**
      * Get id
