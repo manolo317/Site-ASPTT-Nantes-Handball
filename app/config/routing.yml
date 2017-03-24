@@ -10,6 +10,7 @@ planning:
     resource: "@PlanningBundle/Controller/"
     type:     annotation
     prefix:   /planning
+
 admin_fairplay:
     resource: "@InfoBundle/Resources/config/fairplay/routing.yml"
     prefix:   /admin/fairplay
