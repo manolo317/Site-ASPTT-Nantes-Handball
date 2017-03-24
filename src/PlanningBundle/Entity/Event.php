@@ -118,9 +118,8 @@ class Event
         return $this->hour;
     }
 
+
     /**
-     * Set date
-     *
      * @param \PlanningBundle\Entity\DateEvent $date
      *
      * @return Event

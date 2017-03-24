@@ -27,32 +27,15 @@ class Date
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", unique=true)
+     * @ORM\Column(name="date", type="datetimetz", unique=true)
      */
     private $date;
-
-
-    /**
-     * @Gedmo\Slug(fields={"date"})
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     */
-    private $slug;
 
     /**
      * One Date has Many Events.
      * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date")
      */
     private $events;
-
-    /**
-     * Get the string representation.
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getDate()->format('Y-m-d H:i:s');
-    }
 
     /**
      * Get id
@@ -63,8 +46,6 @@ class Date
     {
         return $this->id;
     }
-
-
 
     /**
      * Set date
@@ -96,7 +77,6 @@ class Date
     {
         $this->events = new ArrayCollection();
     }
-}
 
     /**
      * Add event
