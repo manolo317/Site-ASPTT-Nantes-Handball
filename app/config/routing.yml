@@ -1,7 +1,3 @@
-event:
-    resource: "@EventBundle/Controller/"
-    type:     annotation
-    prefix:   /
 
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
@@ -11,3 +7,7 @@ team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
+event:
+    resource: "@EventBundle/Controller/"
+    type:     annotation
+    prefix:   /event
