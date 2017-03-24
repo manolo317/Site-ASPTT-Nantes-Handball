@@ -1,0 +1,112 @@
+<?php
+
+namespace PlanningBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * Event
+ *
+ * @ORM\Table(name="event")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\EventRepository")
+ */
+class Event
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="opponent", type="string", length=255)
+     */
+    private $opponent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hour", type="datetimetz")
+     */
+    private $hour;
+
+
+    /**
+     * Many Events have One Date.
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Date")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $date;
+
+    /**
+     * Many Events have One Team.
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $team;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set opponent
+     *
+     * @param string $opponent
+     *
+     * @return Event
+     */
+    public function setOpponent($opponent)
+    {
+        $this->opponent = $opponent;
+
+        return $this;
+    }
+
+    /**
+     * Get opponent
+     *
+     * @return string
+     */
+    public function getOpponent()
+    {
+        return $this->opponent;
+    }
+
+    /**
+     * Set hour
+     *
+     * @param \DateTime $hour
+     *
+     * @return Event
+     */
+    public function setHour($hour)
+    {
+        $this->hour = $hour;
+
+        return $this;
+    }
+
+    /**
+     * Get hour
+     *
+     * @return \DateTime
+     */
+    public function getHour()
+    {
+        return $this->hour;
+    }
+}
+
