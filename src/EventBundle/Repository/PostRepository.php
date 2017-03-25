@@ -22,7 +22,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     public function findThreeLastPosts()
     {
         return $this->createQueryBuilder('p')
-            ->orderBy('p.updatedAt', 'DESC')
+            ->orderBy('p.publishedAt', 'DESC')
             ->getQuery()
             ->setMaxResults(3)
             ->getResult();

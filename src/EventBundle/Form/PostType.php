@@ -18,6 +18,7 @@ class PostType extends AbstractType
         ->add('content')
         ->add('author')
         ->add('seo', SeoType::class)
+        ->add('publishedAt')
         ->add('image', ImageType::class, array('required' => false));
     }
     

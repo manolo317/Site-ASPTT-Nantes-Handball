@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="EventBundle\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -56,9 +57,9 @@ class Post
 
 
     /**
-    * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+    * @ORM\Column(name="published_at", type="datetime", nullable=false)
     */
-    private $updatedAt;
+    private $publishedAt;
 
     /**
      * Get id
@@ -189,5 +190,26 @@ class Post
     public function getImage()
     {
         return $this->image;
+    }
+        /**
+     * Set publishedAt
+     *
+     * @param \DateTime $publishedAt
+     *
+     * @return Post
+     */
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+        return $this;
+    }
+    /**
+     * Get publishedAt
+     *
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->publishedAt;
     }
 }
