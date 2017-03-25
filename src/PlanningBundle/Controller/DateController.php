@@ -24,7 +24,7 @@ class DateController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dates = $em->getRepository('PlanningBundle:DateEvent')->findAll();
+        $dates = $em->getRepository('PlanningBundle:DateEvent')->findAllOrderedByDate();
 
         return $this->render('AppBundle:Admin/Date:index.html.twig', array(
             'dates' => $dates,

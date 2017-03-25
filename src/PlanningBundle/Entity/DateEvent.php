@@ -156,6 +156,9 @@ class DateEvent
      */
     public function getSlug()
     {
-        return substr($this, 0, 10)->slug;
+        $slug = $this->slug;
+        $slug = substr($slug, 0, 10); //j'enlève la partie heure, minutes, secondes
+        return $slug;
+
     }
 }
