@@ -44,7 +44,7 @@ class DateEvent
 
     /**
      * One DateEvent has Many Events.
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date")
      */
     private $events;
 
@@ -156,9 +156,6 @@ class DateEvent
      */
     public function getSlug()
     {
-        $slug = $this->slug;
-        $slug = substr($slug, 0, 10); //
-        return $slug;
-
+        return substr($this, 0, 10)->slug;
     }
 }

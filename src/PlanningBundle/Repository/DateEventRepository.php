@@ -1,7 +1,6 @@
 <?php
 
 namespace PlanningBundle\Repository;
-use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * DateRepository
@@ -11,67 +10,4 @@ use Doctrine\ORM\Query\Expr\Join;
  */
 class DateEventRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllOrderedByDate()
-    {
-        return $this->createQueryBuilder('d')
-            ->orderBy('d.date', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
-    public function findAllByTeam($team)
-    {
-        $qb = $this->createQueryBuilder('d')
-            ->innerJoin('d.events', 'ev')
-            ->addSelect('ev')
-            ->where('ev.team = :team')
-            ->setParameter('team', $team->getId())
-            ;
-
-//        $qb->setParameter('team', $team->getId());
-
-        return $qb
-            ->getQuery()
-            ->getResult();
-
-    }
-    public function getDateEventWithTeams($team)
-    {
-        $qb = $this->createQueryBuilder('d');
-
-        // On fait une jointure avec l'entité Category avec pour alias « c »
-        $qb
-            ->innerJoin('d.events', 'ev')
-            ->addSelect('d')
-        ;
-
-        // Puis on filtre sur le nom des catégories à l'aide d'un IN
-        $qb->where($qb->expr()->isMemberOf('ev.team', $team->__toString()));
-        // La syntaxe du IN et d'autres expressions se trouve dans la documentation Doctrine
-
-        // Enfin, on retourne le résultat
-        return $qb
-            ->getQuery()
-            ->getResult()
-            ;
-    }
-
-    public function findWeekend(\Datetime $date)
-    {
-
-        $from = new \DateTime($date->format("Y-m-d")." 00:00:00");
-        $to   = new \DateTime($date->modify('+6 day')->format("Y-m-d")." 23:59:59");
-
-        $qb = $this->createQueryBuilder('d');
-        $qb
-            ->andWhere('d.date BETWEEN :from AND :to')
-            ->setParameter('from', $from )
-            ->setParameter('to', $to)
-            ->orderBy('d.date', 'ASC')
-            ->setMaxResults(2)
-        ;
-        $result = $qb->getQuery()->getResult();
-
-        return $result;
-    }
 }
