@@ -10,4 +10,11 @@ namespace PlanningBundle\Repository;
  */
 class DateEventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllOrderedByDate()
+    {
+        return $this->createQueryBuilder('d')
+            ->orderBy('d.date', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }
