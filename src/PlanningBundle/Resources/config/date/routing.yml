@@ -1,0 +1,30 @@
+date_index:
+    path:     /
+    defaults:
+        _controller: PlanningBundle:Date:index
+
+date_show:
+    path:     /{id}/show
+    defaults:
+        _controller: PlanningBundle:Date:show
+    requirements:
+        id: \d+
+
+date_new:
+    path:     /new
+    defaults:
+        _controller: PlanningBundle:Date:new
+
+date_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: PlanningBundle:Date:edit
+    requirements:
+            id: \d+
+
+date_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: PlanningBundle:Date:delete
+    requirements:
+            id: \d+

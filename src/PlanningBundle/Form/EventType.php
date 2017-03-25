@@ -29,7 +29,7 @@ class EventType extends AbstractType
                 ]
             ])
             ->add('date', EntityType::class, [
-                'class' => 'PlanningBundle:Date',
+                'class' => 'PlanningBundle:DateEvent',
                 'choice_label' => 'slug',
                 'multiple'     => false,
                 'expanded'     => false,

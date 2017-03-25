@@ -40,7 +40,7 @@ class Event
 
     /**
      * Many Events have One Date.
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Date", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\DateEvent", inversedBy="events")
      * @ORM\JoinColumn(name="date_id", referencedColumnName="id", nullable=false)
      */
     private $date;
@@ -113,11 +113,11 @@ class Event
     /**
      * Set date
      *
-     * @param \PlanningBundle\Entity\Date $date
+     * @param \PlanningBundle\Entity\DateEvent $date
      *
      * @return Event
      */
-    public function setDate(Date $date)
+    public function setDate(DateEvent $date)
     {
         $this->date = $date;
 
@@ -127,7 +127,7 @@ class Event
     /**
      * Get date
      *
-     * @return \PlanningBundle\Entity\Date
+     * @return \PlanningBundle\Entity\DateEvent
      */
     public function getDate()
     {
