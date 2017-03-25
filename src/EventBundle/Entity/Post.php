@@ -54,6 +54,12 @@ class Post
      */
     private $image;
 
+
+    /**
+    * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+    */
+    private $updatedAt;
+
     /**
      * Get id
      *
