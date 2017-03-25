@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Slug</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date in dates %}
+            <tr>
+                <td><a href="{{ path('date_show', { 'id': date.id }) }}">{{ date.id }}</a></td>
+                <td>{% if date.date %}{{ date.date|date('d-m-Y') }}{% endif %}</td>
+                <td>{{ date.slug }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('date_show', { 'id': date.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('date_edit', { 'id': date.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('date_new') }}">Create a new date</a>
+        </li>
+    </ul>
+{% endblock %}

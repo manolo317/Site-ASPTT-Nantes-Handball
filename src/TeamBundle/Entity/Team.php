@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use TeamBundle\Entity\Category;
 use TeamBundle\Entity\Image;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Team
@@ -29,6 +30,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -37,6 +39,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="level", type="string", length=255, unique=false)
+     * @Assert\NotBlank()
      */
     private $level;
 
@@ -44,6 +47,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="palmares", type="text")
+     * @Assert\Length(max=5000, maxMessage="Le texte ne doit pas faire plus de {{ limit }} caractères.")
      */
     private $palmares;
 
@@ -51,6 +55,10 @@ class Team
      * @var string
      *
      * @ORM\Column(name="ranking", type="string", length=255, unique=false)
+     * @Assert\Length(max=255, maxMessage="L'Url ne doit pas faire plus de {{ limit }} caractères.")
+     * @Assert\Url(message = "L'Url '{{ value }}' n'est pas valide",
+     *     protocols = {"http", "https"}
+     * )
      */
 
     private $ranking;

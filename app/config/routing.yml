@@ -6,6 +6,10 @@ team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
-planning:
-    resource: "@PlanningBundle/Resources/config/routing.yml"
-    prefix:   /admin/planning
+planning_event:
+    resource: "@PlanningBundle/Resources/config/event/routing.yml"
+    prefix:   /admin/planning/event
+
+planning_date:
+    resource: "@PlanningBundle/Resources/config/date/routing.yml"
+    prefix:   /admin/planning/date

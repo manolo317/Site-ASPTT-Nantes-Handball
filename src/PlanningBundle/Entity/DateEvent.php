@@ -7,13 +7,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PlanningBundle\Entity\Event;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
- * Date
+ * DateEvent
  *
  * @ORM\Table(name="date")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\DateRepository")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\DateEventRepository")
+ * @UniqueEntity(fields="date", message="{{ value }} existe déjà .")
  */
-class Date
+class DateEvent
 {
     /**
      * @var int
@@ -39,7 +43,7 @@ class Date
     private $slug;
 
     /**
-     * One Date has Many Events.
+     * One DateEvent has Many Events.
      * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date")
      */
     private $events;
@@ -71,7 +75,7 @@ class Date
      *
      * @param \DateTime $date
      *
-     * @return Date
+     * @return DateEvent
      */
     public function setDate($date)
     {
@@ -102,7 +106,7 @@ class Date
      *
      * @param \PlanningBundle\Entity\Event $event
      *
-     * @return Date
+     * @return DateEvent
      */
     public function addEvent(Event $event)
     {
@@ -136,7 +140,7 @@ class Date
      *
      * @param string $slug
      *
-     * @return Date
+     * @return DateEvent
      */
     public function setSlug($slug)
     {
@@ -152,6 +156,6 @@ class Date
      */
     public function getSlug()
     {
-        return $this->slug;
+        return substr($this, 0, 10)->slug;
     }
 }
