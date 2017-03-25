@@ -26,6 +26,17 @@
                         <li>
                             <a href="{{ path('date_edit', { 'id': date.id }) }}">edit</a>
                         </li>
+                        {% if date.events is not null %}
+                            {% for event in date.events %}
+                                <table>
+                                    <tr>
+                                        <td>{{ event.team.name }}</td>
+                                        <td>{{ event.opponent }}</td>
+                                        <td>{{ event.hour|date('H:i:s') }}</td>
+                                    </tr>
+                                </table>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
