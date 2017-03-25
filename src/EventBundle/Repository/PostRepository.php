@@ -10,4 +10,13 @@ namespace EventBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPostByTitle($title)
+    {
+        return $this
+        ->createQueryBuilder('p')
+        ->where('p.title = :title')
+        ->SetParameter('title',$title)
+        ->getQuery()
+        ->getResult();
+    }
 }
