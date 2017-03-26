@@ -25,6 +25,10 @@
                 <th>Hour</th>
                 <td>{{ event.hour|date('H:i:s') }}</td>
             </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ event.place.name }}</td>
+            </tr>
         </tbody>
     </table>
 

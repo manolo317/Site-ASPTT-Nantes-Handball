@@ -39,7 +39,7 @@ class DateController extends Controller
      */
     public function newAction(Request $request)
     {
-        $date = new DateEvent('d-m-Y');
+        $date = new DateEvent();
         $form = $this->createForm('PlanningBundle\Form\DateEventType', $date);
         $form->handleRequest($request);
 
