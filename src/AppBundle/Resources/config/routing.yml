@@ -22,3 +22,8 @@ planning_weekend:
     path: /planning/week-end
     defaults:
         _controller: AppBundle:Planning:weekendPlanning
+
+planning_training:
+    path: /planning/training
+    defaults:
+        _controller: AppBundle:Planning:trainingPlanning

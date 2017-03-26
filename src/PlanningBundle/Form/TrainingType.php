@@ -2,21 +2,14 @@
 
 namespace PlanningBundle\Form;
 
+use PlanningBundle\Repository\DayRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use TeamBundle\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
-use Symfony\Component\Form\Extension\Core\Type;
-use PlanningBundle\Repository\DateEventRepository;
-use PlanningBundle\Entity\DateEvent;
-use Doctrine\ORM\QueryBuilder;
 
-
-
-
-class EventType extends AbstractType
+class TrainingType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -24,24 +17,22 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('opponent')
             ->add('hour', TimeType::class, [
                 'placeholder' => [
                     'hour' => 'Hour',
                     'minute' => 'Minute',
                 ]
             ])
-            ->add('date', EntityType::class, [
-                'class' => 'PlanningBundle:DateEvent',
-                'choice_label' => 'slug',
+            ->add('day', EntityType::class, [
+                'class' => 'PlanningBundle:Day',
+                'choice_label' => 'name',
                 'multiple'     => false,
                 'expanded'     => false,
-                'query_builder' => function(DateEventRepository $repository) {
+                'query_builder' => function(DayRepository $repository) {
                     return $repository->createQueryBuilder('d')
-                                        ->orderBy('d.date', 'ASC');
+                        ->orderBy('d.id', 'ASC');
                 }
             ])
-//            ->add('date', DateEventType::class, array('required' => false))
             ->add('team', EntityType::class, [
                 'class' => 'TeamBundle:Team',
                 'choice_label' => 'name',
@@ -54,8 +45,7 @@ class EventType extends AbstractType
                 'multiple'     => false,
                 'expanded'     => false,
             ])
-        ;
-
+            ;
     }
     
     /**
@@ -64,7 +54,7 @@ class EventType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PlanningBundle\Entity\Event'
+            'data_class' => 'PlanningBundle\Entity\Training'
         ));
     }
 
@@ -73,7 +63,7 @@ class EventType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'planningbundle_event';
+        return 'planningbundle_training';
     }
 
 

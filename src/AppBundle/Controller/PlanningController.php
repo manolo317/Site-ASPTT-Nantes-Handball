@@ -31,7 +31,7 @@ class PlanningController extends Controller
         // On crée un objet Team
         $team = new Team();
 
-        // J'ai raccourci cette partie, car c'est plus rapide à écrire !
+        // Je créé un formulaire avec mes entités Team pour filtrer
         $form = $this->get('form.factory')->createBuilder(FormType::class, $team)
             ->add('name', EntityType::class, [
                 'class' => 'TeamBundle:Team',
@@ -59,7 +59,7 @@ class PlanningController extends Controller
             ]);
 
         }
-
+        // je récupère tous mes DaTeEvents classés par date
         $dates = $em->getRepository('PlanningBundle:DateEvent')->findAllOrderedByDate();
 
         return $this->render('AppBundle:page/planning:annual_planning.html.twig', [
@@ -72,12 +72,25 @@ class PlanningController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        // j'instancie un objet Datetime à la date d'aujourd'hui
         $now = new \DateTime();
-        $dates = $em->getRepository('PlanningBundle:DateEvent')->getByDate($now);
-//        var_dump($dates);
-//        die();
+        // je récupère les deux dates du prochain week-end
+        $dates = $em->getRepository('PlanningBundle:DateEvent')->findWeekend($now);
+
         return $this->render('AppBundle:page/planning:weekend_planning.html.twig', [
             'dates' => $dates,
+        ]);
+    }
+
+    public function trainingPlanningAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        // je récupère les jours et les entrainements associés
+        $days = $em->getRepository('PlanningBundle:Day')->findAllOrderedByDay();
+
+        return $this->render('AppBundle:page/planning:training_planning.html.twig', [
+            'days' => $days,
         ]);
     }
 
