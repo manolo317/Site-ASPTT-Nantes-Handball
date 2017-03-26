@@ -5,6 +5,7 @@ namespace PlanningBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use TeamBundle\Entity\Team;
+use PlaceBundle\Entity\Place;
 
 /**
  * Event
@@ -51,6 +52,13 @@ class Event
      * @ORM\JoinColumn(nullable=false)
      */
     private $team;
+
+    /**
+     * Many Events have One Place.
+     * @ORM\ManyToOne(targetEntity="PlaceBundle\Entity\Place")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $place;
 
     /**
      * Get id
@@ -156,5 +164,29 @@ class Event
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * Set place
+     *
+     * @param \PlaceBundle\Entity\Place $place
+     *
+     * @return Event
+     */
+    public function setPlace(Place $place = null)
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * Get place
+     *
+     * @return \PlaceBundle\Entity\Place
+     */
+    public function getPlace()
+    {
+        return $this->place;
     }
 }

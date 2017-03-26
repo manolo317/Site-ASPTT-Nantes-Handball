@@ -1,0 +1,30 @@
+place_index:
+    path:     /
+    defaults:
+        _controller: PlaceBundle:Place:index
+
+place_show:
+    path:     /{id}/show
+    defaults:
+        _controller: PlaceBundle:Place:show
+    requirements:
+        id: \d+
+
+place_new:
+    path:     /new
+    defaults:
+        _controller: PlaceBundle:Place:new
+
+place_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: PlaceBundle:Place:edit
+    requirements:
+            id: \d+
+
+place_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: PlaceBundle:Place:delete
+    requirements:
+            id: \d+

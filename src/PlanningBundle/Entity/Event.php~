@@ -4,6 +4,8 @@ namespace PlanningBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use TeamBundle\Entity\Team;
+use PlaceBundle\Entity\Place;
 
 /**
  * Event
@@ -39,8 +41,8 @@ class Event
 
     /**
      * Many Events have One Date.
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Date")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\DateEvent", inversedBy="events")
+     * @ORM\JoinColumn(name="date_id", referencedColumnName="id", nullable=false)
      */
     private $date;
 
@@ -50,6 +52,13 @@ class Event
      * @ORM\JoinColumn(nullable=false)
      */
     private $team;
+
+    /**
+     * Many Events have One Place.
+     * @ORM\ManyToOne(targetEntity="PlaceBundle\Entity\Place")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $place;
 
     /**
      * Get id
@@ -108,5 +117,52 @@ class Event
     {
         return $this->hour;
     }
-}
 
+    /**
+     * Set date
+     *
+     * @param \PlanningBundle\Entity\DateEvent $date
+     *
+     * @return Event
+     */
+    public function setDate(DateEvent $date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \PlanningBundle\Entity\DateEvent
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set team
+     *
+     * @param Team $team
+     *
+     * @return Event
+     */
+    public function setTeam(Team $team)
+    {
+        $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \TeamBundle\Entity\Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+}

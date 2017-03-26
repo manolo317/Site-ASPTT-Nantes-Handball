@@ -11,6 +11,7 @@
                 <th>Team</th>
                 <th>Opponent</th>
                 <th>Hour</th>
+                <th>Place</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ event.team.name }}</td>
                 <td>{{ event.opponent }}</td>
                 <td>{{ event.hour|date('H:i:s') }}</td>
+                <td>{{ event.place.name }}</td>
                 <td>
                     <ul>
                         <li>

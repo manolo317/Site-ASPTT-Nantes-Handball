@@ -1,0 +1,24 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Planning
+{% endblock %}
+
+{% block body %}
+    <div>
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('notice') %}
+        <p>Message flash : {{ message }}</p>
+    {% endfor %}
+    </div>
+
+    <div>
+        <a href="{{ path('planning_annual') }}">Planning annuel</a>
+    </div>
+    <div>
+        <a href="{{ path('planning_weekend') }}">Planning week-end</a>
+    </div>
+    <div>
+        <a href="#">Planning entrainement</a>
+    </div>
+{% endblock %}

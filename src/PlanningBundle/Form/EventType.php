@@ -9,6 +9,9 @@ use TeamBundle\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type;
+use PlanningBundle\Repository\DateEventRepository;
+use PlanningBundle\Entity\DateEvent;
+use Doctrine\ORM\QueryBuilder;
 
 
 
@@ -33,9 +36,19 @@ class EventType extends AbstractType
                 'choice_label' => 'slug',
                 'multiple'     => false,
                 'expanded'     => false,
+                'query_builder' => function(DateEventRepository $repository) {
+                    return $repository->createQueryBuilder('d')
+                                        ->orderBy('d.date', 'ASC');
+                }
             ])
             ->add('team', EntityType::class, [
                 'class' => 'TeamBundle:Team',
+                'choice_label' => 'name',
+                'multiple'     => false,
+                'expanded'     => false,
+            ])
+            ->add('place', EntityType::class, [
+                'class' => 'PlaceBundle:Place',
                 'choice_label' => 'name',
                 'multiple'     => false,
                 'expanded'     => false,

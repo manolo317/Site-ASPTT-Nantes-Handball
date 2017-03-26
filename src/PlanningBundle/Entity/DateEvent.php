@@ -44,7 +44,7 @@ class DateEvent
 
     /**
      * One DateEvent has Many Events.
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="date", cascade={"persist", "remove"})
      */
     private $events;
 
@@ -157,7 +157,7 @@ class DateEvent
     public function getSlug()
     {
         $slug = $this->slug;
-        $slug = substr($slug, 0, 10); //j'enlève la partie heure, minutes, secondes
+        $slug = substr($slug, 0, 10); //
         return $slug;
 
     }

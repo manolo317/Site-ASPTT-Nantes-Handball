@@ -1,0 +1,84 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Emmanuel
+ * Date: 25/03/2017
+ * Time: 18:07
+ */
+
+namespace AppBundle\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use TeamBundle\Entity\Team;
+use PlanningBundle\Entity\DateEvent;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+
+class PlanningController extends Controller
+{
+    public function indexAction()
+    {
+        return $this->render('AppBundle:page/planning:index.html.twig');
+    }
+    
+    public function annualPlanningAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        // On crée un objet Team
+        $team = new Team();
+
+        // J'ai raccourci cette partie, car c'est plus rapide à écrire !
+        $form = $this->get('form.factory')->createBuilder(FormType::class, $team)
+            ->add('name', EntityType::class, [
+                'class' => 'TeamBundle:Team',
+                'choice_label' => 'name',
+                'multiple'     => false,
+                'expanded'     => false,
+            ])
+            ->add('filtrer',      SubmitType::class)
+            ->getForm()
+        ;
+
+        // Si la requête est en POST
+        if ($request->isMethod('POST')) {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $team contient les valeurs entrées dans le formulaire par le visiteur
+            $form->handleRequest($request);
+
+            $dates = $em->getRepository('PlanningBundle:DateEvent')->getDateEventWithTeams($team);
+
+//            var_dump($dates);
+//            die();
+            return $this->render('AppBundle:page/planning:annual_planning.html.twig', [
+                'dates' => $dates,
+                'form' => $form->createView()
+            ]);
+
+        }
+
+        $dates = $em->getRepository('PlanningBundle:DateEvent')->findAllOrderedByDate();
+
+        return $this->render('AppBundle:page/planning:annual_planning.html.twig', [
+            'dates' => $dates,
+            'form' => $form->createView()
+        ]);
+    }
+    
+    public function weekendPlanningAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $now = new \DateTime();
+        $dates = $em->getRepository('PlanningBundle:DateEvent')->getByDate($now);
+//        var_dump($dates);
+//        die();
+        return $this->render('AppBundle:page/planning:weekend_planning.html.twig', [
+            'dates' => $dates,
+        ]);
+    }
+
+}
