@@ -14,37 +14,34 @@
     <div>
         <table class="table table-bordered">
             <thead>
-            <tr>
-                <th>Dates</th>
-                <th>SM1</th>
-                <th>SM2</th>
-                <th>SF1</th>
-            </tr>
+                <tr>
+                    <th>Dates</th>
+                    <th>Equipe</th>
+                    <th>Salle</th>
+                    <th>Horaires</th>
+                    <th>Championnat</th>
+                    <th>Adversaire</th>
+                </tr>
             </thead>
             <tbody>
             {% for datevent in dates %}
-                <tr>
-                    <td>{{ datevent.date|date('d-m-Y') }}</td>
-                    {% if datevent.events is not null %}
-                        {% for event in datevent.events %}
-                            {% if event.place.name != "Extérieur" %}
-                                <td class="bg-success text-white">
-                            {% else %}
-                                <td>
-                            {% endif %}
-                            <ul>
-                                <li>{{ event.team.name }}</li>
-                                <li>{{ event.opponent }}</li>
-                                <li>{{ event.place.name }} à {{ event.hour|date('H:i:s') }}</li>
-                            </ul>
-                            </td>
-                        {% else %}
-                            <td>
-                                Pas de match pour cette date
-                            </td>
-                        {% endfor %}
-                    {% endif %}
-                </tr>
+                {% if datevent.events is not null %}
+                    {% for event in datevent.events %}
+                        <tr>
+                            <td>{{ event.date|date('d-m-Y') }}</td>
+                            <td>{{ event.team.name }}</td>
+                            <td>{{ event.place.name }}</td>
+                            <td>{{ event.hour|date('H:i') }}</td>
+                            <td>{{ event.team.level }}</td>
+                            <td>{{ event.opponent }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ datevent.date|date('d-m-Y') }}</td>
+                            <td>Pas de match pour cette date</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>

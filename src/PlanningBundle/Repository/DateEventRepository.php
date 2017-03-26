@@ -56,29 +56,19 @@ class DateEventRepository extends \Doctrine\ORM\EntityRepository
             ;
     }
 
-    public function findWeekend()
+    public function findWeekend(\Datetime $date)
     {
-        $qb = $this->createQueryBuilder('d');
-        $qb
-            ->where($qb->expr()->lte('d.date', ':now'))
-            ->setParameter('now', new \DateTime('now'))
-            ->orderBy('d.date', 'ASC')
-            ->getQuery()
-            ->getResult();
 
-        return $qb;
-    }
-
-    public function getByDate(\Datetime $date)
-    {
         $from = new \DateTime($date->format("Y-m-d")." 00:00:00");
-        $to   = new \DateTime($date->format("Y-m-d")." 23:59:59");
+        $to   = new \DateTime($date->modify('+6 day')->format("Y-m-d")." 23:59:59");
 
         $qb = $this->createQueryBuilder('d');
         $qb
             ->andWhere('d.date BETWEEN :from AND :to')
             ->setParameter('from', $from )
             ->setParameter('to', $to)
+            ->orderBy('d.date', 'ASC')
+            ->setMaxResults(2)
         ;
         $result = $qb->getQuery()->getResult();
 

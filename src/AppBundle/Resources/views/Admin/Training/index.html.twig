@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trainings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Day</th>
+                <th>Hour</th>
+                <th>Team</th>
+                <th>Place</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for day in days %}
+            {% for training in day.trainings %}
+                <tr>
+                    <td><a href="{{ path('training_show', { 'id': training.id }) }}">{{ training.id }}</a></td>
+                    <td>{{ day.name }}</td>
+                    <td>{{ training.hour|date('H:i:s') }}</td>
+                    <td>{{ training.team.name }}</td>
+                    <td>{{ training.place.name }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('training_show', { 'id': training.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('training_edit', { 'id': training.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('training_new') }}">Create a new training</a>
+        </li>
+    </ul>
+{% endblock %}

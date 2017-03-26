@@ -31,3 +31,9 @@ fairplay_view:
     path: /fairplays
     defaults:
         _controller: AppBundle:Fairplay:view
+
+
+planning_training:
+    path: /planning/training
+    defaults:
+        _controller: AppBundle:Planning:trainingPlanning

@@ -14,6 +14,10 @@ admin_planning_date:
     resource: "@PlanningBundle/Resources/config/date/routing.yml"
     prefix:   /admin/planning/date
 
+admin_planning_training:
+    resource: "@PlanningBundle/Resources/config/training/routing.yml"
+    prefix:   /admin/planning/training
+
 planning:
     resource: "@PlanningBundle/Controller/"
     type:     annotation
