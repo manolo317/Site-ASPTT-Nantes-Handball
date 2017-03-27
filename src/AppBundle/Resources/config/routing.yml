@@ -7,3 +7,8 @@ team_view:
     path: /team/{slug}
     defaults:
         _controller: AppBundle:Team:view
+
+post_index:
+    path: /post
+    defaults:
+        _controller: AppBundle:Post:index

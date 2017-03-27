@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="EventBundle\Repository\PostRepository")
- * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {

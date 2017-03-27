@@ -1,0 +1,27 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+    <div>
+    {% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p>
+       {% if post.image is not null %}
+            <img class="thumbnail"
+            src="{{ asset(post.image.webPath) }}"
+            alt="{{ post.image.alt }}"
+            {{ post.publishedAt | date('Y-m-d H:i:s') }}
+            />
+    {% endif %}
+    {% endfor %}    
+       
+    </div>
+    
+
+
+
+{% endblock %}
