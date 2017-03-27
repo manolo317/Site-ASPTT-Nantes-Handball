@@ -14,8 +14,8 @@
             <img class="thumbnail"
             src="{{ asset(post.image.webPath) }}"
             alt="{{ post.image.alt }}"
-            {{ post.publishedAt | date('Y-m-d H:i:s') }}
             />
+            {{ post.publishedAt | date('Y-m-d H:i:s') }}
     {% endif %}
     {% endfor %}    
        
