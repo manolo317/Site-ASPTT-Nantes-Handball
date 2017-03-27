@@ -17,7 +17,7 @@ class DateController extends Controller
     /**
      * Lists all date entities.
      *
-     * @Route("/", name="date_index")
+     * @Route("/", name="admin_date_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +34,7 @@ class DateController extends Controller
     /**
      * Creates a new date entity.
      *
-     * @Route("/new", name="date_new")
+     * @Route("/new", name="admin_date_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,7 +48,7 @@ class DateController extends Controller
             $em->persist($date);
             $em->flush();
 
-            return $this->redirectToRoute('date_show', array('id' => $date->getId()));
+            return $this->redirectToRoute('admin_date_show', array('id' => $date->getId()));
         }
 
         return $this->render('AppBundle:Admin/Date:new.html.twig', array(
@@ -60,7 +60,7 @@ class DateController extends Controller
     /**
      * Finds and displays a date entity.
      *
-     * @Route("/{id}", name="date_show")
+     * @Route("/{id}", name="admin_date_show")
      * @Method("GET")
      */
     public function showAction(DateEvent $date)
@@ -74,34 +74,9 @@ class DateController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing date entity.
-     *
-     * @Route("/{id}/edit", name="date_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, DateEvent $date)
-    {
-        $deleteForm = $this->createDeleteForm($date);
-        $editForm = $this->createForm('PlanningBundle\Form\DateType', $date);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('date_edit', array('id' => $date->getId()));
-        }
-
-        return $this->render('AppBundle:Admin/Date:edit.html.twig', array(
-            'date' => $date,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
      * Deletes a date entity.
      *
-     * @Route("/{id}", name="date_delete")
+     * @Route("/{id}", name="admin_date_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, DateEvent $date)
@@ -115,7 +90,7 @@ class DateController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('date_index');
+        return $this->redirectToRoute('admin_date_index');
     }
 
     /**
@@ -128,7 +103,7 @@ class DateController extends Controller
     private function createDeleteForm(DateEvent $date)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('date_delete', array('id' => $date->getId())))
+            ->setAction($this->generateUrl('admin_date_delete', array('id' => $date->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

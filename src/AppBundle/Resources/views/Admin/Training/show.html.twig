@@ -1,24 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Training</h1>
+    <h1>Entrainement</h1>
 
-    <table>
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ training.id }}</td>
             </tr>
             <tr>
-                <th>Hour</th>
+                <th>Heure</th>
                 <td>{{ training.hour|date('H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Team</th>
+                <th>Equipe</th>
                 <td>{{ training.team.name }}</td>
             </tr>
             <tr>
-                <th>Place</th>
+                <th>Salle</th>
                 <td>{{ training.place.name }}</td>
             </tr>
         </tbody>
@@ -26,10 +26,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('training_index') }}">Back to the list</a>
+            <a href="{{ path('admin_training_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('training_edit', { 'id': training.id }) }}">Edit</a>
+            <a href="{{ path('admin_training_edit', { 'id': training.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

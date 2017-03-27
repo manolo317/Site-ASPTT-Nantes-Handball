@@ -46,20 +46,17 @@ class PlanningController extends Controller
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
-            // À partir de maintenant, la variable $team contient les valeurs entrées dans le formulaire par le visiteur
             $form->handleRequest($request);
+            //je récupère mon instance de Team qui est dans l'attribut "name" de mon formulaire
+            $team = $team->getName();
 
-            $dates = $em->getRepository('PlanningBundle:DateEvent')->getDateEventWithTeams($team);
-
-//            var_dump($dates);
-//            die();
             return $this->render('AppBundle:page/planning:annual_planning.html.twig', [
-                'dates' => $dates,
+                'team' => $team,
                 'form' => $form->createView()
             ]);
 
         }
-        // je récupère tous mes DaTeEvents classés par date
+        // je récupère tous mes DateEvents classés par date
         $dates = $em->getRepository('PlanningBundle:DateEvent')->findAllOrderedByDate();
 
         return $this->render('AppBundle:page/planning:annual_planning.html.twig', [

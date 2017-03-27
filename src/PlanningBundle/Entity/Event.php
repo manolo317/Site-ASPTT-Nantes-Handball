@@ -48,8 +48,8 @@ class Event
 
     /**
      * Many Events have One Team.
-     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team", inversedBy="events")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=false)
      */
     private $team;
 

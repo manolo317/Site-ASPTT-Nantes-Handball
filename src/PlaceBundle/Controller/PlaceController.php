@@ -18,7 +18,7 @@ class PlaceController extends Controller
     /**
      * Lists all place entities.
      *
-     * @Route("/", name="place_index")
+     * @Route("/", name="admin_place_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -35,7 +35,7 @@ class PlaceController extends Controller
     /**
      * Creates a new place entity.
      *
-     * @Route("/new", name="place_new")
+     * @Route("/new", name="admin_place_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -49,7 +49,7 @@ class PlaceController extends Controller
             $em->persist($place);
             $em->flush();
 
-            return $this->redirectToRoute('place_show', array('id' => $place->getId()));
+            return $this->redirectToRoute('admin_place_show', array('id' => $place->getId()));
         }
 
         return $this->render('AppBundle:Admin/Place:new.html.twig', array(
@@ -61,7 +61,7 @@ class PlaceController extends Controller
     /**
      * Finds and displays a place entity.
      *
-     * @Route("/{id}", name="place_show")
+     * @Route("/{id}", name="admin_place_show")
      * @Method("GET")
      */
     public function showAction(Place $place)
@@ -77,7 +77,7 @@ class PlaceController extends Controller
     /**
      * Displays a form to edit an existing place entity.
      *
-     * @Route("/{id}/edit", name="place_edit")
+     * @Route("/{id}/edit", name="admin_place_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Place $place)
@@ -89,7 +89,7 @@ class PlaceController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('place_edit', array('id' => $place->getId()));
+            return $this->redirectToRoute('admin_place_edit', array('id' => $place->getId()));
         }
 
         return $this->render('AppBundle:Admin/Place:edit.html.twig', array(
@@ -102,7 +102,7 @@ class PlaceController extends Controller
     /**
      * Deletes a place entity.
      *
-     * @Route("/{id}", name="place_delete")
+     * @Route("/{id}", name="admin_place_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Place $place)
@@ -116,7 +116,7 @@ class PlaceController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('place_index');
+        return $this->redirectToRoute('admin_place_index');
     }
 
     /**
@@ -129,7 +129,7 @@ class PlaceController extends Controller
     private function createDeleteForm(Place $place)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('place_delete', array('id' => $place->getId())))
+            ->setAction($this->generateUrl('admin_place_delete', array('id' => $place->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

@@ -5,6 +5,8 @@ namespace TeamBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use TeamBundle\Entity\Category;
 use TeamBundle\Entity\Image;
+use Doctrine\Common\Collections\ArrayCollection;
+use PlanningBundle\Entity\Event;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -82,9 +84,23 @@ class Team
     private $slug;
 
     /**
+     * One Team has Many Events.
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="team", cascade={"persist", "remove"})
+     */
+    private $events;
+
+    /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     /**
      * Get the string representation.
@@ -293,5 +309,39 @@ class Team
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add event
+     *
+     * @param \PlanningBundle\Entity\Event $event
+     *
+     * @return Team
+     */
+    public function addEvent(Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \PlanningBundle\Entity\Event $event
+     */
+    public function removeEvent(Event $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }
