@@ -1,28 +1,28 @@
-event_index:
+admin_event_index:
     path:     /
     defaults:
         _controller: PlanningBundle:Event:index
 
-event_show:
+admin_event_show:
     path:     /{id}/show
     defaults:
         _controller: PlanningBundle:Event:show
     requirements:
         id: \d+
 
-event_new:
+admin_event_new:
     path:     /new
     defaults:
         _controller: PlanningBundle:Event:new
 
-event_edit:
+admin_event_edit:
     path:     /{id}/edit
     defaults:
         _controller: PlanningBundle:Event:edit
     requirements:
             id: \d+
 
-event_delete:
+admin_event_delete:
     path:     /{id}/delete
     defaults:
         _controller: PlanningBundle:Event:delete
