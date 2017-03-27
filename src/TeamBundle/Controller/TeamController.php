@@ -18,7 +18,7 @@ class TeamController extends Controller
     /**
      * Lists all team entities.
      *
-     * @Route("/", name="team_index")
+     * @Route("/", name="admin_team_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -35,7 +35,7 @@ class TeamController extends Controller
     /**
      * Creates a new team entity.
      *
-     * @Route("/new", name="team_new")
+     * @Route("/new", name="admin_team_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -49,7 +49,7 @@ class TeamController extends Controller
             $em->persist($team);
             $em->flush();
 
-            return $this->redirectToRoute('team_show', array('id' => $team->getId()));
+            return $this->redirectToRoute('admin_team_show', array('id' => $team->getId()));
         }
 
         return $this->render('AppBundle:Admin/Team:new.html.twig', array(
@@ -61,7 +61,7 @@ class TeamController extends Controller
     /**
      * Finds and displays a team entity.
      *
-     * @Route("/{id}", name="team_show")
+     * @Route("/{id}", name="admin_team_show")
      * @Method("GET")
      */
     public function showAction(Team $team)
@@ -77,7 +77,7 @@ class TeamController extends Controller
     /**
      * Displays a form to edit an existing team entity.
      *
-     * @Route("/{id}/edit", name="team_edit")
+     * @Route("/{id}/edit", name="admin_team_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Team $team)
@@ -89,7 +89,7 @@ class TeamController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('team_show', array('id' => $team->getId()));
+            return $this->redirectToRoute('admin_team_show', array('id' => $team->getId()));
         }
 
         return $this->render('AppBundle:Admin/Team:edit.html.twig', array(
@@ -102,7 +102,7 @@ class TeamController extends Controller
     /**
      * Deletes a team entity.
      *
-     * @Route("/{id}", name="team_delete")
+     * @Route("/{id}", name="admin_team_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Team $team)
@@ -116,7 +116,7 @@ class TeamController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('team_index');
+        return $this->redirectToRoute('admin_team_index');
     }
 
     /**
@@ -129,7 +129,7 @@ class TeamController extends Controller
     private function createDeleteForm(Team $team)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('team_delete', array('id' => $team->getId())))
+            ->setAction($this->generateUrl('admin_team_delete', array('id' => $team->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

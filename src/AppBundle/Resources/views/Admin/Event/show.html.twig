@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1>Match</h1>
 
-    <table>
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -14,19 +14,19 @@
                 <td>{{ event.date.slug }}</td>
             </tr>
             <tr>
-                <th>Team</th>
+                <th>Equipe</th>
                 <td>{{ event.team.name }}</td>
             </tr>
             <tr>
-                <th>Opponent</th>
+                <th>Adversaire</th>
                 <td>{{ event.opponent }}</td>
             </tr>
             <tr>
-                <th>Hour</th>
+                <th>Heure</th>
                 <td>{{ event.hour|date('H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Place</th>
+                <th>Salle</th>
                 <td>{{ event.place.name }}</td>
             </tr>
         </tbody>
@@ -34,10 +34,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('event_index') }}">Back to the list</a>
+            <a href="{{ path('admin_event_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('event_edit', { 'id': event.id }) }}">Edit</a>
+            <a href="{{ path('admin_event_edit', { 'id': event.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -1,24 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Events list</h1>
+    <h1>Liste des matchs</h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Date</th>
-                <th>Team</th>
-                <th>Opponent</th>
-                <th>Hour</th>
-                <th>Place</th>
+                <th>Equipe</th>
+                <th>Adversaire</th>
+                <th>Heure</th>
+                <th>Salle</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for event in events %}
             <tr>
-                <td><a href="{{ path('event_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
+                <td><a href="{{ path('admin_event_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
                 <td>{{ event.date.slug }}</td>
                 <td>{{ event.team.name }}</td>
                 <td>{{ event.opponent }}</td>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('event_show', { 'id': event.id }) }}">show</a>
+                            <a href="{{ path('admin_event_show', { 'id': event.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('event_edit', { 'id': event.id }) }}">edit</a>
+                            <a href="{{ path('admin_event_edit', { 'id': event.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('event_new') }}">Create a new event</a>
+            <a href="{{ path('admin_event_new') }}">Créé un nouveau match</a>
         </li>
     </ul>
 {% endblock %}

@@ -1,16 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Trainings list</h1>
+    <h1>Liste des entrainements</h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Day</th>
-                <th>Hour</th>
-                <th>Team</th>
-                <th>Place</th>
+                <th>Jour</th>
+                <th>Heure</th>
+                <th>Equipe</th>
+                <th>Salle</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,7 +18,7 @@
         {% for day in days %}
             {% for training in day.trainings %}
                 <tr>
-                    <td><a href="{{ path('training_show', { 'id': training.id }) }}">{{ training.id }}</a></td>
+                    <td><a href="{{ path('admin_training_show', { 'id': training.id }) }}">{{ training.id }}</a></td>
                     <td>{{ day.name }}</td>
                     <td>{{ training.hour|date('H:i:s') }}</td>
                     <td>{{ training.team.name }}</td>
@@ -26,10 +26,10 @@
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('training_show', { 'id': training.id }) }}">show</a>
+                                <a href="{{ path('admin_training_show', { 'id': training.id }) }}">show</a>
                             </li>
                             <li>
-                                <a href="{{ path('training_edit', { 'id': training.id }) }}">edit</a>
+                                <a href="{{ path('admin_training_edit', { 'id': training.id }) }}">edit</a>
                             </li>
                         </ul>
                     </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('training_new') }}">Create a new training</a>
+            <a href="{{ path('admin_training_new') }}">Create a new training</a>
         </li>
     </ul>
 {% endblock %}

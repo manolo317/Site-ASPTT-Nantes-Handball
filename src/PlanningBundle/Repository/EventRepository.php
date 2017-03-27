@@ -1,7 +1,7 @@
 <?php
 
 namespace PlanningBundle\Repository;
-
+use PlanningBundle\Entity\Event;
 /**
  * EventRepository
  *
@@ -10,4 +10,15 @@ namespace PlanningBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getEventsByTeam($team)
+    {
+        return $this
+            ->createQueryBuilder('e')
+            ->where('e.team = :team')
+            ->setParameter('team', $team)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 }

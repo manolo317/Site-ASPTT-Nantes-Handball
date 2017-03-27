@@ -19,7 +19,7 @@ class EventController extends Controller
     /**
      * Lists all event entities.
      *
-     * @Route("/", name="event_index")
+     * @Route("/", name="admin_event_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class EventController extends Controller
     /**
      * Creates a new event entity.
      *
-     * @Route("/new", name="event_new")
+     * @Route("/new", name="admin_event_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class EventController extends Controller
             $em->persist($event);
             $em->flush();
 
-            return $this->redirectToRoute('event_show', array('id' => $event->getId()));
+            return $this->redirectToRoute('admin_event_show', array('id' => $event->getId()));
         }
 
         return $this->render('AppBundle:Admin/Event:new.html.twig', array(
@@ -62,7 +62,7 @@ class EventController extends Controller
     /**
      * Finds and displays a event entity.
      *
-     * @Route("/{id}", name="event_show")
+     * @Route("/{id}", name="admin_event_show")
      * @Method("GET")
      */
     public function showAction(Event $event)
@@ -78,7 +78,7 @@ class EventController extends Controller
     /**
      * Displays a form to edit an existing event entity.
      *
-     * @Route("/{id}/edit", name="event_edit")
+     * @Route("/{id}/edit", name="admin_event_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Event $event)
@@ -90,7 +90,7 @@ class EventController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('event_edit', array('id' => $event->getId()));
+            return $this->redirectToRoute('admin_event_edit', array('id' => $event->getId()));
         }
 
         return $this->render('AppBundle:Admin/Event:edit.html.twig', array(
@@ -103,7 +103,7 @@ class EventController extends Controller
     /**
      * Deletes a event entity.
      *
-     * @Route("/{id}", name="event_delete")
+     * @Route("/{id}", name="admin_event_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Event $event)
@@ -117,7 +117,7 @@ class EventController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('event_index');
+        return $this->redirectToRoute('admin_event_index');
     }
 
     /**
@@ -130,7 +130,7 @@ class EventController extends Controller
     private function createDeleteForm(Event $event)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('event_delete', array('id' => $event->getId())))
+            ->setAction($this->generateUrl('admin_event_delete', array('id' => $event->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

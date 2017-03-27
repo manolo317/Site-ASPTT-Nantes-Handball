@@ -1,7 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Training creation</h1>
+    <h1>Création d'entrainement</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('training_index') }}">Back to the list</a>
+            <a href="{{ path('admin_training_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
