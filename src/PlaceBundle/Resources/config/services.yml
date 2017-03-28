@@ -1,0 +1,4 @@
+services:
+#    place.example:
+#        class: PlaceBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

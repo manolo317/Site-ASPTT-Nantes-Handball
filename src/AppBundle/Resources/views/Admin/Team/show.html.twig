@@ -1,7 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Team</h1>
+    <h1>{{ team.name }}</h1>
 
     <div style="float: left; margin-right: 1em;">
         {# On vérifie qu'une image soit bien associée à l'équipe #}
@@ -13,7 +13,7 @@
             />
         {% endif %}
     </div>
-    <table>
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -24,11 +24,11 @@
                 <td>{{ team.category.name }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ team.name }}</td>
             </tr>
             <tr>
-                <th>Level</th>
+                <th>Niveau</th>
                 <td>{{ team.level }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                 <td>{{ team.palmares }}</td>
             </tr>
             <tr>
-                <th>Ranking</th>
+                <th>Lien Classement</th>
                 <td>{{ team.ranking }}</td>
             </tr>
         </tbody>
@@ -45,10 +45,10 @@
     <div>
         <ul>
             <li>
-                <a href="{{ path('team_index') }}">Back to the list</a>
+                <a href="{{ path('admin_team_index') }}">Back to the list</a>
             </li>
             <li>
-                <a href="{{ path('team_edit', { 'id': team.id }) }}">Edit</a>
+                <a href="{{ path('admin_team_edit', { 'id': team.id }) }}">Edit</a>
             </li>
             <li>
                 {{ form_start(delete_form) }}

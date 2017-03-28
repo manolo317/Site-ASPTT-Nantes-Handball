@@ -1,0 +1,49 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Planning week-end
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Dates</th>
+                    <th>Equipe</th>
+                    <th>Salle</th>
+                    <th>Horaires</th>
+                    <th>Championnat</th>
+                    <th>Adversaire</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for datevent in dates %}
+                {% if datevent.events is not null %}
+                    {% for event in datevent.events %}
+                        <tr>
+                            <td>{{ event.date|date('d-m-Y') }}</td>
+                            <td>{{ event.team.name }}</td>
+                            <td>{{ event.place.name }}</td>
+                            <td>{{ event.hour|date('H:i') }}</td>
+                            <td>{{ event.team.level }}</td>
+                            <td>{{ event.opponent }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ datevent.date|date('d-m-Y') }}</td>
+                            <td>Pas de match pour cette date</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

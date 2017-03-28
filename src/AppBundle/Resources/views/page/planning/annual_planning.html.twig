@@ -1,0 +1,86 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Planning annuel
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    {% if dates is defined %}
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Dates</th>
+                        <th>SM1</th>
+                        <th>SM2</th>
+                        <th>SF1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for datevent in dates %}
+                    <tr>
+                        <td>{{ datevent.date|date('d-m-Y') }}</td>
+                            {% if datevent.events is not null %}
+                                {% for event in datevent.events %}
+                                    {% if event.place.name != "Extérieur" %}
+                                    <td class="bg-success text-white">
+                                    {% else %}
+                                    <td>
+                                    {% endif %}
+                                        <ul>
+                                            <li>{{ event.team.name }}</li>
+                                            <li>{{ event.opponent }}</li>
+                                            <li>{{ event.place.name }} à {{ event.hour|date('H:i') }}</li>
+                                        </ul>
+                                     </td>
+                                {% else %}
+                                    {% for i in 0..2 %}
+                                    <td>
+                                        Pas de match pour cette date
+                                    </td>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div>
+            <h2>Planning {{ team.name }}</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Dates</th>
+                        <th>Adversaire</th>
+                        <th>Heure</th>
+                        <th>Lieu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in team.events %}
+                        <tr>
+                            <td>{{ event.date.slug }}</td>
+                            <td>{{ event.opponent }}</td>
+                            <td>{{ event.hour|date('H:i') }}</td>
+                            <td>{{ event.place.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -5,7 +5,10 @@ namespace TeamBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use TeamBundle\Entity\Category;
 use TeamBundle\Entity\Image;
+use Doctrine\Common\Collections\ArrayCollection;
+use PlanningBundle\Entity\Event;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Team
@@ -29,6 +32,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -37,6 +41,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="level", type="string", length=255, unique=false)
+     * @Assert\NotBlank()
      */
     private $level;
 
@@ -44,6 +49,7 @@ class Team
      * @var string
      *
      * @ORM\Column(name="palmares", type="text")
+     * @Assert\Length(max=5000, maxMessage="Le texte ne doit pas faire plus de {{ limit }} caractères.")
      */
     private $palmares;
 
@@ -51,6 +57,10 @@ class Team
      * @var string
      *
      * @ORM\Column(name="ranking", type="string", length=255, unique=false)
+     * @Assert\Length(max=255, maxMessage="L'Url ne doit pas faire plus de {{ limit }} caractères.")
+     * @Assert\Url(message = "L'Url '{{ value }}' n'est pas valide",
+     *     protocols = {"http", "https"}
+     * )
      */
 
     private $ranking;
@@ -74,9 +84,33 @@ class Team
     private $slug;
 
     /**
+     * One Team has Many Events.
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="team", cascade={"persist", "remove"})
+     */
+    private $events;
+
+    /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
+
+    /**
+     * Get the string representation.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /**
      * Get id
@@ -275,5 +309,39 @@ class Team
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add event
+     *
+     * @param \PlanningBundle\Entity\Event $event
+     *
+     * @return Team
+     */
+    public function addEvent(Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \PlanningBundle\Entity\Event $event
+     */
+    public function removeEvent(Event $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

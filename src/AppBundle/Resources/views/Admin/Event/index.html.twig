@@ -1,0 +1,47 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste des matchs</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Equipe</th>
+                <th>Adversaire</th>
+                <th>Heure</th>
+                <th>Salle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td><a href="{{ path('admin_event_show', { 'id': event.id }) }}">{{ event.id }}</a></td>
+                <td>{{ event.date.slug }}</td>
+                <td>{{ event.team.name }}</td>
+                <td>{{ event.opponent }}</td>
+                <td>{{ event.hour|date('H:i:s') }}</td>
+                <td>{{ event.place.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_event_show', { 'id': event.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_event_edit', { 'id': event.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_event_new') }}">Créé un nouveau match</a>
+        </li>
+    </ul>
+{% endblock %}

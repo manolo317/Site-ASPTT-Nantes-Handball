@@ -3,7 +3,32 @@ app_index:
     defaults:
         _controller: AppBundle:Default:index
 
+admin_index:
+    path:     /admin
+    defaults:
+        _controller: AppBundle:Admin:index
+
 team_view:
     path: /team/{slug}
     defaults:
         _controller: AppBundle:Team:view
+
+planning_index:
+    path: /planning
+    defaults:
+        _controller: AppBundle:Planning:index
+
+planning_annual:
+    path: /planning/annual
+    defaults:
+        _controller: AppBundle:Planning:annualPlanning
+
+planning_weekend:
+    path: /planning/week-end
+    defaults:
+        _controller: AppBundle:Planning:weekendPlanning
+
+planning_training:
+    path: /planning/training
+    defaults:
+        _controller: AppBundle:Planning:trainingPlanning

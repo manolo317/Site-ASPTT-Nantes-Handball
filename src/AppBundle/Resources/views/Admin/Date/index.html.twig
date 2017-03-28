@@ -1,0 +1,56 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block title %}
+    Admin Date
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des dates</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Slug</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date in dates %}
+            <tr>
+                <td><a href="{{ path('admin_date_show', { 'id': date.id }) }}">{{ date.id }}</a></td>
+                <td>{% if date.date %}{{ date.date|date('d-m-Y') }}{% endif %}</td>
+                <td>{{ date.slug }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_date_show', { 'id': date.id }) }}">show</a>
+                        </li>
+
+                        {% if date.events is not null %}
+                            <h4>Liste des matchs:</h4>
+                            <table class="table table-bordered">
+                            {% for event in date.events %}
+                                <tr>
+                                    <td>{{ event.team.name }}</td>
+                                    <td>{{ event.opponent }}</td>
+                                    <td>{{ event.hour|date('H:i:s') }}</td>
+                                    <td><a href="{{ path('admin_event_show', { 'id': event.id }) }}">show</a></td>
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        {% endif %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_date_new') }}">Create a new date</a>
+        </li>
+    </ul>
+{% endblock %}
