@@ -1,28 +1,28 @@
-event_index:
+post_index:
     path:     /
     defaults:
         _controller: EventBundle:Post:index
 
-event_show:
+post_show:
     path:     /{id}/show
     defaults:
         _controller: EventBundle:Post:show
     requirements:
         id: \d+
 
-event_new:
+post_new:
     path:     /new
     defaults:
         _controller: EventBundle:Post:new
 
-event_edit:
+post_edit:
     path:     /{id}/edit
     defaults:
         _controller: EventBundle:Post:edit
     requirements:
             id: \d+
 
-event_delete:
+post_delete:
     path:     /{id}/delete
     defaults:
         _controller: EventBundle:Post:delete

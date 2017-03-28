@@ -6,4 +6,6 @@ team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
-
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /admin/post
