@@ -13,6 +13,6 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/.idea/
+/.idea/*
 
 
