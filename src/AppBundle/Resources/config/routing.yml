@@ -3,6 +3,11 @@ app_index:
     defaults:
         _controller: AppBundle:Default:index
 
+app_contact:
+    path:     /contact
+    defaults:
+        _controller: AppBundle:Default:contact
+
 admin_index:
     path:     /admin
     defaults:

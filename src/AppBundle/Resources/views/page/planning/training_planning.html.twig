@@ -14,17 +14,17 @@
     <div>
         <table class="table table-bordered">
             {% for day in days %}
-                <tr>
+                <tbody>
                     <th>{{ day.name }}</th>
                     {% for training in day.trainings %}
                         <td>
                             <div>{{ training.team.name }}</div>
-                            <div>{{ loop.parent.day.id }}</div>
+                            {#<div>{{ loop.parent.day.id }}</div>#}
                             <div>{{ training.hour|date('H:i') }}</div>
                             <div>{{ training.place.name }}</div>
                         </td>
                     {% endfor %}
-                </tr>
+                </tbody>
             {% endfor %}
         </table>
     </div>

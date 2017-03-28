@@ -1,0 +1,45 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <h2>Contactez-nous</h2>
+
+    {{ form_start(form) }}
+
+    <div>
+        {{ form_widget(form.subject) }}
+        {{ form_errors(form.subject) }}
+    </div>
+    <div>
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+    <div>
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+    <div>
+        {{ form_widget(form.message) }}
+        {{ form_errors(form.message) }}
+    </div>
+
+    {# Render CSRF token etc .#}
+    <div style="display:none">
+        {{ form_rest(form) }}
+    </div>
+
+    <input type="submit" value="Submit">
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
