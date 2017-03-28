@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Event</h1>
+
+    <div style="float: left; margin-right: 1em;">
+        {# On vérifie qu'une image soit bien associée à l'event #}
+        {% if event.image is not null %}
+            <img
+                    src="{{ asset(event.image.webPath) }}"
+                    alt="{{ event.image.alt }}"
+                    height="200"
+            />
+        {% endif %}
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ event.title }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ event.content }}</td>
+            </tr>
+            <tr>
+                <th>seo</th>
+                <td>{{ event.seo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <ul>
+            <li>
+                <a href="{{ path('event_index') }}">Back to the list</a>
+            </li>
+            <li>
+                <a href="{{ path('event_edit', { 'id': event.id }) }}">Edit</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
