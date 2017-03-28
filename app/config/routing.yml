@@ -1,6 +1,6 @@
 info:
     resource: "@InfoBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
@@ -9,4 +9,3 @@ app:
 team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
-

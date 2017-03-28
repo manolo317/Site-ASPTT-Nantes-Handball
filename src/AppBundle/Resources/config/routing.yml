@@ -7,3 +7,8 @@ team_view:
     path: /team/{slug}
     defaults:
         _controller: AppBundle:Team:view
+
+history_index:
+    path: /history
+    defaults:
+        _controller: AppBundle:History:index
