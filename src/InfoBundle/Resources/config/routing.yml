@@ -1,0 +1,3 @@
+info_homepage:
+    path:     /
+    defaults: { _controller: InfoBundle:Default:index }
