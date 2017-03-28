@@ -5,3 +5,7 @@ info_history:
 info_homepage:
     path:     /
     defaults: { _controller: InfoBundle:Default:index }
+
+info_fairplay:
+    resource: "@InfoBundle/Resources/config/routing/fairplay.yml"
+    prefix:   /fairplay
