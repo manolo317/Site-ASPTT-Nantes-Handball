@@ -13,6 +13,11 @@ team_view:
     defaults:
         _controller: AppBundle:Team:view
 
+history_index:
+    path: /history
+    defaults:
+        _controller: AppBundle:History:index
+
 planning_index:
     path: /planning
     defaults:
