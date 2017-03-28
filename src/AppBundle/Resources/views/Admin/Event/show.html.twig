@@ -5,10 +5,10 @@
 
     <div style="float: left; margin-right: 1em;">
         {# On vérifie qu'une image soit bien associée à l'event #}
-        {% if event.image is not null %}
+        {% if post.image is not null %}
             <img
-                    src="{{ asset(event.image.webPath) }}"
-                    alt="{{ event.image.alt }}"
+                    src="{{ asset(post.image.webPath) }}"
+                    alt="{{ post.image.alt }}"
                     height="200"
             />
         {% endif %}
@@ -17,19 +17,19 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ event.id }}</td>
+                <td>{{ post.id }}</td>
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ event.title }}</td>
+                <td>{{ post.title }}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ event.content }}</td>
+                <td>{{ post.content }}</td>
             </tr>
             <tr>
                 <th>seo</th>
-                <td>{{ event.seo }}</td>
+                <td>{{ post.seo }}</td>
             </tr>
         </tbody>
     </table>
@@ -40,7 +40,7 @@
                 <a href="{{ path('event_index') }}">Back to the list</a>
             </li>
             <li>
-                <a href="{{ path('event_edit', { 'id': event.id }) }}">Edit</a>
+                <a href="{{ path('event_edit', { 'id': post.id }) }}">Edit</a>
             </li>
             <li>
                 {{ form_start(delete_form) }}
