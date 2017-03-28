@@ -1,3 +1,7 @@
+info_history:
+    resource: "@InfoBundle/Resources/config/routing/history.yml"
+    prefix:   /history
+
 info_homepage:
     path:     /
     defaults: { _controller: InfoBundle:Default:index }
