@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TeamBundle\Entity\Team;
+use InfoBundle\Entity\Fairplay;
 
 
 
@@ -50,5 +51,4 @@ class DefaultController extends Controller
                                                              'kidsTeams' => $kidsTeams,
                                                              'loisirsTeams' => $loisirsTeams]);
     }
-
 }
