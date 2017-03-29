@@ -5,6 +5,7 @@ namespace TeamBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use TeamBundle\Entity\Category;
 use TeamBundle\Entity\Image;
+use UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use PlanningBundle\Entity\Event;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -88,6 +89,12 @@ class Team
      * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Event", mappedBy="team", cascade={"persist", "remove"})
      */
     private $events;
+
+    /**
+     * One Team has Many Users.
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\User", mappedBy="team", cascade={"persist", "remove"})
+     */
+    private $users;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
@@ -343,5 +350,39 @@ class Team
     public function getEvents()
     {
         return $this->events;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Team
+     */
+    public function addUser(User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \UserBundle\Entity\User $user
+     */
+    public function removeUser(User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

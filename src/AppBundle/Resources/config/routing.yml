@@ -3,6 +3,11 @@ app_index:
     defaults:
         _controller: AppBundle:Default:index
 
+app_contact:
+    path:     /contact
+    defaults:
+        _controller: AppBundle:Default:contact
+
 admin_index:
     path:     /admin
     defaults:
@@ -42,3 +47,8 @@ planning_training:
     path: /planning/training
     defaults:
         _controller: AppBundle:Planning:trainingPlanning
+
+app_contact_list:
+    path: /list-contact
+    defaults:
+        _controller: AppBundle:Default:listContact

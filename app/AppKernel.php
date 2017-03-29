@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new PlanningBundle\PlanningBundle(),
             new PlaceBundle\PlaceBundle(),
+            new UserBundle\UserBundle(),
+            new FOS\UserBundle\FOSUserBundle
             new InfoBundle\InfoBundle(),
         ];
 
