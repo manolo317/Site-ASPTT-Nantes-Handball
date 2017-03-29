@@ -27,5 +27,13 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->setMaxResults(3)
             ->getResult();
     }
+    public function getFiveRow()
+    {
+        return $this->createQueryBuilder('p')
+            ->limit(5,5)
+            ->getQuery()
+            ->getResult();
+    }
+    
  
 }

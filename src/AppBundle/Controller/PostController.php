@@ -27,7 +27,9 @@ class PostController extends Controller
     }
     public function viewAction(Post $post)
     {
-
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('EventBundle:Post')->findThreeLastPosts();
         return $this->render('AppBundle:page:post.html.twig', ['post' => $post]);
     }
+    
 }

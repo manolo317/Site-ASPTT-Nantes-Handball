@@ -9,7 +9,8 @@
     <div>
     {% for post in posts %}
     <h3>{{ post.title }}</h3>
-    <p>{{ post.content }}</p>
+    {# LE slice permet de gerer les caratères à afficher #}
+    <p>{{ post.content|slice(0, 150)}}</p>
        {% if post.image is not null %}
             <img class="thumbnail"
             src="{{ asset(post.image.webPath) }}"

@@ -8,7 +8,9 @@ team_view:
     defaults:
         _controller: AppBundle:Team:view
 
-post_index:
+post_view:
     path: /post
     defaults:
         _controller: AppBundle:Post:index
+
+
