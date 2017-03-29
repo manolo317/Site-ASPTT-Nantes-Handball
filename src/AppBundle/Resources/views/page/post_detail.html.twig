@@ -10,7 +10,7 @@
     
     
     <h3>{{ post.title }}</h3>
-    
+    {{ post.publishedAt | date('Y-m-d') }}
     {# LE slice permet de gerer les caratères à afficher #}
     <p>{{ post.content}}</p>
        {% if post.image is not null %}
@@ -18,7 +18,7 @@
             src="{{ asset(post.image.webPath) }}"
             alt="{{ post.image.alt }}"
             />
-            {{ post.publishedAt | date('Y-m-d H:i:s') }}
+            
     {% endif %}
        
     </div>

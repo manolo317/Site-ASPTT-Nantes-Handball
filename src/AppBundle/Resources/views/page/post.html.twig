@@ -11,14 +11,14 @@
     <a href="{{ path ('post_detail', {'id': post.id})}} ">
     <h3>{{ post.title }}</h3>
     </a>
+    {{ post.publishedAt | date('Y-m-d') }}
     {# LE slice permet de gerer les caratères à afficher #}
-    <p>{{ post.content|slice(0, 150)}}</p>
+    <p>{{ post.content|slice(0, 150)}} <a href="{{ path ('post_detail', {'id': post.id})}} ">... </a></p>
        {% if post.image is not null %}
             <img class="thumbnail"
             src="{{ asset(post.image.webPath) }}"
             alt="{{ post.image.alt }}"
             />
-            {{ post.publishedAt | date('Y-m-d H:i:s') }}
     {% endif %}
     {% endfor %}    
        
