@@ -37,20 +37,6 @@ fairplay_view:
     defaults:
         _controller: AppBundle:Fairplay:view
 
-planning_index:
-    path: /planning
-    defaults:
-        _controller: AppBundle:Planning:index
-
-planning_annual:
-    path: /planning/annual
-    defaults:
-        _controller: AppBundle:Planning:annualPlanning
-
-planning_weekend:
-    path: /planning/week-end
-    defaults:
-        _controller: AppBundle:Planning:weekendPlanning
 
 planning_training:
     path: /planning/training
