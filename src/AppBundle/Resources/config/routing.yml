@@ -32,6 +32,16 @@ planning_weekend:
     path: /planning/week-end
     defaults:
         _controller: AppBundle:Planning:weekendPlanning
+history_view:
+    path: /history
+    defaults:
+        _controller: AppBundle:History:view
+
+fairplay_view:
+    path: /fairplays
+    defaults:
+        _controller: AppBundle:Fairplay:view
+
 
 planning_training:
     path: /planning/training

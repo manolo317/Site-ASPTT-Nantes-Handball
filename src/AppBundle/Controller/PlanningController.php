@@ -82,7 +82,7 @@ class PlanningController extends Controller
     public function trainingPlanningAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         // je récupère les jours et les entrainements associés
         $days = $em->getRepository('PlanningBundle:Day')->findAllOrderedByDay();
 
