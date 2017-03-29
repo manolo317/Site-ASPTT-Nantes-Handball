@@ -13,4 +13,9 @@ post_view:
     defaults:
         _controller: AppBundle:Post:index
 
-
+post_detail:
+    path:     /post/{id}
+    defaults:
+        _controller: AppBundle:Post:show
+    requirements:
+        id: \d+
