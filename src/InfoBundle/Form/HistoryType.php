@@ -13,7 +13,7 @@ class HistoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('historyContent');
+        $builder->add('title')->add('content');
     }
     
     /**

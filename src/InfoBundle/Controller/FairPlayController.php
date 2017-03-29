@@ -42,7 +42,7 @@ class FairPlayController extends Controller
             $em->persist($fairPlay);
             $em->flush();
 
-            return $this->redirectToRoute('fairplay_show', array('id' => $fairPlay->getId()));
+            return $this->redirectToRoute('admin_fairplay_show', array('id' => $fairPlay->getId()));
         }
 
         return $this->render('AppBundle:Admin/Fairplay:new.html.twig', array(
@@ -57,11 +57,9 @@ class FairPlayController extends Controller
      */
     public function showAction(FairPlay $fairPlay)
     {
-        $deleteForm = $this->createDeleteForm($fairPlay);
 
         return $this->render('AppBundle:Admin/Fairplay:show.html.twig', array(
-            'fairPlay' => $fairPlay,
-            'delete_form' => $deleteForm->createView(),
+            'fairPlay' => $fairPlay
         ));
     }
 
@@ -71,54 +69,19 @@ class FairPlayController extends Controller
      */
     public function editAction(Request $request, FairPlay $fairPlay)
     {
-        $deleteForm = $this->createDeleteForm($fairPlay);
         $editForm = $this->createForm('InfoBundle\Form\FairPlayType', $fairPlay);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fairplay_edit', array('id' => $fairPlay->getId()));
+            return $this->redirectToRoute('admin_fairplay_edit', array('id' => $fairPlay->getId()));
         }
 
         return $this->render('AppBundle:Admin/Fairplay:edit.html.twig', array(
             'fairPlay' => $fairPlay,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
-    /**
-     * Deletes a fairPlay entity.
-     *
-     */
-    public function deleteAction(Request $request, FairPlay $fairPlay)
-    {
-        $form = $this->createDeleteForm($fairPlay);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($fairPlay);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('fairplay_index');
-    }
-
-    /**
-     * Creates a form to delete a fairPlay entity.
-     *
-     * @param FairPlay $fairPlay The fairPlay entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(FairPlay $fairPlay)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('fairplay_delete', array('id' => $fairPlay->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }

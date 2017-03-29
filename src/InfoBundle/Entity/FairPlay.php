@@ -3,6 +3,7 @@
 namespace InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * FairPlay
@@ -25,21 +26,22 @@ class FairPlay
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fair_play_content", type="text")
+     * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
-    private $fairPlayContent;
-
+    private $content;
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -71,27 +73,26 @@ class FairPlay
     }
 
     /**
-     * Set fairPlayContent
+     * Set content
      *
-     * @param string $fairPlayContent
+     * @param string $content
      *
      * @return FairPlay
      */
-    public function setFairPlayContent($fairPlayContent)
+    public function setContent($content)
     {
-        $this->fairPlayContent = $fairPlayContent;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get fairPlayContent
+     * Get content
      *
      * @return string
      */
-    public function getFairPlayContent()
+    public function getContent()
     {
-        return $this->fairPlayContent;
+        return $this->content;
     }
 }
-

@@ -13,12 +13,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class FairplayController extends Controller
 {
-  public function viewAction()
-  {
-    $em = $this->getDoctrine()->getManager();
+    public function viewAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    $fairPlays = $em->getRepository('InfoBundle:FairPlay')->findAll();
+        $fairplay = $em->getRepository('InfoBundle:FairPlay')->findOneById(1);
 
-    return $this->render('AppBundle:page:fairplay.html.twig', ['fairPlays' => $fairPlays]);
-  }
+        return $this->render('AppBundle:page:fairplay.html.twig', ['fairplay' => $fairplay]);
+    }
 }

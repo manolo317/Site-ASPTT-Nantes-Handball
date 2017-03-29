@@ -3,6 +3,7 @@
 namespace InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * History
@@ -25,21 +26,23 @@ class History
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="history_content", type="text")
+     * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
-    private $historyContent;
+    private $content;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -71,27 +74,26 @@ class History
     }
 
     /**
-     * Set historyContent
+     * Set content
      *
-     * @param string $historyContent
+     * @param string $content
      *
      * @return History
      */
-    public function setHistoryContent($historyContent)
+    public function setContent($content)
     {
-        $this->historyContent = $historyContent;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get historyContent
+     * Get content
      *
      * @return string
      */
-    public function getHistoryContent()
+    public function getContent()
     {
-        return $this->historyContent;
+        return $this->content;
     }
 }
-

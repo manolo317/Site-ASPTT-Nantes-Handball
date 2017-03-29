@@ -1,30 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Histories list</h1>
+    <h1>Historique</h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Historycontent</th>
+                <th>Titre</th>
+                <th>Contenu</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for history in histories %}
             <tr>
-                <td><a href="{{ path('history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
+                <td><a href="{{ path('admin_history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
                 <td>{{ history.title }}</td>
-                <td>{{ history.historyContent }}</td>
+                <td>{{ history.content }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('history_show', { 'id': history.id }) }}">show</a>
+                            <a href="{{ path('admin_history_show', { 'id': history.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('history_edit', { 'id': history.id }) }}">edit</a>
+                            <a href="{{ path('admin_history_edit', { 'id': history.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('history_new') }}">Create a new history</a>
+            <a href="{{ path('admin_history_new') }}">Create a new history</a>
         </li>
     </ul>
 {% endblock %}

@@ -15,16 +15,16 @@
         <tbody>
         {% for history in histories %}
             <tr>
-                <td><a href="{{ path('history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
+                <td><a href="{{ path('admin_history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
                 <td>{{ history.title }}</td>
                 <td>{{ history.historyContent }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('history_show', { 'id': history.id }) }}">show</a>
+                            <a href="{{ path('admin_history_show', { 'id': history.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('history_edit', { 'id': history.id }) }}">edit</a>
+                            <a href="{{ path('admin_history_edit', { 'id': history.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('history_new') }}">Create a new history</a>
+            <a href="{{ path('admin_history_new') }}">Create a new history</a>
         </li>
     </ul>
 {% endblock %}

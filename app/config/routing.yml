@@ -31,9 +31,6 @@ admin_history:
     resource: "@InfoBundle/Resources/config/history/routing.yml"
     prefix:   /admin/history
 
-
-
-
 admin_place:
     resource: "@PlaceBundle/Resources/config/routing.yml"
     prefix:   /admin/place

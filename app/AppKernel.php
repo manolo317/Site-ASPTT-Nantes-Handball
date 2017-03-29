@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new PlanningBundle\PlanningBundle(),
             new PlaceBundle\PlaceBundle(),
             new UserBundle\UserBundle(),
-            new FOS\UserBundle\FOSUserBundle
+            new FOS\UserBundle\FOSUserBundle(),
             new InfoBundle\InfoBundle(),
         ];
 

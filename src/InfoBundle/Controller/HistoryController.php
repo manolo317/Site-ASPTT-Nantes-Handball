@@ -42,7 +42,7 @@ class HistoryController extends Controller
             $em->persist($history);
             $em->flush();
 
-            return $this->redirectToRoute('history_show', array('id' => $history->getId()));
+            return $this->redirectToRoute('admin_history_show', array('id' => $history->getId()));
         }
 
         return $this->render('AppBundle:Admin/History:new.html.twig', array(
@@ -57,11 +57,9 @@ class HistoryController extends Controller
      */
     public function showAction(History $history)
     {
-        $deleteForm = $this->createDeleteForm($history);
 
         return $this->render('AppBundle:Admin/History:show.html.twig', array(
             'history' => $history,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -71,54 +69,18 @@ class HistoryController extends Controller
      */
     public function editAction(Request $request, History $history)
     {
-        $deleteForm = $this->createDeleteForm($history);
         $editForm = $this->createForm('InfoBundle\Form\HistoryType', $history);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('history_edit', array('id' => $history->getId()));
+            return $this->redirectToRoute('admin_history_edit', array('id' => $history->getId()));
         }
 
         return $this->render('AppBundle:Admin/History:edit.html.twig', array(
             'history' => $history,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
-    }
-
-    /**
-     * Deletes a history entity.
-     *
-     */
-    public function deleteAction(Request $request, History $history)
-    {
-        $form = $this->createDeleteForm($history);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($history);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('history_index');
-    }
-
-    /**
-     * Creates a form to delete a history entity.
-     *
-     * @param History $history The history entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(History $history)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('history_delete', array('id' => $history->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
     }
 }

@@ -6,7 +6,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TeamBundle\Entity\Team;
-use InfoBundle\Entity\Fairplay;
 
 
 
@@ -108,12 +107,6 @@ class DefaultController extends Controller
             ->setBody($data["message"]."<br>ContactMail :".$data["email"]);
 
         return $mailer->send($message);
-    }
-
-    public function listContactAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:page:contact_list.html.twig');
     }
 
 }

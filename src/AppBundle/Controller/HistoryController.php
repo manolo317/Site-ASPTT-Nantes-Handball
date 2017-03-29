@@ -13,12 +13,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class HistoryController extends Controller
 {
-  public function viewAction()
-  {
-    $em = $this->getDoctrine()->getManager();
+    public function viewAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    $histories = $em->getRepository('InfoBundle:History')->findAll();
+        $history = $em->getRepository('InfoBundle:History')->findOneById(1);
 
-    return $this->render('AppBundle:page:history.html.twig', ['histories' => $histories]);
-  }
+        return $this->render('AppBundle:page:history.html.twig', ['history' => $history]);
+    }
 }

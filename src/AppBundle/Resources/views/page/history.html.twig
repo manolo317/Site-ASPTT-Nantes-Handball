@@ -1,24 +1,20 @@
 {% extends "AppBundle::layout.html.twig" %}
 
+{% block title %}
+    {{ history.title }}
+{% endblock %}
+
 {% block body %}
-    <h1>History</h1>
-
-    <table>
-        <tbody>
-          {% for history in histories %}
-            <tr>
-
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ history.title }}</td>
-            </tr>
-            <tr>
-                <th>Historycontent</th>
-                <td>{{ history.historyContent }}</td>
-            </tr>
-        </tbody>
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
         {% endfor %}
-    </table>
+    </div>
+    <h2>{{ history.title }}</h2>
+
+    <div>{{ history.content }}</div>
+
+
 
 {% endblock %}
