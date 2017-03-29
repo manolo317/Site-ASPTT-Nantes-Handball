@@ -13,10 +13,15 @@ team_view:
     defaults:
         _controller: AppBundle:Team:view
 
-history_index:
+history_view:
     path: /history
     defaults:
-        _controller: AppBundle:History:index
+        _controller: AppBundle:History:view
+
+fairplay_view:
+    path: /fairplays
+    defaults:
+        _controller: AppBundle:Fairplay:view
 
 planning_index:
     path: /planning

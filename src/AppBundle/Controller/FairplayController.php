@@ -5,20 +5,20 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use InfoBundle\Entity\History;
+use InfoBundle\Entity\FairPlay;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 
 
-class HistoryController extends Controller
+class FairplayController extends Controller
 {
   public function viewAction()
   {
     $em = $this->getDoctrine()->getManager();
 
-    $histories = $em->getRepository('InfoBundle:History')->findAll();
+    $fairPlays = $em->getRepository('InfoBundle:FairPlay')->findAll();
 
-    return $this->render('AppBundle:page:history.html.twig', ['histories' => $histories]);
+    return $this->render('AppBundle:page:fairplay.html.twig', ['fairPlays' => $fairPlays]);
   }
 }

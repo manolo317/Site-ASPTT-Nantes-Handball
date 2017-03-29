@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
     <h1>Fairplays list</h1>
@@ -18,24 +18,8 @@
                 <td><a href="{{ path('fairplay_show', { 'id': fairPlay.id }) }}">{{ fairPlay.id }}</a></td>
                 <td>{{ fairPlay.title }}</td>
                 <td>{{ fairPlay.fairPlayContent }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('fairplay_show', { 'id': fairPlay.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('fairplay_edit', { 'id': fairPlay.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('fairplay_new') }}">Create a new fairPlay</a>
-        </li>
-    </ul>
 {% endblock %}
