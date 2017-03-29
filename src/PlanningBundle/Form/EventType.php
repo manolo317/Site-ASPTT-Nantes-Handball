@@ -54,6 +54,18 @@ class EventType extends AbstractType
                 'multiple'     => false,
                 'expanded'     => false,
             ])
+            ->add('tableResponsable', EntityType::class, [
+                'class' => 'TeamBundle:Team',
+                'choice_label' => 'name',
+                'multiple'     => false,
+                'expanded'     => false,
+            ])
+            ->add('placeResponsable', EntityType::class, [
+                'class' => 'UserBundle:User',
+                'choice_label' => 'lastname',
+                'multiple'     => false,
+                'expanded'     => false,
+            ])
         ;
 
     }

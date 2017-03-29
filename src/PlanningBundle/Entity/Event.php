@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use TeamBundle\Entity\Team;
 use PlaceBundle\Entity\Place;
+use UserBundle\Entity\User;
 
 /**
  * Event
@@ -59,6 +60,20 @@ class Event
      * @ORM\JoinColumn(nullable=true)
      */
     private $place;
+
+    /**
+     * Many Events have One PlaceResponsable.
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $placeResponsable;
+
+    /**
+     * Many Events have One TableResponsable.
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $tableResponsable;
 
     /**
      * Get id
@@ -187,5 +202,53 @@ class Event
     public function getPlace()
     {
         return $this->place;
+    }
+
+    /**
+     * Set placeResponsable
+     *
+     * @param \UserBundle\Entity\User $placeResponsable
+     *
+     * @return Event
+     */
+    public function setPlaceResponsable(User $placeResponsable = null)
+    {
+        $this->placeResponsable = $placeResponsable;
+
+        return $this;
+    }
+
+    /**
+     * Get placeResponsable
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getPlaceResponsable()
+    {
+        return $this->placeResponsable;
+    }
+
+    /**
+     * Set tableResponsable
+     *
+     * @param \TeamBundle\Entity\Team $tableResponsable
+     *
+     * @return Event
+     */
+    public function setTableResponsable(Team $tableResponsable = null)
+    {
+        $this->tableResponsable = $tableResponsable;
+
+        return $this;
+    }
+
+    /**
+     * Get tableResponsable
+     *
+     * @return \TeamBundle\Entity\Team
+     */
+    public function getTableResponsable()
+    {
+        return $this->tableResponsable;
     }
 }

@@ -12,6 +12,8 @@
                 <th>Adversaire</th>
                 <th>Heure</th>
                 <th>Salle</th>
+                <th>Responsable table de marque</th>
+                <th>Responsable de Salle</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,6 +26,16 @@
                 <td>{{ event.opponent }}</td>
                 <td>{{ event.hour|date('H:i:s') }}</td>
                 <td>{{ event.place.name }}</td>
+                {% if event.tableResponsable %}
+                    <td>{{ event.tableResponsable.name }}</td>
+                {% else %}
+                    <td>non attribué</td>
+                {% endif %}
+                {% if event.placeResponsable %}
+                    <td>{{ event.placeResponsable.lastname }} {{ event.placeResponsable.firstname }}</td>
+                {% else %}
+                    <td>non attribué</td>
+                {% endif %}
                 <td>
                     <ul>
                         <li>

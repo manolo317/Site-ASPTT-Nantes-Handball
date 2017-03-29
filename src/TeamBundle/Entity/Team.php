@@ -63,7 +63,6 @@ class Team
      *     protocols = {"http", "https"}
      * )
      */
-
     private $ranking;
 
     /**

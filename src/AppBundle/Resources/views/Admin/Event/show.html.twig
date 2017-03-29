@@ -29,6 +29,14 @@
                 <th>Salle</th>
                 <td>{{ event.place.name }}</td>
             </tr>
+            <tr>
+                <th>Responsable table de marque</th>
+                <td>{{ event.tableResponsable.name }}</td>
+            </tr>
+            <tr>
+                <th>Responsable salle</th>
+                <td>{{ event.placeResponsable.lastname }} {{ event.placeResponsable.firstname }}</td>
+            </tr>
         </tbody>
     </table>
 

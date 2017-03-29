@@ -18,7 +18,7 @@
                     <th>{{ day.name }}</th>
                     {% for training in day.trainings %}
                         <td>
-                            <div>{{ training.team.name }}</div>
+                            <div><strong>{{ training.team.name }}</strong></div>
                             {#<div>{{ loop.parent.day.id }}</div>#}
                             <div>{{ training.hour|date('H:i') }}</div>
                             <div>{{ training.place.name }}</div>

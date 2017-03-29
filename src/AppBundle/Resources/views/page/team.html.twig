@@ -60,13 +60,6 @@
                         <h2 class="panel-title">Joueurs :</h2>
                     </div>
                     <ul class="list-group">
-                        {#{% for player in team.users %}#}
-                            {#{% for role in player.positions %}#}
-                                {#{% if role.name == "Joueur" %}#}
-                                {#<li class="list-group-item">{{ loop.parent.firstname }} <span class="badge">n°10</span></li>#}
-                                {#{% endif %}#}
-                            {#{% endfor %}#}
-                        {#{% endfor %}#}
                         {% for player in team.users %}
                             {% for role in player.positions %}
                                 {% if role.name == "Joueur" %}

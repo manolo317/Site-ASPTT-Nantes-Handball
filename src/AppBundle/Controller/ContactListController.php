@@ -17,6 +17,9 @@ class ContactListController extends Controller
     public function listContactAction(Request $request)
     {
 
-        return $this->render('AppBundle:page:contact_list.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('UserBundle:User')
+            ->findAll();
+        return $this->render('AppBundle:page:contact_list.html.twig', ['users' => $users]);
     }
 }
