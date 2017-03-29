@@ -2,7 +2,7 @@ app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
-team:
+admin_team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
@@ -17,6 +17,22 @@ admin_planning_date:
 admin_planning_training:
     resource: "@PlanningBundle/Resources/config/training/routing.yml"
     prefix:   /admin/planning/training
+
+planning:
+    resource: "@PlanningBundle/Controller/"
+    type:     annotation
+    prefix:   /planning
+
+admin_fairplay:
+    resource: "@InfoBundle/Resources/config/fairplay/routing.yml"
+    prefix:   /admin/fairplay
+
+admin_history:
+    resource: "@InfoBundle/Resources/config/history/routing.yml"
+    prefix:   /admin/history
+
+
+
 
 admin_place:
     resource: "@PlaceBundle/Resources/config/routing.yml"

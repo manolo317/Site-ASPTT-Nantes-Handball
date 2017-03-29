@@ -1,0 +1,25 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>Fairplays list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Fairplaycontent</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fairPlay in fairPlays %}
+            <tr>
+                <td><a href="{{ path('fairplay_show', { 'id': fairPlay.id }) }}">{{ fairPlay.id }}</a></td>
+                <td>{{ fairPlay.title }}</td>
+                <td>{{ fairPlay.fairPlayContent }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
