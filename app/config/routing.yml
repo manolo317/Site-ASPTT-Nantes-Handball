@@ -2,9 +2,19 @@ app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
-team:
+admin_team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
+
+admin_fairplay:
+    resource: "@InfoBundle/Resources/config/fairplay/routing.yml"
+    prefix:   /admin/fairplay
+
+admin_history:
+    resource: "@InfoBundle/Resources/config/history/routing.yml"
+    prefix:   /admin/history
+
+
 
 admin_planning_event:
     resource: "@PlanningBundle/Resources/config/event/routing.yml"

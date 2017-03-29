@@ -22,7 +22,7 @@ class FairPlayController extends Controller
 
         $fairPlays = $em->getRepository('InfoBundle:FairPlay')->findAll();
 
-        return $this->render('fairplay/index.html.twig', array(
+        return $this->render('AppBundle:Admin/Fairplay:index.html.twig', array(
             'fairPlays' => $fairPlays,
         ));
     }
@@ -45,7 +45,7 @@ class FairPlayController extends Controller
             return $this->redirectToRoute('fairplay_show', array('id' => $fairPlay->getId()));
         }
 
-        return $this->render('fairplay/new.html.twig', array(
+        return $this->render('AppBundle:Admin/Fairplay:new.html.twig', array(
             'fairPlay' => $fairPlay,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class FairPlayController extends Controller
     {
         $deleteForm = $this->createDeleteForm($fairPlay);
 
-        return $this->render('fairplay/show.html.twig', array(
+        return $this->render('AppBundle:Admin/Fairplay:show.html.twig', array(
             'fairPlay' => $fairPlay,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class FairPlayController extends Controller
             return $this->redirectToRoute('fairplay_edit', array('id' => $fairPlay->getId()));
         }
 
-        return $this->render('fairplay/edit.html.twig', array(
+        return $this->render('AppBundle:Admin/Fairplay:edit.html.twig', array(
             'fairPlay' => $fairPlay,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
