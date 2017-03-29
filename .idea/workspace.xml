@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Admin/Event/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -69,9 +69,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1898">
               <caret line="76" column="29" lean-forward="false" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
-              <folding>
-                <element signature="e#45#81#0#PHP" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -236,7 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -757,7 +755,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -885,11 +883,12 @@
       <workItem from="1490622286796" duration="118000" />
       <workItem from="1490636327943" duration="7191000" />
       <workItem from="1490684841186" duration="1298000" />
+      <workItem from="1490785225219" duration="40000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165097000" />
+    <option name="totallyTimeSpent" value="165137000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,14 +901,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17397882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1762481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32823962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32733223" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21931261" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1046,55 +1045,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/09/093774389f46e925e4944c59433d65b345345fedaa212cc1573a77a12bc5d2df.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="109" column="32" lean-forward="false" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/10/10efe3fd0b57240e37ed5a48a17a1035b6b560e3ffaafda31a23f05500669a78.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/18/18f14b04749870826a87a3c1c5ae4a21e8d9f0c52701b6b53b5cb39e15f7cfc1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="151" column="32" lean-forward="false" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/19/1956c27e857d26ae850c8a783cf7b2651e843a2fb5c9bc07746b774f96dfcf8d.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/19/199d349e233e2219af5351ed1b7aa9723ffb579ea9f3747f0e4663dcfa2f2c7c.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/2d/2de115195003683c64089995c6b18e7ec9fb7809ebf7efeca21b5d58fc892bef.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/39/39a6881f4d53d98e67d30f8c31a2ad4cd38f941a92d1f3870e3f66c6b93b6c2e.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="109" column="32" lean-forward="false" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/09/093774389f46e925e4944c59433d65b345345fedaa212cc1573a77a12bc5d2df.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/10/10efe3fd0b57240e37ed5a48a17a1035b6b560e3ffaafda31a23f05500669a78.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/18/18f14b04749870826a87a3c1c5ae4a21e8d9f0c52701b6b53b5cb39e15f7cfc1.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/19/1956c27e857d26ae850c8a783cf7b2651e843a2fb5c9bc07746b774f96dfcf8d.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/19/199d349e233e2219af5351ed1b7aa9723ffb579ea9f3747f0e4663dcfa2f2c7c.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/2d/2de115195003683c64089995c6b18e7ec9fb7809ebf7efeca21b5d58fc892bef.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/39/39a6881f4d53d98e67d30f8c31a2ad4cd38f941a92d1f3870e3f66c6b93b6c2e.php" />
     <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/49/49c9f8b87759371e5340fe47c9447b77d4d5822430d34e6e21cd7ff101953b74.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1102,69 +1059,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/5b/5bd91694f212b1900fb61a7465ae2581dec813ad5327c4234b8422493eaafcd4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="141" column="32" lean-forward="false" selection-start-line="141" selection-start-column="32" selection-end-line="141" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/6c/6c9ce2056ba58940aa66199eca9267b83f1e4943455f0ce765e2f1e2ff357270.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/6d/6d830a8b96cf9703c0602b2b20a4ffabbc08d56d9cb391ef2c834e6f88ebad06.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="134" column="32" lean-forward="false" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/82/828925c2f728ecd5e23abe27da24bbd4a6fe153b3e784f9450c5008290ac2069.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="127" column="32" lean-forward="false" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/82/82c221363fd52e72db3209a21068b02a33e2f899abe2e161d9c7886d23b89c81.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/86/86466a8b1e3bb726186a66a9b9fca89178a123d26e136685396a0d42392ae996.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="156" column="32" lean-forward="false" selection-start-line="156" selection-start-column="32" selection-end-line="156" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/60/606ca4552a6700071bc3cf224b86a05ca1db3470cf12668c785af1cdb9b8bc0b.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="156" column="32" lean-forward="false" selection-start-line="156" selection-start-column="32" selection-end-line="156" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/52/523343797832400b76deea02d953ba5b8027b27585075b2af251528a3da67882.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="109" column="32" lean-forward="false" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/91/916b45c55233d9741b43152f9c198b668830f18449590fe285852a247f25fc23.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/5b/5bd91694f212b1900fb61a7465ae2581dec813ad5327c4234b8422493eaafcd4.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/6c/6c9ce2056ba58940aa66199eca9267b83f1e4943455f0ce765e2f1e2ff357270.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/6d/6d830a8b96cf9703c0602b2b20a4ffabbc08d56d9cb391ef2c834e6f88ebad06.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/82/828925c2f728ecd5e23abe27da24bbd4a6fe153b3e784f9450c5008290ac2069.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/82/82c221363fd52e72db3209a21068b02a33e2f899abe2e161d9c7886d23b89c81.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/86/86466a8b1e3bb726186a66a9b9fca89178a123d26e136685396a0d42392ae996.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/60/606ca4552a6700071bc3cf224b86a05ca1db3470cf12668c785af1cdb9b8bc0b.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/52/523343797832400b76deea02d953ba5b8027b27585075b2af251528a3da67882.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/twig/91/916b45c55233d9741b43152f9c198b668830f18449590fe285852a247f25fc23.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Admin/Date/edit.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Admin/Date/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -1289,9 +1192,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1898">
           <caret line="76" column="29" lean-forward="false" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,7 +1215,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Admin/Event/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
