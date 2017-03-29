@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use UserBundle\Entity\Position;
 use Doctrine\Common\Collections\ArrayCollection;
 use TeamBundle\Entity\Team;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -29,6 +30,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $firstname;
 
@@ -36,8 +38,20 @@ class User
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "Cet email '{{ value }}' n'est pas valide.",
+     *     checkMX = true
+     * )
+     */
+    private $email;
 
     /**
      * @var \DateTime
@@ -49,13 +63,14 @@ class User
     /**
      * Many Users have Many Positions.
      * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Position", inversedBy="users")
+     * @Assert\NotNull()
      */
     private $positions;
 
     /**
      * Many Users have One Team.
-     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team", inversedBy="users")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=false)
      */
     private $team;
 
@@ -204,5 +219,29 @@ class User
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

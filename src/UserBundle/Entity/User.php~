@@ -4,6 +4,10 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use UserBundle\Entity\Position;
+use Doctrine\Common\Collections\ArrayCollection;
+use TeamBundle\Entity\Team;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * User
@@ -20,12 +24,13 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $firstname;
 
@@ -33,8 +38,20 @@ class User
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "Cet email '{{ value }}' n'est pas valide.",
+     *     checkMX = true
+     * )
+     */
+    private $email;
 
     /**
      * @var \DateTime
@@ -137,5 +154,69 @@ class User
     {
         return $this->birthdate;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->positions = new ArrayCollection();
+    }
 
+    /**
+     * Add position
+     *
+     * @param \UserBundle\Entity\Position $position
+     *
+     * @return User
+     */
+    public function addPosition(Position $position)
+    {
+        $this->positions[] = $position;
+
+        return $this;
+    }
+
+    /**
+     * Remove position
+     *
+     * @param \UserBundle\Entity\Position $position
+     */
+    public function removePosition(Position $position)
+    {
+        $this->positions->removeElement($position);
+    }
+
+    /**
+     * Get positions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPositions()
+    {
+        return $this->positions;
+    }
+
+    /**
+     * Set team
+     *
+     * @param \TeamBundle\Entity\Team $team
+     *
+     * @return User
+     */
+    public function setTeam(Team $team)
+    {
+        $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \TeamBundle\Entity\Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+}

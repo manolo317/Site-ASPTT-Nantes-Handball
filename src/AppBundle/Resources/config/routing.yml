@@ -37,3 +37,8 @@ planning_training:
     path: /planning/training
     defaults:
         _controller: AppBundle:Planning:trainingPlanning
+
+app_contact_list:
+    path: /list-contact
+    defaults:
+        _controller: AppBundle:Default:listContact

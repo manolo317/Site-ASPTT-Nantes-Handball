@@ -109,4 +109,10 @@ class DefaultController extends Controller
         return $mailer->send($message);
     }
 
+    public function listContactAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('AppBundle:page:contact_list.html.twig');
+    }
+
 }
