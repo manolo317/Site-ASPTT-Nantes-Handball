@@ -1,0 +1,30 @@
+admin_position_index:
+    path:     /
+    defaults:
+        _controller: UserBundle:Position:index
+
+admin_position_show:
+    path:     /{id}/show
+    defaults:
+        _controller: UserBundle:Position:show
+    requirements:
+        id: \d+
+
+admin_position_new:
+    path:     /new
+    defaults:
+        _controller: UserBundle:Position:new
+
+admin_position_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: UserBundle:Position:edit
+    requirements:
+            id: \d+
+
+admin_position_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: UserBundle:Position:delete
+    requirements:
+            id: \d+

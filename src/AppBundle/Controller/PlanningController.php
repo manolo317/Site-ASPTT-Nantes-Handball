@@ -46,8 +46,7 @@ class PlanningController extends Controller
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
-            $form->handleRequest($request);
-            //je récupère mon instance de Team qui est dans l'attribut "name" de mon formulaire
+            $form->handleRequest($request);            //je récupère mon instance de Team qui est dans l'attribut "name" de mon formulaire
             $team = $team->getName();
 
             return $this->render('AppBundle:page/planning:annual_planning.html.twig', [

@@ -39,6 +39,10 @@ admin_user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /admin/user
 
+admin_position:
+    resource: "@UserBundle/Resources/config/position/routing.yml"
+    prefix:   /admin/position
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

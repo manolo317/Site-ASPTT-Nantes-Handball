@@ -28,30 +28,6 @@ class FairPlayController extends Controller
     }
 
     /**
-     * Creates a new fairPlay entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $fairPlay = new Fairplay();
-        $form = $this->createForm('InfoBundle\Form\FairPlayType', $fairPlay);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($fairPlay);
-            $em->flush();
-
-            return $this->redirectToRoute('admin_fairplay_show', array('id' => $fairPlay->getId()));
-        }
-
-        return $this->render('AppBundle:Admin/Fairplay:new.html.twig', array(
-            'fairPlay' => $fairPlay,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
      * Finds and displays a fairPlay entity.
      *
      */

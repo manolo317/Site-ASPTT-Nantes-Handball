@@ -3,13 +3,15 @@
 {% block body %}
     <h1>Users list</h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Birthdate</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>email</th>
+                <th>Roles</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +22,12 @@
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.birthdate|date('d-m-Y') }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% for position in user.positions %}
+                        <p>{{ position.name }}</p>
+                    {% endfor %}
+                </td>
                 <td>
                     <ul>
                         <li>

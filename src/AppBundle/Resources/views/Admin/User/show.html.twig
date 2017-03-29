@@ -22,6 +22,10 @@
                 <td>{{ user.birthdate|date('d-m-Y') }}</td>
             </tr>
             <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
                 <th>Role</th>
                 {% for position in user.positions %}
                 <td>

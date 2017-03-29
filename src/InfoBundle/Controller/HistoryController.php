@@ -28,30 +28,6 @@ class HistoryController extends Controller
     }
 
     /**
-     * Creates a new history entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $history = new History();
-        $form = $this->createForm('InfoBundle\Form\HistoryType', $history);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($history);
-            $em->flush();
-
-            return $this->redirectToRoute('admin_history_show', array('id' => $history->getId()));
-        }
-
-        return $this->render('AppBundle:Admin/History:new.html.twig', array(
-            'history' => $history,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
      * Finds and displays a history entity.
      *
      */
