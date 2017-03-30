@@ -18,6 +18,27 @@ team_view:
     defaults:
         _controller: AppBundle:Team:view
 
+post_view:
+    path: /post
+    defaults:
+        _controller: AppBundle:Post:index
+
+post_detail:
+    path:     /post/{id}
+    defaults:
+        _controller: AppBundle:Post:show
+    requirements:
+        id: \d+
+
+post_club:
+    path: /post/club
+    defaults:
+        _controller: AppBundle:Post:showEventClub
+
+post_handball:
+    path: /post/handball
+    defaults:
+        _controller: AppBundle:Post:showEventHandball
 planning_index:
     path: /planning
     defaults:

@@ -1,0 +1,49 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Evénements
+{% endblock %}
+
+{% block body %}
+    <div>
+        {{ form(form) }}
+    </div>
+    <div>
+        <li>
+            <ul>
+                <li class="dropdown-header"><a class="dropdown-header" href="{{ path('post_club') }}">Evénements du club</a></li>
+                <li><a href="{{ path('post_club') }}"><img class="menu-img" src="{{ asset('uploads/img/hand.jpg') }}" alt="handball-tour" height="150"></a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li class="dropdown-header"><a class="dropdown-header" href="{{ path('post_handball') }}">Evénements Handball</a></li>
+                <li><a href="{{ path('post_handball') }}"><img class="menu-img" src="{{ asset('uploads/img/france-islande-handball-2017.jpg') }}" alt="france-islande-handball-2017.jpg" height="150"></a></li>
+            </ul>
+        </li>
+    </div>
+    <div>
+        {% for post in posts %}
+            <a href="{{ path ('post_detail', {'id': post.id})}} ">
+                <h3>{{ post.title }}</h3>
+            </a>
+            {{ post.postCategory }}
+            <p>Publier le : {{ post.publishedAt | date('Y-m-d') }}</p>
+            {# LE slice permet de gerer les caratères à afficher #}
+            <p>{{ post.content|slice(0, 150)}} <a href="{{ path ('post_detail', {'id': post.id})}} ">... </a></p>
+            {% if post.image is not null %}
+                <img class="thumbnail"
+                     src="{{ asset(post.image.webPath) }}"
+                     alt="{{ post.image.alt }}"
+                     height="150"
+                />
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+
+
+
+{% endblock %}

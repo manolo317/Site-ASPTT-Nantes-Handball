@@ -6,6 +6,9 @@ admin_team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /admin/post
 admin_planning_event:
     resource: "@PlanningBundle/Resources/config/event/routing.yml"
     prefix:   /admin/planning/event
@@ -61,4 +64,3 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /admin/profile
-
