@@ -1,0 +1,42 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Liste des gymnases du Club
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <header class="page-header">
+            <h2>Liste des gymnases du Club</h2>
+        </header>
+        <section class="col-sm-8">
+            <table class="table table-bordered">
+                <thead>
+                <th>Gymnase</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                </thead>
+                <tbody>
+                {% for place in places %}
+                    {% if place.name != "Extérieur" %}
+                    <tr>
+                        <td>{{ place.name }}</td>
+                        <td>
+                            <p>{{ place.adress }}</p>
+                            <p>{{ place.postalCode }} {{ place.city }}</p>
+                        </td>
+                        <td>{{ place.phone }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}

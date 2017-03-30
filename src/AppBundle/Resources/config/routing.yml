@@ -49,6 +49,11 @@ fairplay_view:
         _controller: AppBundle:Fairplay:view
 
 app_contact_list:
-    path: /list-contact
+    path: /liste-contact
     defaults:
         _controller: AppBundle:ContactList:listContact
+
+app_place_list:
+    path: /liste-gymnase
+    defaults:
+        _controller: AppBundle:PlaceList:listPlace
