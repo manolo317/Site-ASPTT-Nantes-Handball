@@ -19,4 +19,5 @@ class TeamRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
+
 }

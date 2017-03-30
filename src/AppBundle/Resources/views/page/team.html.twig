@@ -60,15 +60,25 @@
                         <h2 class="panel-title">Joueurs :</h2>
                     </div>
                     <ul class="list-group">
-                        {% for number in 0..10 %}
-                            <li class="list-group-item">Kevin Leborgne <span class="badge">n°10</span></li>
+                        {% for player in team.users %}
+                            {% for role in player.positions %}
+                                {% if role.name == "Joueur" %}
+                                <li class="list-group-item">{{ player.firstname }} {{ player.lastname }}</li>
+                                {% endif %}
+                            {% endfor %}
                         {% endfor %}
                     </ul>
                         <div class="panel-heading">
                             <h2 class="panel-title">Entraineurs :</h2>
                         </div>
                     <ul class="list-group">
-                        <li class="list-group-item">Michel Dumas</li>
+                        {% for player in team.users %}
+                            {% for role in player.positions %}
+                                {% if role.name == "Entraineur" %}
+                                    <li class="list-group-item">{{ player.firstname }} {{ player.lastname }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
                     </ul>
                 </div>
             </section>

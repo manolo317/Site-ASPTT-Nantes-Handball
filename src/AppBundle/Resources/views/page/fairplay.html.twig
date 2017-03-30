@@ -1,0 +1,20 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ fairplay.title }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <h2>{{ fairplay.title }}</h2>
+
+    <div>{{ fairplay.content }}</div>
+
+
+
+{% endblock %}

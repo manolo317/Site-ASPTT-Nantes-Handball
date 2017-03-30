@@ -1,0 +1,18 @@
+{% extends "AppBundle:Admin:layout.html.twig" %}
+
+{% block title %}
+    Accueil Admin
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <h2>Au boulot!</h2>
+
+
+
+{% endblock %}

@@ -4,15 +4,18 @@ imports:
     - { resource: services.yml }
     - { resource: "@TeamBundle/Resources/config/services.yml" }
     - { resource: "@EventBundle/Resources/config/services.yml" }
-
+    - { resource: "@PlanningBundle/Resources/config/services.yml" }
+    - { resource: "@PlaceBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@InfoBundle/Resources/config/services.yml" }
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr_FR
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -88,3 +91,11 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+fos_user:
+    db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
+    firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
+    user_class:    UserBundle\Entity\Admin # La classe de l'entité User que nous utilisons
+    from_email:
+        address: admin@asptt.fr
+        sender_name: Admin

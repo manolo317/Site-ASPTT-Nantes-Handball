@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
+
 class TeamType extends AbstractType
 {
     /**
@@ -19,12 +20,12 @@ class TeamType extends AbstractType
             ->add('level')
             ->add('palmares')
             ->add('ranking')
-            ->add('category', EntityType::class, array(
+            ->add('category', EntityType::class, [
                 'class'        => 'TeamBundle:Category',
                 'choice_label' => 'name',
                 'multiple'     => false,
                 'expanded'     => false,
-            ))
+            ])
             ->add('image', ImageType::class, array('required' => false));
     }
     

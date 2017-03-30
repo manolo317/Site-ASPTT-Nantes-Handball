@@ -1,0 +1,41 @@
+<?php
+
+namespace InfoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FairPlay
+ *
+ * @ORM\Table(name="fair_play")
+ * @ORM\Entity(repositoryClass="InfoBundle\Repository\FairPlayRepository")
+ */
+class FairPlay
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $content;
+
+
+
+}
+

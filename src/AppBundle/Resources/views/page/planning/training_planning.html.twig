@@ -1,0 +1,146 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Planning entrainements
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <table class="table table-bordered">
+            {% for day in days %}
+                <tbody>
+                    <th>{{ day.name }}</th>
+                    {% for training in day.trainings %}
+                        <td>
+                            <div><strong>{{ training.team.name }}</strong></div>
+                            {#<div>{{ loop.parent.day.id }}</div>#}
+                            <div>{{ training.hour|date('H:i') }}</div>
+                            <div>{{ training.place.name }}</div>
+                        </td>
+                    {% endfor %}
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    {#<div>#}
+        {#<table class="table table-bordered">#}
+            {#<tr>#}
+                {#<th>Lundi</th>#}
+                {#{% for day in days %}#}
+                    {#{% if day.name == "Lundi" %}#}
+                        {#{% for training in day.trainings %}#}
+                            {#{% if training.place.name == "Salle Longchamp" %}#}
+                                {#{% if loop.first %}#}
+                                {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                {#</td>#}
+                            {#{% elseif training.place.name == "Salle des Dervalières" %}#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                    {#<div>{{ training.place.name }}</div>#}
+                                {#</td>#}
+                            {#{% elseif training.place.name == "Salle Gaston Serpette" %}#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                    {#<div>{{ training.place.name }}</div>#}
+                                {#</td>#}
+                            {#{% elseif training.place.name == "Salle Coubertin" %}#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                    {#<div>{{ training.place.name }}</div>#}
+                                {#</td>#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+            {#</tr>#}
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+            {#<tr>#}
+                {#<th rowspan="3">Mardi</th>#}
+                {#{% for day in days %}#}
+                    {#{% if day.name == "Mardi" %}#}
+                        {#{% for training in day.trainings %}#}
+                            {#{% if training.place.name == "Salle Longchamp" %}#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                {#</td>#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+
+            {#</tr>#}
+                        {#{% for training in day.trainings %}#}
+                            {#{% if training.place.name == "Salle des Dervalières" %}#}
+            {#<tr>#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                {#</td>#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+            {#</tr>#}
+                        {#{% for training in day.trainings %}#}
+                            {#{% if training.place.name == "Salle Gaston Serpette" %}#}
+            {#<tr>#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                {#</td>#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+            {#</tr>#}
+                        {#{% for training in day.trainings %}#}
+                            {#{% if training.place.name == "Salle Coubertin" %}#}
+            {#<tr>#}
+                                {#{% if loop.first %}#}
+                                    {#<td>{{ training.place.name }}</td>#}
+                                {#{% endif %}#}
+                                {#<td>#}
+                                    {#<div>{{ training.team.name }}</div>#}
+                                    {#<div>{{ loop.parent.day.id }}</div>#}
+                                    {#<div>{{ training.hour|date('H:i') }}</div>#}
+                                {#</td>#}
+                            {#{% endif %}#}
+                        {#{% endfor %}#}
+                    {#{% endif %}#}
+            {#</tr>#}
+                {#{% endfor %}#}
+        {#</table>#}
+    {#</div>#}
+{% endblock %}

@@ -1,0 +1,30 @@
+admin_training_index:
+    path:     /
+    defaults:
+        _controller: PlanningBundle:Training:index
+
+admin_training_show:
+    path:     /{id}/show
+    defaults:
+        _controller: PlanningBundle:Training:show
+    requirements:
+        id: \d+
+
+admin_training_new:
+    path:     /new
+    defaults:
+        _controller: PlanningBundle:Training:new
+
+admin_training_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: PlanningBundle:Training:edit
+    requirements:
+            id: \d+
+
+admin_training_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: PlanningBundle:Training:delete
+    requirements:
+            id: \d+
