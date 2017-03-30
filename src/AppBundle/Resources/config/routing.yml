@@ -6,7 +6,7 @@ app_index:
 app_contact:
     path:     /contact
     defaults:
-        _controller: AppBundle:Default:contact
+        _controller: AppBundle:Mail:contact
 
 admin_index:
     path:     /admin
