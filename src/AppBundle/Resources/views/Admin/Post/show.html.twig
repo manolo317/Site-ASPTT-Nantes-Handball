@@ -27,6 +27,16 @@
                 <td><img src="{{ asset(post.image.webPath) }}"></td>
             </tr>
             {% endif %}
+            <tr>
+                <th>Publié</th>
+                <td>
+                    {% if post.validated == true %}
+                        publié
+                    {% elseif post.validated == false %}
+                        non publié
+                    {% endif %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

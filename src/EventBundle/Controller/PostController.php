@@ -94,7 +94,7 @@ class PostController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_post_edit', array('id' => $post->getId()));
+            return $this->redirectToRoute('admin_post_index', array('id' => $post->getId()));
         }
 
         return $this->render('AppBundle:Admin/Post:edit.html.twig', array(

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -28,6 +29,10 @@ class PostType extends AbstractType
                 'choice_label' => 'name',
                 'multiple'     => false,
                 'expanded'     => false,
+            ])
+            ->add('validated', CheckboxType::class, [
+                'label'    => 'Publié',
+                'required' => false,
             ])
             ->add('image', ImageType::class, array('required' => false));
     }

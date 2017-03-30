@@ -19,6 +19,6 @@ class FairplayController extends Controller
 
         $fairplay = $em->getRepository('InfoBundle:FairPlay')->findOneById(1);
 
-        return $this->render('AppBundle:page:fairplay.html.twig', ['fairplay' => $fairplay]);
+        return $this->render('AppBundle:page/annexes:fairplay.html.twig', ['fairplay' => $fairplay]);
     }
 }

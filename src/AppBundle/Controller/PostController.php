@@ -34,14 +34,18 @@ class PostController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $data = $form->getData();
-//                dump($posts['search']);
-//                die();
+            $research = $data['search'];
 
-            $posts = $em->getRepository('EventBundle:Post')->getByResearch($data['search']);
+            $posts = $em->getRepository('EventBundle:Post')->getByResearch($research);
+            if(empty($posts)){
+
+                $session = $request->getSession();
+                $session->getFlashBag()->add('notice', 'Pas de résultats pour '.$research.' !');
+            }
 
         }
 
-        return $this->render('AppBundle:page:post_index.html.twig', [
+        return $this->render('AppBundle:page/post:post_index.html.twig', [
             'posts' => $posts,
             'form' => $form->createView()
         ]);
@@ -50,23 +54,23 @@ class PostController extends Controller
     public function viewAction(Post $post)
     {
 
-        return $this->render('AppBundle:page:post_detail.html.twig', ['post' => $post]);
+        return $this->render('AppBundle:page/post:post_detail.html.twig', ['post' => $post]);
     }
 
     public function showEventClubAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('EventBundle:Post')->findByPostCategory(2);
+        $posts = $em->getRepository('EventBundle:Post')->getPostsByCategory(2);
 
-        return $this->render('AppBundle:page:post_club.html.twig', ['posts' => $posts]);
+        return $this->render('AppBundle:page/post:post_club.html.twig', ['posts' => $posts]);
     }
 
     public function showEventHandballAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('EventBundle:Post')->findByPostCategory(1);
+        $posts = $em->getRepository('EventBundle:Post')->getPostsByCategory(1);
 
-        return $this->render('AppBundle:page:post_hand.html.twig', ['posts' => $posts]);
+        return $this->render('AppBundle:page/post:post_hand.html.twig', ['posts' => $posts]);
     }
 
 }

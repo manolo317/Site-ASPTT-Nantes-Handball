@@ -23,9 +23,6 @@ class AdminController extends Controller
 
     public function menuAction()
     {
-
-
-
         return $this->render('AppBundle:Admin:admin_navbar.html.twig');
     }
 }

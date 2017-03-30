@@ -48,6 +48,12 @@ class PlanningController extends Controller
             // On fait le lien Requête <-> Formulaire
             $form->handleRequest($request);            //je récupère mon instance de Team qui est dans l'attribut "name" de mon formulaire
             $team = $team->getName();
+            if(empty($team->getEvents())){
+
+                $session = $request->getSession();
+                $session->getFlashBag()->add('notice', 'Pas de résultats pour '.$research.' !');
+            }
+
 
             return $this->render('AppBundle:page/planning:annual_planning.html.twig', [
                 'team' => $team,

@@ -10,6 +10,7 @@
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
+                <th>Publié</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,13 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.content }}</td>
                 <td>{{ post.author }}</td>
+                <td>
+                    {% if post.validated == true %}
+                        publié
+                    {% elseif post.validated == false %}
+                        non publié
+                    {% endif %}
+                </td>
                 <td>
                     <ul>
                         <li>

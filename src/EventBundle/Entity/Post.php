@@ -4,8 +4,8 @@ namespace EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-// use EventBundle\Entity\Seo;
-// use TeamBundle\Entity\Image;
+use EventBundle\Entity\Seo;
+use TeamBundle\Entity\Image;
 
 /**
  * Post
@@ -76,6 +76,11 @@ class Post
      * @ORM\JoinColumn(nullable=false)
      */
     private $postCategory;
+
+    /**
+     * @ORM\Column(name="validated", type="boolean")
+     */
+    private $validated = false;
 
     /**
      * Get id
@@ -167,7 +172,7 @@ class Post
      *
      * @return Post
      */
-    public function setSeo(\EventBundle\Entity\Seo $seo = null)
+    public function setSeo(Seo $seo = null)
     {
         $this->seo = $seo;
 
@@ -191,7 +196,7 @@ class Post
      *
      * @return Post
      */
-    public function setImage(\TeamBundle\Entity\Image $image = null)
+    public function setImage(Image $image = null)
     {
         $this->image = $image;
 
@@ -237,7 +242,7 @@ class Post
      *
      * @return Post
      */
-    public function setPostCategory(\EventBundle\Entity\PostCategory $postCategory)
+    public function setPostCategory(PostCategory $postCategory)
     {
         $this->postCategory = $postCategory;
 
@@ -252,5 +257,29 @@ class Post
     public function getPostCategory()
     {
         return $this->postCategory;
+    }
+
+    /**
+     * Set validated
+     *
+     * @param boolean $validated
+     *
+     * @return Post
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
+
+        return $this;
+    }
+
+    /**
+     * Get validated
+     *
+     * @return boolean
+     */
+    public function getValidated()
+    {
+        return $this->validated;
     }
 }

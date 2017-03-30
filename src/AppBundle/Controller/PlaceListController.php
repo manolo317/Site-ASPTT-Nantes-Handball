@@ -21,6 +21,6 @@ class PlaceListController extends Controller
         $em = $this->getDoctrine()->getManager();
         $places = $em->getRepository('PlaceBundle:Place')
             ->findAll();
-        return $this->render('AppBundle:page:place_list.html.twig', ['places' => $places]);
+        return $this->render('AppBundle:page/annexes:place_list.html.twig', ['places' => $places]);
     }
 }

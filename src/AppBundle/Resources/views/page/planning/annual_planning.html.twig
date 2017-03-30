@@ -6,9 +6,9 @@
 
 {% block body %}
     <div>
-        {# On affiche tous les messages flash dont le nom est « info » #}
+         {#On affiche tous les messages flash dont le nom est « notice »#}
         {% for message in app.session.flashbag.get('notice') %}
-            <p>Message flash : {{ message }}</p>
+            <p> {{ message }}</p>
         {% endfor %}
     </div>
     <div>
@@ -23,9 +23,9 @@
                 <thead>
                     <tr>
                         <th>Dates</th>
-                        <th>SM1</th>
-                        <th>SM2</th>
-                        <th>SF1</th>
+                        <th>Equipe</th>
+                        <th>Equipe</th>
+                        <th>Equipe</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +59,7 @@
             </table>
         </div>
     {% else %}
+        {% if team.events is not empty %}
         <div>
             <h2>Planning {{ team.name }}</h2>
             <table class="table table-bordered">
@@ -82,5 +83,8 @@
                 </tbody>
             </table>
         </div>
+        {% else %}
+            <div>Pas de matchs pour cette équipe</div>
+        {% endif %}
     {% endif %}
 {% endblock %}

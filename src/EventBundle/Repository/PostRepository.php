@@ -14,22 +14,36 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this
         ->createQueryBuilder('p')
-        ->where('p.title = :title')
-        ->SetParameter('title',$title)
+        ->where('p.validated = 1')
+        ->andWhere('p.title = :title')
+        ->setParameter('title',$title)
         ->getQuery()
         ->getResult();
     }
     public function findThreeLastPosts()
     {
         return $this->createQueryBuilder('p')
+            ->where('p.validated = 1')
             ->orderBy('p.publishedAt', 'DESC')
             ->getQuery()
             ->setMaxResults(3)
             ->getResult();
     }
+
+    public function getPostsByCategory($idPostCategory)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.validated = 1')
+            ->andWhere('p.postCategory = :id')
+            ->setParameter('id', $idPostCategory)
+            ->orderBy('p.publishedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
     public function getFiveRow()
     {
         return $this->createQueryBuilder('p')
+            ->where('p.validated = 1')
             ->limit(5,5)
             ->getQuery()
             ->getResult();
@@ -41,6 +55,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('p')
             ->where('p.title LIKE :search')
             ->orWhere('p.content LIKE :search')
+            ->andWhere('p.validated = 1')
             ->setParameter('search', '%' .$search. '%')
             ->getQuery()
             ->getResult();

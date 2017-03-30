@@ -19,6 +19,6 @@ class HistoryController extends Controller
 
         $history = $em->getRepository('InfoBundle:History')->findOneById(1);
 
-        return $this->render('AppBundle:page:history.html.twig', ['history' => $history]);
+        return $this->render('AppBundle:page/annexes:history.html.twig', ['history' => $history]);
     }
 }

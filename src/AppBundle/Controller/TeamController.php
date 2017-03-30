@@ -22,6 +22,6 @@ class TeamController extends Controller
     public function viewAction(Team $team)
     {
 
-        return $this->render('AppBundle:page:team.html.twig', ['team' => $team]);
+        return $this->render('AppBundle:page/annexes:team.html.twig', ['team' => $team]);
     }
 }

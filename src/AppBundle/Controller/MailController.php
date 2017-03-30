@@ -48,7 +48,7 @@ class MailController extends Controller
             }
         }
 
-        return $this->render('AppBundle:page:contact.html.twig', ['form' => $form->createView()]);
+        return $this->render('AppBundle:page/annexes:contact.html.twig', ['form' => $form->createView()]);
 
     }
 

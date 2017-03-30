@@ -22,25 +22,25 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Your name'),
+            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Votre Nom'),
                 'constraints' => array(
-                    new NotBlank(array("message" => "Please provide your name")),
+                    new NotBlank(array("message" => "Entrez votre nom")),
                 )
             ))
-            ->add('subject', TextType::class, array('attr' => array('placeholder' => 'Subject'),
+            ->add('subject', TextType::class, array('attr' => array('placeholder' => 'Sujet'),
                 'constraints' => array(
-                    new NotBlank(array("message" => "Please give a Subject")),
+                    new NotBlank(array("message" => "Entrez un sujet")),
                 )
             ))
-            ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Your email address'),
+            ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Votre email'),
                 'constraints' => array(
-                    new NotBlank(array("message" => "Please provide a valid email")),
-                    new Email(array("message" => "Your email doesn't seems to be valid")),
+                    new NotBlank(array("message" => "Entrez votre email")),
+                    new Email(array("message" => "Votre email n'est pas valide")),
                 )
             ))
-            ->add('message', TextareaType::class, array('attr' => array('placeholder' => 'Your message here'),
+            ->add('message', TextareaType::class, array('attr' => array('placeholder' => 'Votre message'),
                 'constraints' => array(
-                    new NotBlank(array("message" => "Please provide a message here")),
+                    new NotBlank(array("message" => "Entrez votre message")),
                 )
             ))
         ;

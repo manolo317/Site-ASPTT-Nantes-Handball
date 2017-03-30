@@ -20,6 +20,6 @@ class ContactListController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('UserBundle:User')
             ->findAll();
-        return $this->render('AppBundle:page:contact_list.html.twig', ['users' => $users]);
+        return $this->render('AppBundle:page/annexes:contact_list.html.twig', ['users' => $users]);
     }
 }
