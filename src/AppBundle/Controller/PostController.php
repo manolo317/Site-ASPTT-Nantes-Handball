@@ -19,40 +19,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PostController extends Controller
 {
-//    public function indexAction(Request $request)
-//    {
-//        // permet de récuperer les infos dans doctrine
-//        $em = $this->getDoctrine()->getManager();
-//    	// Appel la fonction définit dans le repository de la classe post
-//        $posts = $em->getRepository('EventBundle:Post')->findThreeLastPosts();
-//        // retourne le résultat dans le fichier twig (chemin définit)
-//        return $this->render('AppBundle:page:post_index.html.twig', [
-//            'posts' => $posts,
-//        ]);
-//    }
-    public function viewAction(Post $post)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-//        $form = $this->get('form.factory')->createBuilde(FormType::class)
-//            ->add('filter', ChoiceType::class, [
-//                'choices' => [
-//                    "Handball" => "Handball",
-//                    "Club" => "Club"
-//                ]
-//            ])
-//            ->add('filter', SubmitType::class)
-//            ->getForm();
-
-        $posts = $em->getRepository('EventBundle:Post')->findThreeLastPosts();
-        return $this->render('AppBundle:page:post_index.html.twig', ['post' => $post]);
-    }
-    public function showAction(Post $post)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        return $this->render('AppBundle:page:post_detail.html.twig', ['post' => $post]);
-    }
 
     public function indexAction(Request $request)
     {
@@ -81,6 +47,12 @@ class PostController extends Controller
         ]);
     }
 
+    public function viewAction(Post $post)
+    {
+
+        return $this->render('AppBundle:page:post_detail.html.twig', ['post' => $post]);
+    }
+
     public function showEventClubAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -94,7 +66,7 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
         $posts = $em->getRepository('EventBundle:Post')->findByPostCategory(1);
 
-        return $this->render('AppBundle:page:post_club.html.twig', ['posts' => $posts]);
+        return $this->render('AppBundle:page:post_hand.html.twig', ['posts' => $posts]);
     }
 
 }

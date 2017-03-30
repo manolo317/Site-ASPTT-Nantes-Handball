@@ -23,7 +23,7 @@ class PostController extends Controller
     /**
      * Lists all post entities.
      *
-     * @Route("/", name="post_index")
+     * @Route("/", name="admin_post_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -40,7 +40,7 @@ class PostController extends Controller
     /**
      * Creates a new post entity.
      *
-     * @Route("/new", name="post_new")
+     * @Route("/new", name="admin_post_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -54,7 +54,7 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+            return $this->redirectToRoute('admin_post_show', array('id' => $post->getId()));
         }
 
         return $this->render('AppBundle:Admin/Post:new.html.twig', array(
@@ -66,7 +66,7 @@ class PostController extends Controller
     /**
      * Finds and displays a post entity.
      *
-     * @Route("/{id}", name="post_show")
+     * @Route("/{id}", name="admin_post_show")
      * @Method("GET")
      */
     public function showAction(Post $post)
@@ -82,7 +82,7 @@ class PostController extends Controller
     /**
      * Displays a form to edit an existing post entity.
      *
-     * @Route("/{id}/edit", name="post_edit")
+     * @Route("/{id}/edit", name="admin_post_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -94,7 +94,7 @@ class PostController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
+            return $this->redirectToRoute('admin_post_edit', array('id' => $post->getId()));
         }
 
         return $this->render('AppBundle:Admin/Post:edit.html.twig', array(
@@ -107,7 +107,7 @@ class PostController extends Controller
     /**
      * Deletes a post entity.
      *
-     * @Route("/{id}", name="post_delete")
+     * @Route("/{id}", name="admin_post_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)
@@ -121,7 +121,7 @@ class PostController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('post_index');
+        return $this->redirectToRoute('admin_post_index');
     }
 
     /**
@@ -134,7 +134,7 @@ class PostController extends Controller
     private function createDeleteForm(Post $post)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('post_delete', array('id' => $post->getId())))
+            ->setAction($this->generateUrl('admin_post_delete', array('id' => $post->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
