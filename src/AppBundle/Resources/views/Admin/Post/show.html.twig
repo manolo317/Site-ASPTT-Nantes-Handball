@@ -21,6 +21,12 @@
                 <th>Author</th>
                 <td>{{ post.author }}</td>
             </tr>
+            {% if post.image %}
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(post.image.webPath) }}"></td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 

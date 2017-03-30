@@ -2,10 +2,15 @@
 
 namespace EventBundle\Controller;
 
+use AppBundle\AppBundle;
+use Doctrine\DBAL\Types\TextType;
 use EventBundle\Entity\Post;
+use EventBundle\Form\PostType;
+use EventBundle\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -134,4 +139,5 @@ class PostController extends Controller
             ->getForm()
         ;
     }
+
 }

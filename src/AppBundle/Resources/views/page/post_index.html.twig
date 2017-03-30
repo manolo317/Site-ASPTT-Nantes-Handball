@@ -10,6 +10,20 @@
         {{ form(form) }}
     </div>
     <div>
+        <li>
+            <ul>
+                <li class="dropdown-header"><a class="dropdown-header" href="{{ path('post_club') }}">Evénements du club</a></li>
+                <li><a href="{{ path('post_club') }}"><img class="menu-img" src="{{ asset('uploads/img/hand.jpg') }}" alt="handball-tour" height="150"></a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li class="dropdown-header"><a class="dropdown-header" href="{{ path('post_handball') }}">Evénements Handball</a></li>
+                <li><a href="{{ path('post_handball') }}"><img class="menu-img" src="{{ asset('uploads/img/france-islande-handball-2017.jpg') }}" alt="france-islande-handball-2017.jpg" height="150"></a></li>
+            </ul>
+        </li>
+    </div>
+    <div>
         {% for post in posts %}
             <a href="{{ path ('post_detail', {'id': post.id})}} ">
                 <h3>{{ post.title }}</h3>
@@ -22,6 +36,7 @@
                 <img class="thumbnail"
                      src="{{ asset(post.image.webPath) }}"
                      alt="{{ post.image.alt }}"
+                     height="150"
                 />
             {% endif %}
         {% endfor %}

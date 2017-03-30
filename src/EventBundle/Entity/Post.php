@@ -3,6 +3,7 @@
 namespace EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 // use EventBundle\Entity\Seo;
 // use TeamBundle\Entity\Image;
 
@@ -11,9 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="EventBundle\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
+    public function __construct()
+    {
+        // Génère la date du jour
+        $this->publishedAt = new \DateTime();
+    }
     /**
      * @var int
      *
@@ -27,6 +34,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -34,6 +42,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     private $content;
 
@@ -41,6 +50,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $author;
 
@@ -59,6 +69,13 @@ class Post
     * @ORM\Column(name="published_at", type="datetime", nullable=false)
     */
     private $publishedAt;
+
+    /**
+     * Many Team have One Category.
+     * @ORM\ManyToOne(targetEntity="EventBundle\Entity\PostCategory")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $postCategory;
 
     /**
      * Get id
@@ -210,5 +227,30 @@ class Post
     public function getPublishedAt()
     {
         return $this->publishedAt;
+    }
+    
+
+    /**
+     * Set postCategory
+     *
+     * @param \EventBundle\Entity\PostCategory $postCategory
+     *
+     * @return Post
+     */
+    public function setPostCategory(\EventBundle\Entity\PostCategory $postCategory)
+    {
+        $this->postCategory = $postCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get postCategory
+     *
+     * @return \EventBundle\Entity\PostCategory
+     */
+    public function getPostCategory()
+    {
+        return $this->postCategory;
     }
 }

@@ -34,6 +34,16 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
-    
+
+    public function getByResearch($search)
+    {
+        // Création du QueryBuilder pour rechercher un mot dans le contenu ou le titre des artiles
+        return $this->createQueryBuilder('p')
+            ->where('p.title LIKE :search')
+            ->orWhere('p.content LIKE :search')
+            ->setParameter('search', '%' .$search. '%')
+            ->getQuery()
+            ->getResult();
+    }
  
 }

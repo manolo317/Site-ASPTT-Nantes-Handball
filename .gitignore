@@ -16,3 +16,4 @@
 /web/bundles/
 /composer.lock
 /web/config.php
+/.idea/

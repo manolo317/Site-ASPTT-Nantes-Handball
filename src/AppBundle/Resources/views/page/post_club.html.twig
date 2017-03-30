@@ -2,25 +2,25 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block title %}
-    {{ post.title }}
-    <meta name="description" content="{{ post.seo.description }}"/>
+    Evénement Club
 {% endblock %}
 
 {% block body %}
-    <div>
-
-        <h3>{{ post.title }}</h3>
+    {% for post in posts %}
+        <a href="{{ path ('post_detail', {'id': post.id})}} ">
+            <h3>{{ post.title }}</h3>
+        </a>
         {{ post.postCategory }}
         <p>Publier le : {{ post.publishedAt | date('Y-m-d') }}</p>
         {# LE slice permet de gerer les caratères à afficher #}
-        <p>{{ post.content}}</p>
+        <p>{{ post.content|slice(0, 150)}} <a href="{{ path ('post_detail', {'id': post.id})}} ">... </a></p>
         {% if post.image is not null %}
             <img class="thumbnail"
                  src="{{ asset(post.image.webPath) }}"
                  alt="{{ post.image.alt }}"
+                 height="150"
             />
-
         {% endif %}
+    {% endfor %}
 
-    </div>
-{% endblock body %}
+{% endblock %}

@@ -19,3 +19,13 @@ post_detail:
         _controller: AppBundle:Post:show
     requirements:
         id: \d+
+
+post_club:
+    path: /post/club
+    defaults:
+        _controller: AppBundle:Post:showEventClub
+
+post_handball:
+    path: /post/handball
+    defaults:
+        _controller: AppBundle:Post:showEventHandball
