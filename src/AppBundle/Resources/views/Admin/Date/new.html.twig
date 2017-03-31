@@ -5,12 +5,12 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <button type="submit" class="btn btn-success">ajouter</button>
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('admin_date_index') }}">Back to the list</a>
+            <a href="{{ path('admin_date_index') }}"class="btn btn-primary">retour</a>
         </li>
     </ul>
 {% endblock %}

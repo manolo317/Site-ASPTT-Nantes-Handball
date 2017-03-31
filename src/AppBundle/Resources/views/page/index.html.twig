@@ -5,13 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    <div>
+    <div class="col-md-8">
         {# On affiche tous les messages flash dont le nom est « info » #}
         {% for message in app.session.flashbag.get('notice') %}
             <p>Info: {{ message }}</p>
         {% endfor %}
-    </div>
-    <h2>Les news</h2>
 
+        <h2>Les news</h2>
+    </div>
+    <div class="col-md-4">
+        {{ render(controller("AppBundle:Default:side")) }}
+    </div>
 
 {% endblock %}

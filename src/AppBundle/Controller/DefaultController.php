@@ -16,7 +16,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('AppBundle:page:index.html.twig');
     }
 
@@ -49,6 +49,21 @@ class DefaultController extends Controller
                                                              'juniorTeams' => $juniorTeams,
                                                              'kidsTeams' => $kidsTeams,
                                                              'loisirsTeams' => $loisirsTeams]);
+    }
+    
+    public function sideAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $handPosts = $em->getRepository('EventBundle:Post')
+            ->findLastPostByCategory(1);
+
+        $clubPosts = $em->getRepository('EventBundle:Post')
+            ->findLastPostByCategory(2);
+
+
+        return $this->render('AppBundle::sidebar.html.twig', ['handPosts' => $handPosts,
+            'clubPosts' => $clubPosts]);
     }
 
 }

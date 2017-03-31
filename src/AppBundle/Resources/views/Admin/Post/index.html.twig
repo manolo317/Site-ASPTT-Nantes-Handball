@@ -3,6 +3,12 @@
 {% block body %}
     <h1>Liste des posts</h1>
 
+    <ul>
+        <li>
+            <a href="{{ path('admin_post_new') }}"class="btn btn-primary">Nouvel article</a>
+        </li>
+    </ul>
+
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -31,10 +37,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_post_show', { 'id': post.id }) }}">show</a>
+                            <a href="{{ path('admin_post_show', { 'id': post.id }) }}"class="btn btn-success btn-sm">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_post_edit', { 'id': post.id }) }}">edit</a>
+                            <a href="{{ path('admin_post_edit', { 'id': post.id }) }}"class="btn btn-warning">modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -43,9 +49,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_post_new') }}">Create a new post</a>
-        </li>
-    </ul>
 {% endblock %}

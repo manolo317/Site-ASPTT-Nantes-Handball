@@ -1,0 +1,49 @@
+
+    <div class="row">
+        <div class="panel panel-success">
+            {% for handPost in handPosts %}
+                <div class="panel-heading">
+                    <h2 class="panel-title">Dernier article Handball <a title="articles handball" href="{{ path ('app_post_handball')}}">+ d'articles</a></h2>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h4><a title="lire la suite" href="{{ path ('app_post_view', {'id': handPost.id})}} ">{{ handPost.title }}</a></h4>
+                        <div>
+                            {% if handPost.image is not null %}
+                                <img class="thumbnail img-responsive"
+                                     src="{{ asset(handPost.image.webPath) }}"
+                                     alt="{{ handPost.image.alt }}"
+                                />
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div>
+                        {{ handPost.content|slice(0, 100)}} <a title="lire la suite" href="{{ path ('app_post_view', {'id': handPost.id})}} ">... </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for clubPost in clubPosts %}
+                <div class="panel-heading">
+                    <h2 class="panel-title">Dernier article Club <a title="articles du club" href="{{ path ('app_post_club')}}">+ d'articles</a></h2>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h4><a title="lire la suite" href="{{ path ('app_post_view', {'id': clubPost.id})}} ">{{ clubPost.title }}</a></h4>
+                            <div>
+                                {% if clubPost.image is not null %}
+                                    <img class="thumbnail img-responsive"
+                                         src="{{ asset(clubPost.image.webPath) }}"
+                                         alt="{{ clubPost.image.alt }}"
+                                    />
+                                {% endif %}
+                            </div>
+
+                    </div>
+                    <div>
+                        {{ clubPost.content|slice(0, 100)}} <a title="lire la suite" href="{{ path ('app_post_view', {'id': clubPost.id})}} ">... </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+

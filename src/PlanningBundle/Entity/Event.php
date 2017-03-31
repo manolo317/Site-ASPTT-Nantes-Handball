@@ -66,14 +66,14 @@ class Event
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $placeResponsable;
+    private $placeResponsable = null;
 
     /**
      * Many Events have One TableResponsable.
      * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $tableResponsable;
+    private $tableResponsable = null;
 
     /**
      * Get id

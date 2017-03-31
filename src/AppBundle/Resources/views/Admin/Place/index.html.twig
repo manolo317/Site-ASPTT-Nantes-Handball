@@ -3,6 +3,12 @@
 {% block body %}
     <h1>Liste des salles</h1>
 
+    <ul>
+        <li>
+            <a href="{{ path('admin_place_new') }}"class="btn btn-primary">Nouvelle salle</a>
+        </li>
+    </ul>
+
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -27,10 +33,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_place_show', { 'id': place.id }) }}">show</a>
+                            <a href="{{ path('admin_place_show', { 'id': place.id }) }}"class="btn btn-success btn-sm">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}">edit</a>
+                            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}"class="btn btn-warning">modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -39,9 +45,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_place_new') }}">Create a new place</a>
-        </li>
-    </ul>
 {% endblock %}

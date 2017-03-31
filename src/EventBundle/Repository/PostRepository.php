@@ -40,14 +40,6 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
-    public function getFiveRow()
-    {
-        return $this->createQueryBuilder('p')
-            ->where('p.validated = 1')
-            ->limit(5,5)
-            ->getQuery()
-            ->getResult();
-    }
 
     public function getByResearch($search)
     {
@@ -58,6 +50,18 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('p.validated = 1')
             ->setParameter('search', '%' .$search. '%')
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findLastPostByCategory($idPostCategory)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.validated = 1')
+            ->andWhere('p.postCategory = :id')
+            ->setParameter('id', $idPostCategory)
+            ->orderBy('p.publishedAt', 'DESC')
+            ->getQuery()
+            ->setMaxResults(1)
             ->getResult();
     }
  

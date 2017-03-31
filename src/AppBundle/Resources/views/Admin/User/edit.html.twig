@@ -5,16 +5,16 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <button type="submit" class="btn btn-warning">modifier</button>
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('admin_user_index') }}">Back to the list</a>
+            <a href="{{ path('admin_user_index') }}"class="btn btn-primary">retour</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <button type="submit" class="btn btn-danger">supprimer</button>
             {{ form_end(delete_form) }}
         </li>
     </ul>

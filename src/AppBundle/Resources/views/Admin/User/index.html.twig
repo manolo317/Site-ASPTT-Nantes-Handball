@@ -1,8 +1,16 @@
 {% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>Users list</h1>
+    <h1>Liste des membres</h1>
 
+    <ul>
+        <li>
+            <a href="{{ path('admin_user_new') }}"class="btn btn-primary">Nouveau membre</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_position_index') }}"class="btn btn-primary">Nouveau rôle</a>
+        </li>
+    </ul>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -31,10 +39,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_user_show', { 'id': user.id }) }}">show</a>
+                            <a href="{{ path('admin_user_show', { 'id': user.id }) }}"class="btn btn-success btn-sm">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">edit</a>
+                            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}"class="btn btn-warning btn-sm">modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -43,12 +51,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_user_new') }}">Créer un nouveau membre</a>
-        </li>
-        <li>
-            <a href="{{ path('admin_position_index') }}">Créer un nouveau rôle</a>
-        </li>
-    </ul>
 {% endblock %}

@@ -41,7 +41,6 @@ class EventType extends AbstractType
                                         ->orderBy('d.date', 'ASC');
                 }
             ])
-//            ->add('date', DateEventType::class, array('required' => false))
             ->add('team', EntityType::class, [
                 'class' => 'TeamBundle:Team',
                 'choice_label' => 'name',

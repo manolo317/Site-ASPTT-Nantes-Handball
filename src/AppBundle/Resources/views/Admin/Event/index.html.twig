@@ -3,6 +3,11 @@
 {% block body %}
     <h1>Liste des matchs</h1>
 
+    <ul>
+        <li>
+            <a href="{{ path('admin_event_new') }}" class="btn btn-primary">Nouvel événement</a>
+        </li>
+    </ul>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -39,10 +44,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_event_show', { 'id': event.id }) }}">show</a>
+                            <a href="{{ path('admin_event_show', { 'id': event.id }) }}"class="btn btn-success btn-sm">voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_event_edit', { 'id': event.id }) }}">edit</a>
+                            <a href="{{ path('admin_event_edit', { 'id': event.id }) }}"class="btn btn-warning">modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -50,10 +55,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('admin_event_new') }}">Créé un nouveau match</a>
-        </li>
-    </ul>
 {% endblock %}

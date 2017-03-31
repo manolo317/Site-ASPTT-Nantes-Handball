@@ -34,14 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_place_index') }}">Back to the list</a>
+            <a href="{{ path('admin_place_index') }}"class="btn btn-primary">retour</a>
         </li>
         <li>
-            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}">Edit</a>
+            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}"class="btn btn-warning">modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <button type="submit" class="btn btn-danger">supprimer</button>
             {{ form_end(delete_form) }}
         </li>
     </ul>

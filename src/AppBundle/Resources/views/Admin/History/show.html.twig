@@ -22,10 +22,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_history_index') }}">Back to the list</a>
+            <a href="{{ path('admin_history_index') }}"class="btn btn-primary">retour</a>
         </li>
         <li>
-            <a href="{{ path('admin_history_edit', { 'id': history.id }) }}">Edit</a>
+            <a href="{{ path('admin_history_edit', { 'id': history.id }) }}"class="btn btn-warning">modifier</a>
         </li>
     </ul>
 {% endblock %}

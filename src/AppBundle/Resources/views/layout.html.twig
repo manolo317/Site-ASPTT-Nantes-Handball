@@ -15,23 +15,20 @@
 
 <body>
 <div class="container">
-    <div id="header" class="jumbotron">
-        <h1>ASPTT Nantes Handball</h1>
-        <p>
-            Ce projet est propulsé par Symfony,
-            et construit grâce au groupe 1 DL17.
-        </p>
+    <div id="header-asptt">
+        <img class="img-responsive" src="{{ asset('bundles/app/images/banniere1.png') }}" alt="ASPTT" />
     </div>
 
     <div class="row">
 
         {{ render(controller("AppBundle:Default:menu")) }}
-        <div id="content" class="col-md-9">
-            {% block body %}
-            {% endblock %}
-        </div>
     </div>
+    <div class="row">
 
+        {% block body %}
+        {% endblock %}
+
+    </div>
     <hr>
 
     <footer>

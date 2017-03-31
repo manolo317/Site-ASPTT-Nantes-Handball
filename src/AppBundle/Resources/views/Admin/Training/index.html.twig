@@ -3,6 +3,12 @@
 {% block body %}
     <h1>Liste des entrainements</h1>
 
+    <ul>
+        <li>
+            <a href="{{ path('admin_training_new') }}"class="btn btn-primary">Nouvel entrainement</a>
+        </li>
+    </ul>
+
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -26,10 +32,10 @@
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('admin_training_show', { 'id': training.id }) }}">show</a>
+                                <a href="{{ path('admin_training_show', { 'id': training.id }) }}"class="btn btn-success btn-sm">voir</a>
                             </li>
                             <li>
-                                <a href="{{ path('admin_training_edit', { 'id': training.id }) }}">edit</a>
+                                <a href="{{ path('admin_training_edit', { 'id': training.id }) }}"class="btn btn-warning btn-sm">modifier</a>
                             </li>
                         </ul>
                     </td>
@@ -39,9 +45,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_training_new') }}">Create a new training</a>
-        </li>
-    </ul>
 {% endblock %}

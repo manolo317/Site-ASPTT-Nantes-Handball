@@ -18,14 +18,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_position_index') }}">Back to the list</a>
+            <a href="{{ path('admin_position_index') }}"class="btn btn-primary">retour</a>
         </li>
         <li>
-            <a href="{{ path('admin_position_edit', { 'id': position.id }) }}">Edit</a>
+            <a href="{{ path('admin_position_edit', { 'id': position.id }) }}"class="btn btn-warning">modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <button type="submit" class="btn btn-danger">supprimer</button>
             {{ form_end(delete_form) }}
         </li>
     </ul>
