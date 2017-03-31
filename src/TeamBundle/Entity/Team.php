@@ -90,6 +90,12 @@ class Team
     private $events;
 
     /**
+     * One Team has Many Trainings.
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Training", mappedBy="team", cascade={"persist", "remove"})
+     */
+    private $trainings;
+
+    /**
      * One Team has Many Users.
      * @ORM\OneToMany(targetEntity="UserBundle\Entity\User", mappedBy="team", cascade={"persist", "remove"})
      */
@@ -383,5 +389,39 @@ class Team
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add training
+     *
+     * @param \PlanningBundle\Entity\Training $training
+     *
+     * @return Team
+     */
+    public function addTraining(\PlanningBundle\Entity\Training $training)
+    {
+        $this->trainings[] = $training;
+
+        return $this;
+    }
+
+    /**
+     * Remove training
+     *
+     * @param \PlanningBundle\Entity\Training $training
+     */
+    public function removeTraining(\PlanningBundle\Entity\Training $training)
+    {
+        $this->trainings->removeElement($training);
+    }
+
+    /**
+     * Get trainings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTrainings()
+    {
+        return $this->trainings;
     }
 }

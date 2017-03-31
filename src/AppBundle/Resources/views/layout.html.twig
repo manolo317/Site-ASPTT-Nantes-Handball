@@ -31,11 +31,10 @@
     </div>
     <hr>
 
-    <footer>
-        <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
-    </footer>
-</div>
 
+</div>
+{# Footer #}
+{% include "AppBundle::footer.html.twig" %}
 {% block javascripts %}
     {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -10,4 +10,6 @@ namespace PlanningBundle\Repository;
  */
 class TrainingRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    
 }

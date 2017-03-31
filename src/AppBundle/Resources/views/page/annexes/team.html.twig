@@ -37,21 +37,35 @@
         </div>
         <div class="row">
             <section class="col-sm-4">
-                <h3>Planning Entrainements:</h3>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Mardi</h2>
+                <div class="row">
+                    <div class="sm-12">
+                        <h3>Planning Entrainements:</h3>
+                        <div class="panel panel-info">
+                            {% for training in team.trainings %}
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">{{ training.day.name }}</h2>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">{{ training.place.name }}<span class="badge">{{ training.hour|date('H:i') }}H</span></li>
+                                </ul>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Salle des dervalières<span class="badge">20h00 - 22h00</span></li>
-                    </ul>
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Jeudi</h2>
+                    <div class="sm-12">
+                        <h3>Planning Matchs:</h3>
+                        <div class="panel panel-info">
+                            {% for event in team.events %}
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">{{ event.date.slug }} à {{ event.hour|date('H:i') }}H</h2>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">{{ team.name }} Vs {{ event.opponent }} - {{ event.place.name }}</li>
+                                </ul>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Salle Longchamp<span class="badge">20h30 - 22h30</span></li>
-                    </ul>
                 </div>
+
             </section>
             <section class="col-sm-8">
                 <h3>Effectif:</h3>

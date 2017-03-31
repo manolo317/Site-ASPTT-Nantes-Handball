@@ -21,6 +21,10 @@ class TeamController extends Controller
 {
     public function viewAction(Team $team)
     {
+//        $em = $this->getDoctrine()->getManager();
+//        $trainings = $em->getRepository('PlanningBundle:Training')->findTrainingsByTeam($team);
+//        dump($trainings);
+//        die();
 
         return $this->render('AppBundle:page/annexes:team.html.twig', ['team' => $team]);
     }
