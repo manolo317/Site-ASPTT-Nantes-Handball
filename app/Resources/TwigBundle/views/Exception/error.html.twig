@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Une erreur est apparue: {{ status_text }}</title>
+</head>
+<body>
+<h1>Une erreur est apparue!</h1>
+<h2>Le serveur a retourné une erreur "{{ status_code }} {{ status_text }}".</h2>
+
+<div>
+    Quelque chose ne fonctionne pas. Merci de nous notifier cette erreur par mail: <a href="{{ path('app_contact') }}">Contact</a>
+    Nous allons tout mettre en oeuvre pour réparer aussi vite que possible. Nous nous nous excusons pour ce désagrément.
+</div>
+</body>
+</html>
