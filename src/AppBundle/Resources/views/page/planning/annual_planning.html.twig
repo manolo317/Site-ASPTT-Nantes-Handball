@@ -11,10 +11,37 @@
             <p> {{ message }}</p>
         {% endfor %}
     </div>
-    <div>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    <h2>Trier par équipe</h2>
+
+    <div class="well">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+
+        {# Idem pour un autre champ. #}
+        <div class="form-group">
+            {{ form_label(form.name, "Equipe", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.name) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
         {{ form_end(form) }}
+    </div>
+
+    <div class="col-md-3">
+        <label for="select">Domicile : </label>
+        <span class="dom">lololo</span><br>
+        <label for="select">Extérieur : </label>
+        <span class="ext">lololo</span>
     </div>
 
     {% if dates is defined %}
@@ -35,7 +62,7 @@
                             {% if datevent.events is not null %}
                                 {% for event in datevent.events %}
                                     {% if event.place.name != "Extérieur" %}
-                                    <td class="bg-success text-white">
+                                    <td class="lime">
                                     {% else %}
                                     <td>
                                     {% endif %}
@@ -73,7 +100,11 @@
                 </thead>
                 <tbody>
                     {% for event in team.events %}
+                        {% if event.place.name != "Extérieur" %}
+                        <tr class="lime">
+                        {% else %}
                         <tr>
+                        {% endif %}
                             <td>{{ event.date.slug }}</td>
                             <td>{{ event.opponent }}</td>
                             <td>{{ event.hour|date('H:i') }}</td>

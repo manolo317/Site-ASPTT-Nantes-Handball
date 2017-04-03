@@ -11,10 +11,12 @@
             <p>Message flash : {{ message }}</p>
         {% endfor %}
     </div>
-    <h2>{{ fairplay.title }}</h2>
-
-    <div>{{ fairplay.content }}</div>
-
-
+    <div class="row">
+        <header class="page-header">
+            <h2>{{ fairplay.title }}</h2>
+        </header>
+        <section class="col-sm-offset-2 col-sm-8">
+            {{ fairplay.content }}
+        </section>
 
 {% endblock %}

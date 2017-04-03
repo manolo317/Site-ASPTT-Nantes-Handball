@@ -9,17 +9,17 @@
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('bundles/app/css/menu.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" type="text/css" />
     {% endblock %}
 </head>
 
 <body>
-<div class="container">
-    <div id="header-asptt">
-        <img class="img-responsive" src="{{ asset('bundles/app/images/banniere1.png') }}" alt="ASPTT" />
+<div class="container-fluid">
+    <div class="nopadding" id="header-asptt">
+        <img class="img-responsive" src="{{ asset('bundles/app/images/banniere2.png') }}" alt="ASPTT" />
     </div>
 
-    <div class="row">
+    <div class="row menu-nav">
 
         {{ render(controller("AppBundle:Default:menu")) }}
     </div>
