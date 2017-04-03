@@ -209,6 +209,11 @@ a:visited:hover
 .secretariat{
     color: #dddddd;
 }
+ul.secretariat{
+    padding-left: 0;
+    margin-left:100px;
+    margin-right:100px;
+}
 .footer{
     display: flex;
     justify-content: space-around;
