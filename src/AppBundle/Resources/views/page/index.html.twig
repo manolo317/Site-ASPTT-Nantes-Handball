@@ -15,12 +15,10 @@
         <h2 id="titre1">La même passion...</h2>
         <h2 id="titre2">La même couleur</h2>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt augue nec sapien luctus, at sollicitudin augue viverra. Maecenas non nisl sit amet nibh scelerisque vehicula vitae ac orci. Integer erat nisl, elementum vitae ornare sed, consectetur sed mi. Pellentesque elementum orci ac leo faucibus fermentum non nec nisl. Nulla facilisi. Vivamus eleifend, lacus sit amet rhoncus blandit, magna metus imperdiet nisi, vel vestibulum nulla massa vitae tortor. Suspendisse at ex in ante vehicula dapibus. Aliquam tempor elit nec ullamcorper interdum. In quis augue sagittis sapien fermentum lobortis sollicitudin facilisis lacus. 
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt augue nec sapien luctus, at sollicitudin augue viverra. Maecenas non nisl sit amet nibh scelerisque vehicula vitae ac orci. Integer erat nisl, elementum vitae ornare sed, consectetur sed mi. Pellentesque elementum orci ac leo faucibus fermentum non nec nisl. Nulla facilisi. Vivamus eleifend, lacus sit amet rhoncus blandit, magna metus imperdiet nisi, vel vestibulum nulla massa vitae tortor. Suspendisse at ex in ante vehicula dapibus. Aliquam tempor elit nec ullamcorper interdum. In quis augue sagittis sapien fermentum lobortis sollicitudin facilisis lacus. 
-        </p>
+        <blockquote>
+            {{ edito.content }}<br>
+            <small class="pull-right">{{ edito.author }} le {{ edito.date|date('d-m-Y') }}</small><br>
+        </blockquote>
     </div>
     <div class="col-md-4">
         {{ render(controller("AppBundle:Default:side")) }}

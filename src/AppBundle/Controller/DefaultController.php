@@ -17,7 +17,10 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-        return $this->render('AppBundle:page:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $edito = $em->getRepository('InfoBundle:Edito')
+            ->find(1);
+        return $this->render('AppBundle:page:index.html.twig', ['edito' => $edito]);
     }
 
     public function menuAction()
