@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TeamBundle\Entity\Team;
+use InfoBundle\Entity\Edito;
 
 
 
@@ -16,8 +17,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $edito = $em->getRepository('InfoBundle:Edito')
+            ->find(1);
 
-        return $this->render('AppBundle:page:index.html.twig');
+        return $this->render('AppBundle:page:index.html.twig', ['edito' => $edito]);
     }
 
     public function menuAction()

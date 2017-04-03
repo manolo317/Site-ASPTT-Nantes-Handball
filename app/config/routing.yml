@@ -30,6 +30,10 @@ admin_history:
     resource: "@InfoBundle/Resources/config/history/routing.yml"
     prefix:   /admin/history
 
+admin_edito:
+    resource: "@InfoBundle/Resources/config/edito/routing.yml"
+    prefix:   /admin/edito
+
 admin_place:
     resource: "@PlaceBundle/Resources/config/routing.yml"
     prefix:   /admin/place

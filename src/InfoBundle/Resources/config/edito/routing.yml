@@ -1,0 +1,25 @@
+admin_edito_index:
+    path:     /
+    defaults: { _controller: "InfoBundle:Edito:index" }
+    methods:  GET
+
+admin_edito_show:
+    path:     /{id}/show
+    defaults: { _controller: "InfoBundle:Edito:show" }
+    methods:  GET
+
+admin_edito_new:
+    path:     /new
+    defaults: { _controller: "InfoBundle:Edito:new" }
+    methods:  [GET, POST]
+
+admin_edito_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "InfoBundle:Edito:edit" }
+    methods:  [GET, POST]
+
+admin_edito_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "InfoBundle:Edito:delete" }
+    methods:  [GET, POST]
+

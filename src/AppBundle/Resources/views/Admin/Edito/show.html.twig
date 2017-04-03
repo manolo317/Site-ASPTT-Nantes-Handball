@@ -1,0 +1,39 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Edito</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ edito.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ edito.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ edito.content }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ edito.author }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ edito.date|date('d-m-Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_edito_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_edito_edit', { 'id': edito.id }) }}"class="btn btn-warning">modifier</a>
+        </li>
+    </ul>
+{% endblock %}

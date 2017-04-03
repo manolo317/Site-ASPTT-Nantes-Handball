@@ -11,7 +11,11 @@
             <p>Info: {{ message }}</p>
         {% endfor %}
 
-        <h2>Les news</h2>
+        <h2>{{ edito.title }}</h2>
+        <blockquote>
+            {{ edito.content }}
+            <small class="pull-right">{{ edito.author }}</small><br>
+        </blockquote>
     </div>
     <div class="col-md-4">
         {{ render(controller("AppBundle:Default:side")) }}
