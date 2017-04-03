@@ -9,7 +9,7 @@
     <div>
         {# On affiche tous les messages flash dont le nom est « info » #}
         {% for message in app.session.flashbag.get('notice') %}
-            <p>Message flash : {{ message }}</p>
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
         {% endfor %}
     </div>
     <div class="container">

@@ -220,9 +220,12 @@ a:visited:hover
     padding: 0 !important;
     margin: 0 !important;
 }
-.alert{
-     display: none;
- }
+#team-form .alert-danger{
+    display: none;
+}
+/*.alert{*/
+     /*display: none;*/
+ /*}*/
 .lime{
     background-color: limegreen;
 }

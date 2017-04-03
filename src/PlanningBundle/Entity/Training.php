@@ -31,15 +31,15 @@ class Training
     private $hour;
 
     /**
-     * Many Training have One Day.
+     * Many Trainings have One Day.
      * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Day", inversedBy="trainings")
      * @ORM\JoinColumn(name="day_id", referencedColumnName="id", nullable=false)
      */
     private $day;
 
     /**
-     * Many Events have One Team.
-     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team", inversedBy="events")
+     * Many Trainings have One Team.
+     * @ORM\ManyToOne(targetEntity="TeamBundle\Entity\Team", inversedBy="trainings")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=false)
      */
     private $team;

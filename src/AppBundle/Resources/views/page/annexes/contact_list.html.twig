@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<div>
-    {# On affiche tous les messages flash dont le nom est « info » #}
-    {% for message in app.session.flashbag.get('notice') %}
-        <p>Message flash : {{ message }}</p>
-    {% endfor %}
-</div>
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
+        {% endfor %}
+    </div>
 <div class="container">
     <header class="page-header">
         <h2>Contact Administration</h2>

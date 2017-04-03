@@ -6,13 +6,35 @@
 {% endblock %}
 
 {% block body %}
-    <div>
-        {{ form(form) }}
+
+    <h2>Trouver un événement</h2>
+
+    <div class="well">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+         {#Les erreurs générales du formulaire.#}
+        {{ form_errors(form) }}
+
+         {#Idem pour un autre champ.#}
+        <div class="form-group">
+            {{ form_label(form.search, "Votre recherche", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.search) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.search, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+         {#Génération automatique des champs pas encore écrits.#}
+           {#Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)#}
+           {#et tous les champs cachés (type « hidden »).#}
+        {{ form_rest(form) }}
+
+         {#Fermeture de la balise <form> du formulaire HTML#}
+        {{ form_end(form) }}
     </div>
     <div>
         {# On affiche tous les messages flash dont le nom est « info » #}
         {% for message in app.session.flashbag.get('notice') %}
-            <p>{{ message }}</p>
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
         {% endfor %}
     </div>
     <div id="evt">

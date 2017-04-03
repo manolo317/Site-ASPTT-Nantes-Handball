@@ -26,7 +26,7 @@ class TeamType extends AbstractType
                 'multiple'     => false,
                 'expanded'     => false,
             ])
-            ->add('image', ImageType::class, array('required' => false));
+            ->add('image', ImageType::class, ['required' => false]);
     }
     
     /**

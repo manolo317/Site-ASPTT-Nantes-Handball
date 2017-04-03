@@ -38,6 +38,7 @@ class PlanningController extends Controller
                 'choice_label' => 'name',
                 'multiple'     => false,
                 'expanded'     => false,
+                'required'     => false,
             ])
             ->add('filtrer',      SubmitType::class)
             ->getForm()

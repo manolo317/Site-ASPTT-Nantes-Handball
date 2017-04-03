@@ -6,9 +6,9 @@
 
 {% block body %}
     <div>
-         {#On affiche tous les messages flash dont le nom est « notice »#}
+        {# On affiche tous les messages flash dont le nom est « info » #}
         {% for message in app.session.flashbag.get('notice') %}
-            <p> {{ message }}</p>
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
         {% endfor %}
     </div>
 
@@ -16,10 +16,10 @@
 
     <div class="well">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
+        <div id="team-form">
         {# Les erreurs générales du formulaire. #}
         {{ form_errors(form) }}
-
+        </div>
         {# Idem pour un autre champ. #}
         <div class="form-group">
             {{ form_label(form.name, "Equipe", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
@@ -45,7 +45,7 @@
     </div>
 
     {% if dates is defined %}
-        <div>
+        <div class="col-md-12">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -87,7 +87,7 @@
         </div>
     {% else %}
         {% if team.events is not empty %}
-        <div>
+        <div class="col-md-12">
             <h2>Planning {{ team.name }}</h2>
             <table class="table table-bordered">
                 <thead>
@@ -115,7 +115,7 @@
             </table>
         </div>
         {% else %}
-            <div>Pas de matchs pour cette équipe</div>
+            <div class="alert alert-danger col-md-8"><span class="glyphicon glyphicon-exclamation-sign"></span> Pas de matchs pour cette équipe</div>
         {% endif %}
     {% endif %}
 {% endblock %}
