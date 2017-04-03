@@ -11,4 +11,11 @@ $(document).ready(function(){
     $('.dropdown').on('hide.bs.dropdown', function(e){
         $(this).find('.dropdown-menu').first().stop(true, true).slideUp(400);
     });
+
+//Permettre de garder le lien de la navbar coloré 
+     $("a").filter(function() {
+            return location.href == this.href;
+        })  
+        .attr('id', "active")
+        .parents('ul').prev('a').css('color','limegreen');
 });

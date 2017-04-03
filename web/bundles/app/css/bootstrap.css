@@ -8,9 +8,11 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+      
 }
 body {
   margin: 0;
+  
 }
 article,
 aside,
@@ -42,12 +44,14 @@ audio:not([controls]) {
 template {
   display: none;
 }
+
 a {
   background-color: transparent;
 }
 a:active,
 a:hover {
   outline: 0;
+  color: limegreen;
 }
 abbr[title] {
   border-bottom: 1px dotted;

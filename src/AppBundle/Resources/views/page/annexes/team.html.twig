@@ -19,10 +19,9 @@
         </header>
         <div class="row">
             <section class="col-sm-4">
-                <a href="{{ team.ranking }}" title="Classement {{ team.name }}">Résultats et Classement</a>
+                <a id="result" href="{{ team.ranking }}" title="Classement {{ team.name }}">Résultats et Classement</a>
                 <h3>Palmares :</h3>
-                <br>
-                <p>{{ team.palmares }}</p>
+                <p id="palm">{{ team.palmares }}</p>
             </section>
             <section class="col-sm-8">
                 {# On vérifie qu'une image soit bien associée à l'équipe #}
