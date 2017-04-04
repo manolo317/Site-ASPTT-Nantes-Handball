@@ -10,20 +10,11 @@ namespace EventBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getPostByTitle($title)
-    {
-        return $this
-        ->createQueryBuilder('p')
-        ->where('p.validated = 1')
-        ->andWhere('p.title = :title')
-        ->setParameter('title',$title)
-        ->getQuery()
-        ->getResult();
-    }
+
     public function findThreeLastPosts()
     {
         return $this->createQueryBuilder('p')
-            ->where('p.validated = 1')
+            ->where('p.validated = 1') //je recupère que les posts validés
             ->orderBy('p.publishedAt', 'DESC')
             ->getQuery()
             ->setMaxResults(3)
@@ -43,7 +34,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
 
     public function getByResearch($search)
     {
-        // Création du QueryBuilder pour rechercher un mot dans le contenu ou le titre des artiles
+        // Création du QueryBuilder pour rechercher un mot dans le contenu ou le titre des articles
         return $this->createQueryBuilder('p')
             ->where('p.title LIKE :search')
             ->orWhere('p.content LIKE :search')

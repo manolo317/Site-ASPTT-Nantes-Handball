@@ -37,12 +37,18 @@
                         {% if date.events is not null %}
                             <h4>Liste des matchs:</h4>
                             <table class="table table-bordered">
+                                <tr>
+                                    <th>Equipe</th>
+                                    <th>Adversaire</th>
+                                    <th>Heure</th>
+                                    <th>Lieu</th>
+                                </tr>
                             {% for event in date.events %}
                                 <tr>
                                     <td>{{ event.team.name }}</td>
                                     <td>{{ event.opponent }}</td>
-                                    <td>{{ event.hour|date('H:i:s') }}</td>
-                                    <td><a href="{{ path('admin_event_show', { 'id': event.id }) }}"class="btn btn-success btn-sm">voir</a></td>
+                                    <td>{{ event.hour|date('H:i') }} H</td>
+                                    <td>{{ event.place.name }}</td>
                                 </tr>
                             {% endfor %}
                             </table>

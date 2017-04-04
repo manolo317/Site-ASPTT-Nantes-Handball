@@ -20,10 +20,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PlanningController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('AppBundle:page/planning:index.html.twig');
-    }
     
     public function annualPlanningAction(Request $request)
     {

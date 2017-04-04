@@ -17,12 +17,13 @@ class AdminController extends Controller
 {
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        // affichage de la page d'accueil admin
         return $this->render('AppBundle:Admin:index.html.twig');
     }
 
     public function menuAction()
     {
+        // affichage de la navbar de l'espace admin
         return $this->render('AppBundle:Admin:admin_navbar.html.twig');
     }
 }

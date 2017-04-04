@@ -19,12 +19,14 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $edito = $em->getRepository('InfoBundle:Edito')
-            ->find(1);
+            ->find(1);// je recupère l'edito
         return $this->render('AppBundle:page:index.html.twig', ['edito' => $edito]);
     }
 
     public function menuAction()
     {
+
+        //Construction de la navbar
 
         //on récupère chaque catégorie
         $em = $this->getDoctrine()->getManager();
@@ -56,13 +58,15 @@ class DefaultController extends Controller
     
     public function sideAction()
     {
+        // contruction de la sidebar sur la page d'accueil
+
         $em = $this->getDoctrine()->getManager();
         
         $handPosts = $em->getRepository('EventBundle:Post')
-            ->findLastPostByCategory(1);
+            ->findLastPostByCategory(1); //récupération du dernier article de la catégorie Hand
 
         $clubPosts = $em->getRepository('EventBundle:Post')
-            ->findLastPostByCategory(2);
+            ->findLastPostByCategory(2); //récupération du dernier article de la catégorie Club
 
 
         return $this->render('AppBundle::sidebar.html.twig', ['handPosts' => $handPosts,

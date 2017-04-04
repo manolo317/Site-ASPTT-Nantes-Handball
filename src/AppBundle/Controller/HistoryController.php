@@ -15,6 +15,7 @@ class HistoryController extends Controller
 {
     public function viewAction(Request $request)
     {
+        // Page Histoire du club
         $em = $this->getDoctrine()->getManager();
 
         $history = $em->getRepository('InfoBundle:History')->findOneById(1);

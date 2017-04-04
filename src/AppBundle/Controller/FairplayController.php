@@ -15,6 +15,7 @@ class FairplayController extends Controller
 {
     public function viewAction(Request $request)
     {
+        // Page Charte du Club
         $em = $this->getDoctrine()->getManager();
 
         $fairplay = $em->getRepository('InfoBundle:FairPlay')->findOneById(1);

@@ -17,10 +17,10 @@ class PlaceListController extends Controller
 
     public function listPlaceAction(Request $request)
     {
-
+        // Page liste des gymnases
         $em = $this->getDoctrine()->getManager();
         $places = $em->getRepository('PlaceBundle:Place')
-            ->findAll();
+            ->findAll(); // récupération de tous les gymnases
         return $this->render('AppBundle:page/annexes:place_list.html.twig', ['places' => $places]);
     }
 }
