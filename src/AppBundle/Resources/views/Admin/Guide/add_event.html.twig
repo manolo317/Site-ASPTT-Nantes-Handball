@@ -9,12 +9,29 @@
             <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_event.png') }}" alt="date" />
         </div>
         <div class="panel-body">
-            <img class="img-responsive img-float" src="{{ asset('bundles/app/images/guide/ajout_event.png') }}" alt="date" />
-            <p>Vous accédez à une vue d’ensemble de la liste des matchs comme ci-contre.</p>
-            <p>Vous accédez aux différentes options de gestion des matchs, pour ajouter un nouveau match, cliquez sur le bouton
-                <a href="{{ path('admin_event_new') }}" class="btn btn-primary">Nouvel événement</a></p>
-            <p>Vous accédez au formulaire de création de match qui vous permettra d’ajouter les différentes informations de la rencontre.</p>
-            <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/match_list.png') }}" alt="date" />
+                <p>Vous accédez à une vue d’ensemble de la liste des matchs comme ci-contre.</p>
+                <p>Vous accédez aux différentes options de gestion des matchs, pour ajouter un nouveau match, cliquez sur le bouton
+                    <a href="{{ path('admin_event_new') }}" class="btn btn-primary">Nouvel événement</a></p>
+            </div>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg2" src="{{ asset('bundles/app/images/guide/ajout_event.png') }}" alt="date" />
+                <p>Vous accédez au formulaire de création de match qui vous permettra d’ajouter les différentes informations de la rencontre.</p>
+                <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
         </div>
 
     </div>

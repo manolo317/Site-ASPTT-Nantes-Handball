@@ -13,7 +13,7 @@ $(document).ready(function(){
     });
 
 //Permettre de garder le lien de la navbar coloré 
-     $("a").filter(function() {
+     $(".navbar a").filter(function() {
             return location.href == this.href;
         })  
         .attr('id', "active")
