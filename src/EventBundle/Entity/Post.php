@@ -71,7 +71,7 @@ class Post
     private $publishedAt;
 
     /**
-     * Many Team have One Category.
+     * Many Post have One Category.
      * @ORM\ManyToOne(targetEntity="EventBundle\Entity\PostCategory")
      * @ORM\JoinColumn(nullable=false)
      */

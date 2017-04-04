@@ -11,6 +11,13 @@
             <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
         {% endfor %}
     </div>
+    <h2>Planning du week-end</h2>
+    <div class="col-md-3">
+        <label for="select">Domicile : </label>
+        <span class="dom">lololo</span><br>
+        <label for="select">Extérieur : </label>
+        <span class="ext">lololo</span>
+    </div>
     <div>
         <table class="table table-bordered">
             <thead>
@@ -31,14 +38,14 @@
                     {% for event in datevent.events %}
                         <tr>
                             <td>{{ event.date|date('d-m-Y') }}</td>
-                            <td>{{ event.team.name }}</td>
+                            <td><h4>{{ event.team.name }}</h4></td>
                             {% if event.place.name != "Extérieur" %}
-                                <td class="bg-success text-white">
+                                <td class="lime">
                             {% else %}
                                 <td>
                             {% endif %}
                                 {{ event.place.name }}</td>
-                            <td>{{ event.hour|date('H:i') }}</td>
+                            <td>{{ event.hour|date('H:i') }} H</td>
                             <td>{{ event.team.level }}</td>
                             <td>{{ event.opponent }}</td>
                             {% if event.tableResponsable %}

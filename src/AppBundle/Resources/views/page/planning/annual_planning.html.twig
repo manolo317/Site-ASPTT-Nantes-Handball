@@ -36,7 +36,7 @@
         {# Fermeture de la balise <form> du formulaire HTML #}
         {{ form_end(form) }}
     </div>
-
+    <h2>Planning annuel</h2>
     <div class="col-md-3">
         <label for="select">Domicile : </label>
         <span class="dom">lololo</span><br>
@@ -67,9 +67,9 @@
                                     <td>
                                     {% endif %}
                                         <ul>
-                                            <li>{{ event.team.name }}</li>
+                                            <li><h4>{{ event.team.name }}</h4></li>
                                             <li>{{ event.opponent }}</li>
-                                            <li>{{ event.place.name }} à {{ event.hour|date('H:i') }}</li>
+                                            <li>{{ event.place.name }} à {{ event.hour|date('H:i') }} H</li>
                                         </ul>
                                      </td>
                                 {% else %}

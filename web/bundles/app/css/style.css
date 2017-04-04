@@ -132,7 +132,7 @@ th{
 }
 .mega-dropdown-menu .dropdown-header {
     font-size: 18px;
-    color: forestgreen;
+    color: limegreen;
     padding: 5px 60px 5px 5px;
     line-height: 30px;
 }
@@ -184,6 +184,7 @@ li{
     width: 100%;
     text-align: center;
     background-color: black;
+    color: white;
     margin-top: 10px;
     margin-bottom:-10px;
     box-sizing: border-box;
@@ -206,10 +207,10 @@ a:visited:hover
     text-decoration: none;
     color:gray;
 }
-.secretariat{
+.nav-white {
     color: #dddddd;
 }
-ul.secretariat{
+ul.nav-white{
     padding-left: 0;
     margin-left:100px;
     margin-right:100px;
@@ -247,6 +248,9 @@ span.ext{
     width: 25px;
     height: 20px;
     border:1px solid grey;
+}
+.side-post .panel-heading{
+    background-color: limegreen;
 }
 
 /*navbar*/
