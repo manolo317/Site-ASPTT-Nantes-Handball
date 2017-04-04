@@ -1,9 +1,17 @@
 {% extends 'AppBundle:Admin:layout.html.twig' %}
 
 {% block body %}
-    <h1>User edit</h1>
+    <h1>Edition membre</h1>
 
     {{ form_start(edit_form) }}
+    {{ form_row(edit_form.firstname, { 'label': 'Prénom' }) }}
+    {{ form_row(edit_form.lastname, { 'label': 'Nom' }) }}
+    {{ form_row(edit_form.email, { 'label': 'Email' }) }}
+    {{ form_row(edit_form.birthdate, { 'label': 'Date de naissance' }) }}
+    {{ form_row(edit_form.positions, { 'label': 'Rôles' }) }}
+    {{ form_row(edit_form.team, { 'label': 'Equipe' }) }}
+    {#Génération automatique des champs pas encore écrits.#}
+    {{ form_rest(edit_form) }}
         {{ form_widget(edit_form) }}
         <button type="submit" class="btn btn-warning">modifier</button>
     {{ form_end(edit_form) }}

@@ -3,7 +3,7 @@
 {% block body %}
 <h1>Guide d'utilisation</h1>
     <div class="guide">
-        <ol class="number" type="1">
+        <ol class="number" type="I">
             <li>Gestion plannings</li>
             <ol>
                 <li><a href="{{ path('admin_guide_add_date') }}">Ajouter une date</a></li>
@@ -14,27 +14,27 @@
             </ol>
             <li>Gestion Equipes</li>
             <ol>
-                <li><a href="{{ path('admin_guide_add_training') }}">Ajouter une équipe</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier/Supprimer une équipe</a></li>
+                <li><a href="{{ path('admin_guide_add_team') }}">Ajouter une équipe</a></li>
+                <li><a href="{{ path('admin_guide_edit_team') }}">Modifier/Supprimer une équipe</a></li>
             </ol>
             <li>Gestion Membres</li>
             <ol>
-                <li><a href="{{ path('admin_guide_add_training') }}">Ajouter un membre</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier/Supprimer un membre</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Ajouter un rôle</a></li>
+                <li><a href="{{ path('admin_guide_add_user') }}">Ajouter un membre</a></li>
+                <li><a href="{{ path('admin_guide_edit_user') }}">Modifier/Supprimer un membre</a></li>
+                <li><a href="{{ path('admin_guide_add_position') }}">Ajouter un rôle</a></li>
             </ol>
             <li>Gestion Evénements</li>
             <ol>
-                <li><a href="{{ path('admin_guide_add_training') }}">Ajouter un événement</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier/Supprimer un événement</a></li>
+                <li><a href="{{ path('admin_guide_add_post') }}">Ajouter un événement</a></li>
+                <li><a href="{{ path('admin_guide_edit_post') }}">Modifier/Supprimer un événement</a></li>
 
             </ol>
             <li>Gestion Pages informations</li>
             <ol>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier la page « Histoire du club »</li></a>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier la page « Charte du club »</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Modifier la page « Edito »</a></li>
-                <li><a href="{{ path('admin_guide_add_training') }}">Gestion des gymnases</a></li>
+                <li><a href="{{ path('admin_guide_edit_history') }}">Modifier la page « Histoire du club »</li></a>
+                <li><a href="{{ path('admin_guide_edit_fairplay') }}">Modifier la page « Charte du club »</a></li>
+                <li><a href="{{ path('admin_guide_edit_edito') }}">Modifier la page « Edito »</a></li>
+                <li><a href="{{ path('admin_guide_edit_place') }}">Gestion des gymnases</a></li>
 
             </ol>
         </ol>

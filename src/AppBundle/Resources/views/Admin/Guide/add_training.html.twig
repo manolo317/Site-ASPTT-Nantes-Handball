@@ -7,24 +7,40 @@
         <div class="panel-heading">
             <h2>Ajouter un entrainement</h2>
             <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_training.png') }}" alt="training" />
-            <p>Rendez-vous sur la page de gestion des entrainements via l’onglet planning suivant:</p>
+            <p>Rendez-vous sur la page de gestion des entrainements via l’onglet planning ci-dessus:</p>
         </div>
         <div class="panel-body">
-            <img class="img-responsive img-float" src="{{ asset('bundles/app/images/guide/ajout_training.png') }}" alt="date" />
-            <p>Vous accédez à une vue d’ensemble de la liste des matchs.</p>
-            <p>Vous accédez aux différentes options de gestion des matchs, pour ajouter un nouveau match, cliquez sur le premier bouton
-                <a href="{{ path('admin_training_new') }}"class="btn btn-primary">Nouvel entrainement</a></p>
-            <p>Vous accédez au formulaire de création de match qui vous permettra d’ajouter les différentes informations de la rencontre
-            </p>
-            <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/training_list.png') }}" alt="date" />
+                <p>Vous accédez à une vue d’ensemble de la liste des entrainements comme ci-contre.</p>
+                <p>Vous accédez aux différentes options de gestion des matchs, pour ajouter un nouvel entrainement, cliquez sur le bouton
+                    <a href="{{ path('admin_training_new') }}" class="btn btn-primary">Nouvel entrainement</a></p>
+            </div>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg2" src="{{ asset('bundles/app/images/guide/ajout_training.png') }}" alt="date" />
+                <p>Vous accédez au formulaire de création de match qui vous permettra d’ajouter les différentes informations de l'entrainement.</p>
+                <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
         </div>
 
     </div>
     <div class="container">
         <ul class="pagination">
-            <li><a href="{{ path('admin_guide_add_date') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_edit_event') }}">&laquo;</a></li>
             <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
-            <li><a href="{{ path('admin_guide_edit_event') }}">&raquo;</a></li>
+            <li><a href="{{ path('admin_guide_edit_training') }}">&raquo;</a></li>
         </ul>
     </div>
 {% endblock %}

@@ -44,4 +44,24 @@ class UserGuideController extends Controller
     {
         return $this->render('AppBundle:Admin/Guide:edit_training.html.twig');
     }
+
+    public function addTeamAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:add_team.html.twig');
+    }
+
+    public function editTeamAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_team.html.twig');
+    }
+
+    public function addUserAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:add_user.html.twig');
+    }
+
+    public function editUserAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_user.html.twig');
+    }
 }

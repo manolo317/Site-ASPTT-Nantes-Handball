@@ -27,3 +27,58 @@ admin_guide_edit_training:
     path: /planning/modifier-entrainement
     defaults:
         _controller: AppBundle:UserGuide:editTraining
+
+admin_guide_add_team:
+    path: /equipe/ajouter-equipe
+    defaults:
+        _controller: AppBundle:UserGuide:addTeam
+
+admin_guide_edit_team:
+    path: /equipe/modifier-equipe
+    defaults:
+        _controller: AppBundle:UserGuide:editTeam
+
+admin_guide_add_user:
+    path: /membre/ajouter-membre
+    defaults:
+        _controller: AppBundle:UserGuide:addUser
+
+admin_guide_edit_user:
+    path: /membre/modifier-membre
+    defaults:
+        _controller: AppBundle:UserGuide:editUser
+
+admin_guide_add_position:
+    path: /membre/ajouter-role
+    defaults:
+        _controller: AppBundle:UserGuide:addPosition
+
+admin_guide_add_post:
+    path: /evenements/ajouter-evenement
+    defaults:
+        _controller: AppBundle:UserGuide:addPost
+
+admin_guide_edit_post:
+    path: /evenements/modifier-evenement
+    defaults:
+        _controller: AppBundle:UserGuide:editPost
+
+admin_guide_edit_history:
+    path: /info/modifier-histoire
+    defaults:
+        _controller: AppBundle:UserGuide:editHistory
+
+admin_guide_edit_fairplay:
+    path: /info/modifier-charte
+    defaults:
+        _controller: AppBundle:UserGuide:editFairplay
+
+admin_guide_edit_edito:
+    path: /info/modifier-edito
+    defaults:
+        _controller: AppBundle:UserGuide:editEdito
+
+admin_guide_edit_place:
+    path: /info/gestion-gymnase
+    defaults:
+        _controller: AppBundle:UserGuide:editPlace
