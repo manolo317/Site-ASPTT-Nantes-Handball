@@ -6,7 +6,7 @@ admin_team:
     resource: "@TeamBundle/Resources/config/routing.yml"
     prefix:   /admin/team
 
-event:
+admin_event:
     resource: "@EventBundle/Resources/config/routing.yml"
     prefix:   /admin/post
 
@@ -45,6 +45,10 @@ admin_user:
 admin_position:
     resource: "@UserBundle/Resources/config/position/routing.yml"
     prefix:   /admin/position
+
+admin_guide:
+    resource: "@AppBundle/Resources/config/guide/routing.yml"
+    prefix:   /admin/guide
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

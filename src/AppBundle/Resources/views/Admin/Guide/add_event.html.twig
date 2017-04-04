@@ -1,0 +1,28 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Guide d'utilisation</h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2>Ajouter un match</h2>
+            <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_event.png') }}" alt="date" />
+        </div>
+        <div class="panel-body">
+            <img class="img-responsive img-float" src="{{ asset('bundles/app/images/guide/ajout_event.png') }}" alt="date" />
+            <p>Vous accédez à une vue d’ensemble de la liste des matchs comme ci-contre.</p>
+            <p>Vous accédez aux différentes options de gestion des matchs, pour ajouter un nouveau match, cliquez sur le bouton
+                <a href="{{ path('admin_event_new') }}" class="btn btn-primary">Nouvel événement</a></p>
+            <p>Vous accédez au formulaire de création de match qui vous permettra d’ajouter les différentes informations de la rencontre.</p>
+            <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+        </div>
+
+    </div>
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="{{ path('admin_guide_add_date') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
+            <li><a href="{{ path('admin_guide_edit_event') }}">&raquo;</a></li>
+        </ul>
+    </div>
+{% endblock %}

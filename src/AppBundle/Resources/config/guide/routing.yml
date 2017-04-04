@@ -1,0 +1,29 @@
+admin_guide_index:
+    path: /
+    defaults:
+        _controller: AppBundle:UserGuide:index
+
+admin_guide_add_date:
+    path: /planning/ajouter-date
+    defaults:
+        _controller: AppBundle:UserGuide:addDate
+
+admin_guide_add_event:
+    path: /planning/ajouter-match
+    defaults:
+        _controller: AppBundle:UserGuide:addEvent
+
+admin_guide_edit_event:
+    path: /planning/modifier-match
+    defaults:
+        _controller: AppBundle:UserGuide:editEvent
+
+admin_guide_add_training:
+    path: /planning/ajouter-entrainement
+    defaults:
+        _controller: AppBundle:UserGuide:addTraining
+
+admin_guide_edit_training:
+    path: /planning/modifier-entrainement
+    defaults:
+        _controller: AppBundle:UserGuide:editTraining

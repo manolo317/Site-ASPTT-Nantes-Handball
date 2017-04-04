@@ -198,10 +198,6 @@ a:hover
     text-decoration: none;
     color:gray;
 }
-a:active
-{
-    background-color: black;
-}
 a:visited:hover
 {
     text-decoration: none;
@@ -251,6 +247,22 @@ span.ext{
 }
 .side-post .panel-heading{
     background-color: limegreen;
+}
+.number li{
+    list-style: decimal inside;
+}
+.guide{
+    text-align: left;
+}
+.guide a {
+    color: #0b0b0b;
+}
+.img-float{
+    float: left;
+    margin: 15px;
+}
+.panel-body p{
+    text-align: left;
 }
 
 /*navbar*/
