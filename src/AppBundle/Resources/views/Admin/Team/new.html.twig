@@ -4,6 +4,12 @@
     <h1>Création équipe</h1>
 
     {{ form_start(form) }}
+    {{ form_row(form.name, { 'label': 'Nom' }) }}
+    {{ form_row(form.level, { 'label': 'Championnat' }) }}
+    {{ form_row(form.palmares, { 'label': 'Palmares' }) }}
+    {{ form_row(form.ranking, { 'label': 'Lien classement' }) }}
+    {{ form_row(form.category, { 'label': 'Catégorie' }) }}
+    {{ form_rest(form) }}
         {{ form_widget(form) }}
         <button type="submit" class="btn btn-success">ajouter</button>
     {{ form_end(form) }}

@@ -18,6 +18,7 @@ class DateEventType extends AbstractType
         $builder
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
+                'attr' => ['class' => 'js-datepicker'],
             ])
         ;
     }

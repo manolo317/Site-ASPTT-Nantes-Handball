@@ -4,6 +4,11 @@
     <h1>Création d'entrainement</h1>
 
     {{ form_start(form) }}
+    {{ form_row(form.hour, { 'label': 'Heure' }) }}
+    {{ form_row(form.day, { 'label': 'Jour' }) }}
+    {{ form_row(form.team, { 'label': 'Equipe' }) }}
+    {{ form_row(form.place, { 'label': 'Salle' }) }}
+    {{ form_rest(form) }}
         {{ form_widget(form) }}
         <button type="submit" class="btn btn-success">ajouter</button>
     {{ form_end(form) }}

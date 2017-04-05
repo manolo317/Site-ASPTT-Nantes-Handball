@@ -9,7 +9,7 @@
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('bundles/app/css/menu.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" type="text/css" />
     {% endblock %}
 </head>
 
@@ -53,8 +53,8 @@
 
     <hr>
 
-    <footer>
-        <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+    <footer class="footer">
+        <h2>IMIE-ASPTT © {{ 'now'|date('Y') }}</h2>
     </footer>
 </div>
 

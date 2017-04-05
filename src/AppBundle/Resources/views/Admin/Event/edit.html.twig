@@ -4,6 +4,14 @@
     <h1>Edition match</h1>
 
     {{ form_start(edit_form) }}
+    {{ form_row(edit_form.opponent, { 'label': 'Adversaire' }) }}
+    {{ form_row(edit_form.hour, { 'label': 'Heure' }) }}
+    {{ form_row(edit_form.date, { 'label': 'Date' }) }}
+    {{ form_row(edit_form.team, { 'label': 'Equipe' }) }}
+    {{ form_row(edit_form.place, { 'label': 'Salle' }) }}
+    {{ form_row(edit_form.tableResponsable, { 'label': 'Responsable table de marque' }) }}
+    {{ form_row(edit_form.placeResponsable, { 'label': 'Responsable de salle' }) }}
+    {{ form_rest(edit_form) }}
         {{ form_widget(edit_form) }}
     <button type="submit" class="btn btn-warning">modifier</button>
     {{ form_end(edit_form) }}

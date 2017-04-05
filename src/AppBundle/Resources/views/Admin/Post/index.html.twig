@@ -26,7 +26,7 @@
             <tr>
                 <td><a href="{{ path('admin_post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
                 <td>{{ post.title }}</td>
-                <td>{{ post.content }}</td>
+                <td>{{ post.content|slice(0,100) }}...</td>
                 <td>{{ post.author }}</td>
                 <td>{{ post.postCategory.name }}</td>
                 <td>

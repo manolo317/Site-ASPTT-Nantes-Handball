@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Lun 03 Avril 2017 à 19:58
+-- Généré le :  Mer 05 Avril 2017 à 14:30
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -28,6 +28,7 @@ USE `symfony_asptt`;
 -- Structure de la table `admin`
 --
 
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
@@ -57,7 +58,7 @@ TRUNCATE TABLE `admin`;
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `salt`, `roles`, `username_canonical`, `email`, `email_canonical`, `enabled`, `last_login`, `confirmation_token`, `password_requested_at`) VALUES
-(1, 'admin', 'Ql4LBG/YsR4EIRNROaWWc6kbInZHC/VQNpFDct07ATd9ydl3Sb8g/dxFC2wrwzdqz3LNvRelgWBJmImSWB8DPw==', '82mZlhT1c4ppnFVD8YHb488f6ncgzy6RLt2nOEiNTaE', 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 'admin', 'admin@asptt.fr', 'admin@asptt.fr', 1, '2017-04-03 15:55:31', NULL, NULL);
+(1, 'admin', 'Ql4LBG/YsR4EIRNROaWWc6kbInZHC/VQNpFDct07ATd9ydl3Sb8g/dxFC2wrwzdqz3LNvRelgWBJmImSWB8DPw==', '82mZlhT1c4ppnFVD8YHb488f6ncgzy6RLt2nOEiNTaE', 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 'admin', 'admin@asptt.fr', 'admin@asptt.fr', 1, '2017-04-05 14:07:39', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -65,6 +66,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `salt`, `roles`, `username_ca
 -- Structure de la table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -94,6 +96,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- Structure de la table `date`
 --
 
+DROP TABLE IF EXISTS `date`;
 CREATE TABLE IF NOT EXISTS `date` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
@@ -126,6 +129,7 @@ INSERT INTO `date` (`id`, `date`, `slug`) VALUES
 -- Structure de la table `day`
 --
 
+DROP TABLE IF EXISTS `day`;
 CREATE TABLE IF NOT EXISTS `day` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -156,6 +160,7 @@ INSERT INTO `day` (`id`, `name`) VALUES
 -- Structure de la table `edito`
 --
 
+DROP TABLE IF EXISTS `edito`;
 CREATE TABLE IF NOT EXISTS `edito` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -183,6 +188,7 @@ INSERT INTO `edito` (`id`, `title`, `content`, `author`, `date`) VALUES
 -- Structure de la table `event`
 --
 
+DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_id` int(11) NOT NULL,
@@ -235,6 +241,7 @@ INSERT INTO `event` (`id`, `date_id`, `team_id`, `opponent`, `hour`, `place_id`,
 -- Structure de la table `fair_play`
 --
 
+DROP TABLE IF EXISTS `fair_play`;
 CREATE TABLE IF NOT EXISTS `fair_play` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -260,6 +267,7 @@ INSERT INTO `fair_play` (`id`, `title`, `content`) VALUES
 -- Structure de la table `history`
 --
 
+DROP TABLE IF EXISTS `history`;
 CREATE TABLE IF NOT EXISTS `history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -285,6 +293,7 @@ INSERT INTO `history` (`id`, `title`, `content`) VALUES
 -- Structure de la table `image`
 --
 
+DROP TABLE IF EXISTS `image`;
 CREATE TABLE IF NOT EXISTS `image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -338,6 +347,7 @@ INSERT INTO `image` (`id`, `url`, `alt`) VALUES
 -- Structure de la table `place`
 --
 
+DROP TABLE IF EXISTS `place`;
 CREATE TABLE IF NOT EXISTS `place` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -371,6 +381,7 @@ INSERT INTO `place` (`id`, `name`, `adress`, `postal_code`, `city`, `phone`) VAL
 -- Structure de la table `position`
 --
 
+DROP TABLE IF EXISTS `position`;
 CREATE TABLE IF NOT EXISTS `position` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -407,6 +418,7 @@ INSERT INTO `position` (`id`, `name`) VALUES
 -- Structure de la table `post`
 --
 
+DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `seo_id` int(11) DEFAULT NULL,
@@ -446,6 +458,7 @@ INSERT INTO `post` (`id`, `seo_id`, `image_id`, `post_category_id`, `title`, `co
 -- Structure de la table `post_category`
 --
 
+DROP TABLE IF EXISTS `post_category`;
 CREATE TABLE IF NOT EXISTS `post_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -471,6 +484,7 @@ INSERT INTO `post_category` (`id`, `name`) VALUES
 -- Structure de la table `seo`
 --
 
+DROP TABLE IF EXISTS `seo`;
 CREATE TABLE IF NOT EXISTS `seo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -502,6 +516,7 @@ INSERT INTO `seo` (`id`, `title`, `description`) VALUES
 -- Structure de la table `team`
 --
 
+DROP TABLE IF EXISTS `team`;
 CREATE TABLE IF NOT EXISTS `team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
@@ -560,6 +575,7 @@ INSERT INTO `team` (`id`, `category_id`, `image_id`, `name`, `level`, `palmares`
 -- Structure de la table `training`
 --
 
+DROP TABLE IF EXISTS `training`;
 CREATE TABLE IF NOT EXISTS `training` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `day_id` int(11) NOT NULL,
@@ -617,6 +633,7 @@ INSERT INTO `training` (`id`, `day_id`, `team_id`, `place_id`, `hour`) VALUES
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `team_id` int(11) NOT NULL,
@@ -659,6 +676,7 @@ INSERT INTO `user` (`id`, `team_id`, `firstname`, `lastname`, `birthdate`, `emai
 -- Structure de la table `user_position`
 --
 
+DROP TABLE IF EXISTS `user_position`;
 CREATE TABLE IF NOT EXISTS `user_position` (
   `user_id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL,

@@ -25,8 +25,8 @@ body {
 }
 
 input{
-    color: white;
-    background-color: #5cb85c;
+    color: black;
+    background-color: whitesmoke;
     border: none;
     text-decoration: none;
     border-radius: 5px;
@@ -263,6 +263,10 @@ span.ext{
 }
 .panel-body p{
     text-align: left;
+}
+.login{
+    display: flex;
+    justify-content: center;
 }
 
 /*navbar*/

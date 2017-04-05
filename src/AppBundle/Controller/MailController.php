@@ -44,6 +44,8 @@ class MailController extends Controller
                     $session = $request->getSession();
                     // J'envoie un message pour prévenir l'utilisateur que ça n'a pas marché
                     $session->getFlashBag()->add('notice', "Erreur lors de l'envoi du mail");
+                    // Je redirige vers la page d'accueil
+                    return $this->redirectToRoute('app_index');
                 }
             }
         }
