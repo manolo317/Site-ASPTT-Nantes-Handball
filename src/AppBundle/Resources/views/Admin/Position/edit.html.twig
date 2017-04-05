@@ -4,6 +4,8 @@
     <h1>Edition Role</h1>
 
     {{ form_start(edit_form) }}
+    {{ form_row(edit_form.name, { 'label': 'Nom du rôle' }) }}
+    {{ form_rest(edit_form) }}
         {{ form_widget(edit_form) }}
     <button type="submit" class="btn btn-warning">modifier</button>
     {{ form_end(edit_form) }}

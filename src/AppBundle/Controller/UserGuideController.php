@@ -64,4 +64,39 @@ class UserGuideController extends Controller
     {
         return $this->render('AppBundle:Admin/Guide:edit_user.html.twig');
     }
+
+    public function addPositionAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:add_position.html.twig');
+    }
+
+    public function addPostAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:add_post.html.twig');
+    }
+
+    public function editPostAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_post.html.twig');
+    }
+
+    public function editHistoryAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_history.html.twig');
+    }
+
+    public function editFairplayAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_fairplay.html.twig');
+    }
+
+    public function editEditoAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_edito.html.twig');
+    }
+
+    public function editPlaceAction()
+    {
+        return $this->render('AppBundle:Admin/Guide:edit_place.html.twig');
+    }
 }

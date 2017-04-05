@@ -21,6 +21,11 @@
                 <th>Auteur</th>
                 <td>{{ post.author }}</td>
             </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ post.postCategory.name }}</td>
+            </tr>
+
             {% if post.image %}
             <tr>
                 <th>Image</th>

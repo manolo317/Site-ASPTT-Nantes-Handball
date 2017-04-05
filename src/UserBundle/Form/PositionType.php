@@ -15,7 +15,6 @@ class PositionType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('users')
         ;
     }
     

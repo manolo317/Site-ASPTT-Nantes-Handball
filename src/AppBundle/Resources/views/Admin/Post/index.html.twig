@@ -16,6 +16,7 @@
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
+                <th>Catégorie</th>
                 <th>Publié</th>
                 <th>Actions</th>
             </tr>
@@ -27,6 +28,7 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.content }}</td>
                 <td>{{ post.author }}</td>
+                <td>{{ post.postCategory.name }}</td>
                 <td>
                     {% if post.validated == true %}
                         publié

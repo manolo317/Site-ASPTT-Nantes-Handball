@@ -75,6 +75,16 @@ class User
     private $team;
 
     /**
+     * Get the string representation.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getFirstname();
+    }
+
+    /**
      * Get id
      *
      * @return int

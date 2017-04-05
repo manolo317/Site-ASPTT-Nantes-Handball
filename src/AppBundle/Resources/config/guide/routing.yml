@@ -49,7 +49,7 @@ admin_guide_edit_user:
         _controller: AppBundle:UserGuide:editUser
 
 admin_guide_add_position:
-    path: /membre/ajouter-role
+    path: /membre/gestion-role
     defaults:
         _controller: AppBundle:UserGuide:addPosition
 

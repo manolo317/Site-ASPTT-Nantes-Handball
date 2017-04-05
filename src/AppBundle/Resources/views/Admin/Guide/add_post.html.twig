@@ -1,0 +1,49 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Guide d'utilisation</h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2>Ajouter un événement</h2>
+            <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_post.png') }}" alt="training" />
+            <p>Rendez-vous sur la page de gestion des événements via l’onglet "Evénements" ci-dessus:</p>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/post_list.png') }}" width="530px" alt="liste des événements" />
+                <p>Vous accédez à une vue d’ensemble de la liste des événements.</p>
+                <p>Vous accédez aux différentes options de gestion des événements, pour ajouter un nouvel événement, cliquez sur le bouton
+                    <a href="{{ path('admin_post_new') }}" class="btn btn-primary">Nouvel article</a></p>
+            </div>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg2" src="{{ asset('bundles/app/images/guide/add_post.png') }}" width="530px" alt="ajouter un article" />
+                <p>Vous accédez au formulaire de création d'un article.</p>
+                <p>Veuillez à bien remplir les champs <strong>Seo</strong>, qui vont servir pour le référencement du site.</p>
+                <p>Vous pouvez choisir de charger une photo via la fonction d’upload <img id="myImg2" src="{{ asset('bundles/app/images/guide/image.png') }}" alt="image upload"></p>
+                <p>Cochez la case <strong>Publié sur le site</strong>, si vous souhaitez que l'article soit visible tout de suite sur le site public.</p>
+                <p>Une fois le formulaire rempli, cliquez sur le bouton <button class="btn btn-success">ajouter</button></p>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="{{ path('admin_guide_add_position') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
+            <li><a href="{{ path('admin_guide_edit_post') }}">&raquo;</a></li>
+        </ul>
+    </div>
+{% endblock %}
