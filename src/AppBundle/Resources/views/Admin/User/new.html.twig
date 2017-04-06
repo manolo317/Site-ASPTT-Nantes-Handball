@@ -1,0 +1,25 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Création Membre</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.firstname, { 'label': 'Prénom' }) }}
+    {{ form_row(form.lastname, { 'label': 'Nom' }) }}
+    {{ form_row(form.email, { 'label': 'Email' }) }}
+    {{ form_row(form.birthdate, { 'label': 'Date de naissance' }) }}
+    {{ form_row(form.positions, { 'label': 'Rôles' }) }}
+    {{ form_row(form.team, { 'label': 'Equipe' }) }}
+    {#Génération automatique des champs pas encore écrits.#}
+    {{ form_rest(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">ajouter</button>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_user_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

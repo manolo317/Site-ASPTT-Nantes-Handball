@@ -1,0 +1,35 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Historique</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for history in histories %}
+            <tr>
+                <td><a href="{{ path('admin_history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
+                <td>{{ history.title }}</td>
+                <td>{{ history.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_history_show', { 'id': history.id }) }}"class="btn btn-success btn-sm">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_history_edit', { 'id': history.id }) }}"class="btn btn-warning btn-sm">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,102 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ team.name }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <header class="page-header">
+            <h1>{{ team.name }}</h1>
+            <h3>{{ team.level }}</h3>
+        </header>
+        <div class="row">
+            <section class="col-sm-4">
+                <a id="result" href="{{ team.ranking }}" title="Classement {{ team.name }}">Résultats et Classement</a>
+                <h3>Palmares :</h3>
+                <p id="palm">{{ team.palmares }}</p>
+            </section>
+            <section class="col-sm-8">
+                {# On vérifie qu'une image soit bien associée à l'équipe #}
+                {% if team.image is not null %}
+                    <img class="thumbnail"
+                            src="{{ asset(team.image.webPath) }}"
+                            alt="{{ team.image.alt }}"
+                    />
+                {% endif %}
+
+            </section>
+        </div>
+        <div class="row">
+            <section class="col-sm-4">
+                <div class="row">
+                    <div class="sm-12">
+                        <h3>Planning Entrainements:</h3>
+                        <div class="panel panel-info">
+                            {% for training in team.trainings %}
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">{{ training.day.name }}</h2>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">{{ training.place.name }}<span class="badge">{{ training.hour|date('H:i') }}H</span></li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="sm-12">
+                        <h3>Planning Matchs:</h3>
+                        <div class="panel panel-info">
+                            {% for event in team.events %}
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">{{ event.date.slug }} à {{ event.hour|date('H:i') }}H</h2>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">{{ team.name }} Vs {{ event.opponent }} - {{ event.place.name }}</li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="col-sm-8">
+                <h3>Effectif:</h3>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Joueurs :</h2>
+                    </div>
+                    <ul class="list-group">
+                        {% for player in team.users %}
+                            {% for role in player.positions %}
+                                {% if role.name == "Joueur" %}
+                                <li class="list-group-item">{{ player.firstname }} {{ player.lastname }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Entraineurs :</h2>
+                        </div>
+                    <ul class="list-group">
+                        {% for player in team.users %}
+                            {% for role in player.positions %}
+                                {% if role.name == "Entraineur" %}
+                                    <li class="list-group-item">{{ player.firstname }} {{ player.lastname }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+{% endblock %}

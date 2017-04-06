@@ -1,0 +1,75 @@
+
+    <nav class="navbar navbar-asptt">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('app_index') }}"><span class="glyphicon glyphicon-home"></span></a>
+        </div>
+
+        <div class="collapse navbar-collapse js-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Le Club <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="dropdown-header" href="{{ path('app_history_view') }}">Histoire du Club</a></li>
+                        <li><a class="dropdown-header" href="{{ path('app_fairplay_view') }}">La charte du Club</a></li>
+                        <li class="divider"></li>
+                        <li><a class="dropdown-header" href="{{ path('app_contact_list') }}">Annuaire administratif</a></li>
+                        <li><a class="dropdown-header" href="{{ path('app_place_list') }}">Annuaire gymnases</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipes <span class="caret"></span></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ senior }}</li>
+                                {% for seniorTeam in seniorTeams %}
+                                <li><a href="{{ path('app_team_view', {'slug': seniorTeam.slug}) }}">{{ seniorTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ jeunes }}</li>
+                                {% for juniorTeam in juniorTeams %}
+                                    <li><a href="{{ path('app_team_view', {'slug': juniorTeam.slug}) }}">{{ juniorTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ kids }}</li>
+                                {% for kidsTeam in kidsTeams %}
+                                    <li><a href="{{ path('app_team_view', {'slug': kidsTeam.slug}) }}">{{ kidsTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">{{ loisirs }}</li>
+                                {% for loisirsTeam in loisirsTeams %}
+                                    <li><a href="{{ path('app_team_view', {'slug': loisirsTeam.slug}) }}">{{ loisirsTeam.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_post_index') }}">Evénements</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Planning <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="dropdown-header" href="{{ path('app_planning_annual') }}">Planning annuel</a></li>
+                        <li><a class="dropdown-header" href="{{ path('app_planning_weekend') }}">Planning week-end</a></li>
+                        <li><a class="dropdown-header" href="{{ path('app_planning_training') }}">Planning entrainements</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </nav>

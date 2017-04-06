@@ -1,0 +1,24 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Création match</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.opponent, { 'label': 'Adversaire' }) }}
+    {{ form_row(form.hour, { 'label': 'Heure' }) }}
+    {{ form_row(form.date, { 'label': 'Date' }) }}
+    {{ form_row(form.team, { 'label': 'Equipe' }) }}
+    {{ form_row(form.place, { 'label': 'Salle' }) }}
+    {{ form_row(form.tableResponsable, { 'label': 'Responsable table de marque' }) }}
+    {{ form_row(form.placeResponsable, { 'label': 'Responsable de salle' }) }}
+    {{ form_rest(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">ajouter</button>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_event_index') }}"class="btn btn-primary">retour</a>
+        </li>
+    </ul>
+{% endblock %}

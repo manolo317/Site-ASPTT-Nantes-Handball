@@ -1,0 +1,30 @@
+{% extends "AppBundle:Admin:layout.html.twig" %}
+
+{% block title %}
+    Accueil Admin
+{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+    <h2>Bienvenu sur votre espace administrateur!</h2>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Guide d'utilisation</h2>
+        </div>
+        <div class="panel-body">
+            <img class="img-responsive img-float" src="{{ asset('bundles/app/images/guide/navbar_guide.png') }}" alt="guide" />
+            <p>Cliquez sur le guide dans la barre de navigation.</p>
+            <p>Découvrez le guide complet pour gérer votre site en toute simplicité.</p>
+        </div>
+    </div>
+
+
+
+{% endblock %}

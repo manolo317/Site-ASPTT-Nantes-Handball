@@ -1,0 +1,35 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Charte</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fairPlay in fairPlays %}
+            <tr>
+                <td><a href="{{ path('admin_fairplay_show', { 'id': fairPlay.id }) }}">{{ fairPlay.id }}</a></td>
+                <td>{{ fairPlay.title }}</td>
+                <td>{{ fairPlay.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_fairplay_show', { 'id': fairPlay.id }) }}"class="btn btn-success btn-sm">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_fairplay_edit', { 'id': fairPlay.id }) }}"class="btn btn-warning btn-sm">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

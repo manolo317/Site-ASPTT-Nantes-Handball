@@ -1,0 +1,32 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ position.name }}</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ position.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ position.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_position_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_position_edit', { 'id': position.id }) }}"class="btn btn-warning">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Edition de salle</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_row(edit_form.name, { 'label': 'Nom' }) }}
+    {{ form_row(edit_form.adress, { 'label': 'Adresse' }) }}
+    {{ form_row(edit_form.postalCode, { 'label': 'Code postal' }) }}
+    {{ form_row(edit_form.city, { 'label': 'Ville' }) }}
+    {{ form_row(edit_form.phone, { 'label': 'Téléphone' }) }}
+    {{ form_rest(edit_form) }}
+        {{ form_widget(edit_form) }}
+    <button type="submit" class="btn btn-warning">modifier</button>
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_place_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

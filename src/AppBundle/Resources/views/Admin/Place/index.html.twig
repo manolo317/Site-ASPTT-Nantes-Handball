@@ -1,0 +1,48 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste des salles</h1>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_place_new') }}"class="btn btn-primary">Nouvelle salle</a>
+        </li>
+    </ul>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Téléphone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for place in places %}
+            <tr>
+                <td><a href="{{ path('admin_place_show', { 'id': place.id }) }}">{{ place.id }}</a></td>
+                <td>{{ place.name }}</td>
+                <td>{{ place.adress }}</td>
+                <td>{{ place.postalCode }}</td>
+                <td>{{ place.city }}</td>
+                <td>{{ place.phone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_place_show', { 'id': place.id }) }}"class="btn btn-success btn-sm">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}"class="btn btn-warning">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

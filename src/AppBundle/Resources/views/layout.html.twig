@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}ASPTT Nantes Handball{% endblock %}</title>
+
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" type="text/css" />
+    {% endblock %}
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="nopadding" id="header-asptt">
+        <img class="img-responsive" src="{{ asset('bundles/app/images/banniere2.png') }}" alt="ASPTT" />
+    </div>
+
+    <div class="row menu-nav">
+
+        {{ render(controller("AppBundle:Default:menu")) }}
+    </div>
+    <div class="row">
+
+        {% block body %}
+        {% endblock %}
+
+    </div>
+    <hr>
+
+
+</div>
+{# Footer #}
+{% include "AppBundle::footer.html.twig" %}
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{ asset('bundles/app/js/menu.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

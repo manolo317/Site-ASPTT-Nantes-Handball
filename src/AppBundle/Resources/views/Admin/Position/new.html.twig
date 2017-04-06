@@ -1,0 +1,18 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Création rôle</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.name, { 'label': 'Nom du rôle' }) }}
+    {{ form_rest(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">ajouter</button>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_position_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

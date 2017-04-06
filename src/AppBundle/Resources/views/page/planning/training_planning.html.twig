@@ -1,0 +1,32 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Planning entrainements
+{% endblock %}
+
+{% block body %}
+    <div class="col-sm-12">
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('notice') %}
+            <div class="alert alert-info"><strong>Informations:</strong> {{ message }}</div>
+        {% endfor %}
+    </div>
+    <div class="col-sm-12">
+        <h2>Planning entrainements</h2>
+        <table class="table table-bordered">
+            {% for day in days %}
+                <tbody>
+                    <th><h4>{{ day.name }}</h4></th>
+                    {% for training in day.trainings %}
+                        <td>
+                            <div><strong>{{ training.team.name }}</strong></div>
+                            {#<div>{{ loop.parent.day.id }}</div>#}
+                            <div>{{ training.hour|date('H:i') }} H</div>
+                            <div>{{ training.place.name }}</div>
+                        </td>
+                    {% endfor %}
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

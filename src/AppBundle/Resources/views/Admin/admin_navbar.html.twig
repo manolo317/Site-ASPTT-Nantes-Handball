@@ -1,0 +1,49 @@
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('admin_index') }}"><span class="glyphicon glyphicon-home"></a>
+        </div>
+
+        <div class="collapse navbar-collapse js-navbar-collapse">
+            <ul class="nav navbar-nav">
+                {% if app.user %} {#Si Admin est connecté#}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-calendar"> </span> Planning <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="dropdown-header" href="{{ path('admin_date_index') }}">Gestion Dates</a></li>
+                        <li><a class="dropdown-header" href="{{ path('admin_event_index') }}">Gestion Matchs</a></li>
+                        <li><a class="dropdown-header" href="{{ path('admin_training_index') }}">Gestion Entrainements</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('admin_team_index') }}"><span class="glyphicon glyphicon-stats"> </span> Equipes</a></li>
+                <li><a href="{{ path('admin_user_index') }}"><span class="glyphicon glyphicon-user"> </span> Membres</a></li>
+                <li><a href="{{ path('admin_post_index') }}"><span class="glyphicon glyphicon-list-alt"> </span> Evénements</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"> </span> Pages informations<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="dropdown-header" href="{{ path('admin_history_index') }}">Histoire du Club</a></li>
+                        <li><a class="dropdown-header" href="{{ path('admin_fairplay_index') }}">La charte du Club</a></li>
+                        <li><a class="dropdown-header" href="{{ path('admin_edito_index') }}">Edito du Club</a></li>
+                        <li><a class="dropdown-header" href="{{ path('admin_place_index') }}">Gestion Gymnases</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ path('admin_guide_index') }}"><span class="glyphicon glyphicon-question-sign"></span> Guide</a>
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Déconnexion</a>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('app_index') }}">Accès au site</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </nav>
+</div>

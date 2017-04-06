@@ -1,0 +1,15 @@
+admin_fairplay_index:
+    path:     /
+    defaults: { _controller: "InfoBundle:FairPlay:index" }
+    methods:  GET
+
+admin_fairplay_show:
+    path:     /{id}/show
+    defaults: { _controller: "InfoBundle:FairPlay:show" }
+    methods:  GET
+
+admin_fairplay_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "InfoBundle:FairPlay:edit" }
+    methods:  [GET, POST]
+

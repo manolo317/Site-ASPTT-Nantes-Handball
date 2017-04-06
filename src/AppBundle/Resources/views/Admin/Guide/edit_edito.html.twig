@@ -1,0 +1,44 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Guide d'utilisation</h1>
+
+    <div class="panel panel-info">
+    <div class="panel-heading">
+        <h2>Modifier l'edito du club</h2>
+        <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_edito.png') }}" alt="charte" />
+        <p>Pour éditer les informations de la page edito du club, rendez-vous sur la page <strong>Pages informations</strong> et cliquez sur <strong>Edito du club</strong></p>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/edito.png') }}" width="530px" alt="détail edito" />
+            <p>Vous accédez au détail de l'edito.</p>
+            <p>Vous accédez aux options de gestion de l'edito, pour modifier cliquez sur le bouton <a href="#" class="btn btn-warning">modifier</a></p>
+        </div>
+        <div class="row">
+            <img class="img-responsive img-float" id="myImg2" src="{{ asset('bundles/app/images/guide/edit_edito.png') }}" width="530px" alt="modifier l'edito" />
+            <p>Vous accédez à la partie édition</p>
+            <p>Une fois les champs modifiés, cliquez sur le bouton <button class="btn btn-warning">modifier</button> pour valider.</p>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+
+    </div>
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="{{ path('admin_guide_edit_fairplay') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
+            <li><a href="{{ path('admin_guide_edit_place') }}">&raquo;</a></li>
+        </ul>
+    </div>
+{% endblock %}

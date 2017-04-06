@@ -1,0 +1,40 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Guide d'utilisation</h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2>Modifier/supprimer un match</h2>
+            <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_event.png') }}" alt="date" />
+            <div>Pour éditer les informations d’un match ou le supprimer, rendez-vous sur la page de liste des matchs et cliquez sur le bouton <button class="btn btn-warning">modifier</button> du match que vous souhaitez</div>
+        </div>
+        <div class="panel-body">
+            <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/edit_event.png') }}" alt="event" />
+            <p>Vous accédez à la page de modification et de suppression des matchs.</p>
+            <p>Une fois les modifications effectuées, cliquez sur le bouton <button class="btn btn-warning">modifier</button></p>
+            <p>Si vous n’avez pas rempli correctement tous les champs, un message d’erreur apparaitra.</p>
+            <p>Si vous souhaitez supprimer une rencontre, cliquez sur le bouton <button class="btn btn-danger">supprimer</button></p>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+
+    </div>
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="{{ path('admin_guide_edit_event') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
+            <li><a href="{{ path('admin_guide_add_training') }}">&raquo;</a></li>
+        </ul>
+    </div>
+{% endblock %}

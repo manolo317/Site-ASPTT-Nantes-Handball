@@ -1,0 +1,61 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Détail</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ post.content }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ post.author }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ post.postCategory.name }}</td>
+            </tr>
+
+            {% if post.image %}
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(post.image.webPath) }}"></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>Publié</th>
+                <td>
+                    {% if post.validated == true %}
+                        publié
+                    {% elseif post.validated == false %}
+                        non publié
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_post_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_post_edit', { 'id': post.id }) }}"class="btn btn-warning">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

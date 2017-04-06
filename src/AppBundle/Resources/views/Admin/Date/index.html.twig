@@ -1,0 +1,60 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block title %}
+    Admin Date
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des dates</h1>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_date_new') }}" class="btn btn-primary">Nouvelle date</a>
+        </li>
+    </ul>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date in dates %}
+            <tr>
+                <td><a href="{{ path('admin_date_show', { 'id': date.id }) }}">{{ date.id }}</a></td>
+                <td>{% if date.date %}{{ date.date|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_date_show', { 'id': date.id }) }}" class="btn btn-success btn-sm">voir</a>
+                        </li>
+
+                        {% if date.events is not null %}
+                            <h4>Liste des matchs:</h4>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Equipe</th>
+                                    <th>Adversaire</th>
+                                    <th>Heure</th>
+                                    <th>Lieu</th>
+                                </tr>
+                            {% for event in date.events %}
+                                <tr>
+                                    <td>{{ event.team.name }}</td>
+                                    <td>{{ event.opponent }}</td>
+                                    <td>{{ event.hour|date('H:i') }} H</td>
+                                    <td>{{ event.place.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        {% endif %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

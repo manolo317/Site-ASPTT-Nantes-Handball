@@ -1,0 +1,16 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ fairplay.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <header class="page-header">
+            <h2>{{ fairplay.title }}</h2>
+        </header>
+        <section class="col-sm-offset-2 col-sm-8">
+            {{ fairplay.content }}
+        </section>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Evénement HandBall
+{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <a href="{{ path ('app_post_view', {'id': post.id})}} ">
+            <h3 class="titleEvent">{{ post.title }}</h3>
+        </a>
+        {{ post.postCategory }}
+        <p class="event">Publier le : {{ post.publishedAt | date('Y-m-d') }}</p>
+        {# LE slice permet de gerer les caratères à afficher #}
+        <p class="event">{{ post.content|slice(0, 150)}} <a href="{{ path ('app_post_view', {'id': post.id})}} ">... </a></p>
+        {% if post.image is not null %}
+            <img class="thumbnail imgEvent"
+                 src="{{ asset(post.image.webPath) }}"
+                 alt="{{ post.image.alt }}"
+                 height="150"
+            />
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

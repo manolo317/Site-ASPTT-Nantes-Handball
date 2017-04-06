@@ -1,0 +1,30 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Edition de l'événement</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_row(edit_form.title, { 'label': 'Titre' }) }}
+    {{ form_row(edit_form.content, { 'label': 'Texte' }) }}
+    {{ form_row(edit_form.author, { 'label': 'Auteur' }) }}
+    {{ form_row(edit_form.seo, { 'label': 'Seo' }) }}
+    {{ form_row(edit_form.postCategory, { 'label': 'Catégorie' }) }}
+    {{ form_row(edit_form.image, { 'label': 'Image' }) }}
+    {{ form_row(edit_form.publishedAt, { 'label': 'Publié le' }) }}
+    {{ form_row(edit_form.validated, { 'label': 'Publié sur le site' }) }}
+    {{ form_rest(edit_form) }}
+        {{ form_widget(edit_form) }}
+    <button type="submit" class="btn btn-warning">modifier</button>
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_post_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Création d'un événement</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.title, { 'label': 'Titre' }) }}
+    {{ form_row(form.content, { 'label': 'Texte' }) }}
+    {{ form_row(form.author, { 'label': 'Auteur' }) }}
+    {{ form_row(form.seo, { 'label': 'Seo' }) }}
+    {{ form_row(form.postCategory, { 'label': 'Catégorie' }) }}
+    {{ form_row(form.image, { 'label': 'Image' }) }}
+    {{ form_row(form.publishedAt, { 'label': 'Publié le' }) }}
+    {{ form_row(form.validated, { 'label': 'Publié sur le site' }) }}
+    {{ form_rest(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">ajouter</button>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_post_index') }}"class="btn btn-primary">retour</a>
+        </li>
+    </ul>
+{% endblock %}

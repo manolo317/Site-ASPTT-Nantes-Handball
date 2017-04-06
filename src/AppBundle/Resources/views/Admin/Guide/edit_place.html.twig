@@ -1,0 +1,47 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Guide d'utilisation</h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2>Gestion des gymnases</h2>
+            <img class="img-responsive" src="{{ asset('bundles/app/images/guide/navbar_place.png') }}" alt="gymnases" />
+            <p>Pour éditer les informations de la page des gymnases du club, rendez-vous sur la page <strong>Pages informations</strong> et cliquez sur <strong>Gestion des gymnases</strong></p>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg1" src="{{ asset('bundles/app/images/guide/place_list.png') }}" width="530px" alt="liste des gymnases" />
+                <p>Vous accédez à une vue d’ensemble de la liste des gymnases.</p>
+                <p>Vous accédez aux différentes options de gestion des gymnases, pour ajouter un nouveau gymnase, cliquez sur le bouton
+                    <a href="{{ path('admin_place_new') }}" class="btn btn-primary">Nouvelle salle</a></p>
+                <p>Pour modifier un gymnase, cliquez sur le bouton
+                    <a href="{{ path('admin_place_new') }}" class="btn btn-warning">modifier</a> que vous souhaitez modifier.</p>
+            </div>
+            <div class="row">
+                <img class="img-responsive img-float" id="myImg2" src="{{ asset('bundles/app/images/guide/edit_place.png') }}" width="530px" alt="modification gymnase" />
+                <p>Vous accédez au formulaire d'édition ou de création.</p>
+                <p>Une fois les champs remplis, cliquez sur le bouton <button class="btn btn-success">ajouter</button> ou sur le bouton <button class="btn btn-warning">modifier</button></p>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="{{ path('admin_guide_edit_edito') }}">&laquo;</a></li>
+            <li><a href="{{ path('admin_guide_index') }}">menu</a></li>
+        </ul>
+    </div>
+{% endblock %}

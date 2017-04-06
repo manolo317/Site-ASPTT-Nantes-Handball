@@ -1,0 +1,54 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste des membres</h1>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_user_new') }}"class="btn btn-primary">Nouveau membre</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_position_index') }}"class="btn btn-primary">Nouveau rôle</a>
+        </li>
+    </ul>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>email</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('admin_user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.birthdate|date('d-m-Y') }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    {% for position in user.positions %}
+                        <p>{{ position.name }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_user_show', { 'id': user.id }) }}"class="btn btn-success btn-sm">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}"class="btn btn-warning btn-sm">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

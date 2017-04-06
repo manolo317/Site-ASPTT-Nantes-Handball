@@ -1,0 +1,40 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Entrainement</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ training.id }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ training.hour|date('H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Equipe</th>
+                <td>{{ training.team.name }}</td>
+            </tr>
+            <tr>
+                <th>Salle</th>
+                <td>{{ training.place.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_training_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_training_edit', { 'id': training.id }) }}"class="btn btn-warning">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

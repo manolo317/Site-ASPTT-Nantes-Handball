@@ -1,0 +1,30 @@
+php -r "readfile('https://symfony.com/installer');" > symfony
+
+php symfony new blog
+
+php bin/console server:run
+
+composer update
+
+php bin/console generate:bundle
+
+#Doctrine:
+
+php bin/console doctrine:database:create  # raccourci d:d:c
+
+php bin/console doctrine:generate:entity
+
+php bin/console doctrine:generate:entities NameBundle:NameEntity
+
+php bin/console doctrine:schema:validate 
+
+php bin/console doctrine:schema:update --dump-sql
+
+php bin/console doctrine:schema:update --force
+
+php bin/console generate:doctrine:crud
+
+#Cache
+
+php bin/console cache:clear --env=dev
+

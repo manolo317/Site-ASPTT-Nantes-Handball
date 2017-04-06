@@ -1,0 +1,61 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ team.name }}</h1>
+
+    <div style="float: left; margin-right: 1em;">
+        {# On vérifie qu'une image soit bien associée à l'équipe #}
+        {% if team.image is not null %}
+            <img
+                    src="{{ asset(team.image.webPath) }}"
+                    alt="{{ team.image.alt }}"
+                    height="200"
+            />
+        {% endif %}
+    </div>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ team.id }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ team.category.name }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ team.name }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ team.level }}</td>
+            </tr>
+            <tr>
+                <th>Palmares</th>
+                <td>{{ team.palmares }}</td>
+            </tr>
+            <tr>
+                <th>Lien Classement</th>
+                <td>{{ team.ranking }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <ul>
+            <li>
+                <a href="{{ path('admin_team_index') }}"class="btn btn-primary">retour</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_team_edit', { 'id': team.id }) }}"class="btn btn-warning">modifier</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">supprimer</button>
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

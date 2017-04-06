@@ -1,0 +1,48 @@
+{% extends 'AppBundle:Admin:layout.html.twig' %}
+
+{% block body %}
+    <h1>Salle</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ place.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ place.name }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ place.adress }}</td>
+            </tr>
+            <tr>
+                <th>Code Postal</th>
+                <td>{{ place.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ place.city }}</td>
+            </tr>
+            <tr>
+                <th>téléphone</th>
+                <td>{{ place.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_place_index') }}"class="btn btn-primary">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_place_edit', { 'id': place.id }) }}"class="btn btn-warning">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">supprimer</button>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

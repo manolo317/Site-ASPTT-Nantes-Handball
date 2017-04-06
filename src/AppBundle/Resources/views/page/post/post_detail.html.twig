@@ -1,0 +1,26 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ post.title }}
+    <meta name="description" content="{{ post.seo.description }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="article">
+
+        <h3 class="titleEvent">{{ post.title }}</h3>
+        {{ post.postCategory }}
+        <p class="event">Publier le : {{ post.publishedAt | date('Y-m-d') }}</p>
+        {# LE slice permet de gerer les caratères à afficher #}
+        <p class="event">{{ post.content}}</p>
+        {% if post.image is not null %}
+            <img class="thumbnail imgEvent"
+                 src="{{ asset(post.image.webPath) }}"
+                 alt="{{ post.image.alt }}"
+            />
+
+        {% endif %}
+
+    </div>
+{% endblock body %}

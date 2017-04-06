@@ -1,0 +1,30 @@
+admin_post_index:
+    path:     /
+    defaults:
+        _controller: EventBundle:Post:index
+
+admin_post_show:
+    path:     /{id}/show
+    defaults:
+        _controller: EventBundle:Post:show
+    requirements:
+        id: \d+
+
+admin_post_new:
+    path:     /new
+    defaults:
+        _controller: EventBundle:Post:new
+
+admin_post_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: EventBundle:Post:edit
+    requirements:
+            id: \d+
+
+admin_post_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: EventBundle:Post:delete
+    requirements:
+            id: \d+

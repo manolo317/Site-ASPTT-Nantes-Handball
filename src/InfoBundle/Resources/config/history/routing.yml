@@ -1,0 +1,16 @@
+admin_history_index:
+    path:     /
+    defaults: { _controller: "InfoBundle:History:index" }
+    methods:  GET
+
+admin_history_show:
+    path:     /{id}/show
+    defaults: { _controller: "InfoBundle:History:show" }
+    methods:  GET
+
+admin_history_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "InfoBundle:History:edit" }
+    methods:  [GET, POST]
+
+

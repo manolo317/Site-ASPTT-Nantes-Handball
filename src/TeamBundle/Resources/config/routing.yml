@@ -1,0 +1,30 @@
+admin_team_index:
+    path:     /
+    defaults:
+        _controller: TeamBundle:Team:index
+
+admin_team_show:
+    path:     /{id}/show
+    defaults:
+        _controller: TeamBundle:Team:show
+    requirements:
+        id: \d+
+
+admin_team_new:
+    path:     /new
+    defaults:
+        _controller: TeamBundle:Team:new
+
+admin_team_edit:
+    path:     /{id}/edit
+    defaults:
+        _controller: TeamBundle:Team:edit
+    requirements:
+            id: \d+
+
+admin_team_delete:
+    path:     /{id}/delete
+    defaults:
+        _controller: TeamBundle:Team:delete
+    requirements:
+            id: \d+
