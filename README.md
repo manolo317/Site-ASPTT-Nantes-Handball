@@ -10,9 +10,9 @@ Contributeurs:
   - Alexandre Thorel
   - Emmanuel Ripoll
 
-Pour Installer le projet:
+Pour Installer le projet en local:
   - git clone https://github.com/manolo317/fil-rouge.git 
-  - $ (dev) git pull origin dev (je récupère la dernière version de dev)
+  - $ (dev) git pull (je récupère la dernière version de dev)
   - $ (dev) git checkout -b picsou-featureUser (je créé ma branche)
   - $ (picsou-featureUser) composer update (ou composer.phar update)
   - dans le fichier fil-rouge/app/config/parameters.yml je modifie:
@@ -24,7 +24,7 @@ Pour Installer le projet:
   - je lance mon Wamp
   - je créé un projet avec mon IDE préféré (PhpStorm!!!)
   - $ (picsou-featureUser) php bin/console doctrine:database:create
-  - sur phpMyAdmin, j'importe le fichier symfony_asptt.sql (données Team, Category, Image)
+  - sur phpMyAdmin, j'importe le fichier symfony_asptt.sql 
   - $ (picsou-featureUser) php bin/console doctrine:schema:update --force
   - $ (picsou-featureUser) php bin/console doctrine:schema:validate
  
@@ -35,5 +35,4 @@ Pour Installer le projet:
   Et de tems en temps un push
   - $ (picsou-featureUser) git push origin picsou-featureUser
 
-  Pour merger dans la branche dev, je demande à Papa :p
-  Reste plus qu'à coder!
+  Pour merger dans la branche dev, je créer une Pull Request sur Github.
