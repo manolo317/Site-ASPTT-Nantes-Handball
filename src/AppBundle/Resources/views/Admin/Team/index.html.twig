@@ -25,7 +25,7 @@
                 <td><a href="{{ path('admin_team_show', { 'id': team.id }) }}">{{ team.id }}</a></td>
                 <td>{{ team.name }}</td>
                 <td>{{ team.level }}</td>
-                <td>{{ team.palmares }}</td>
+                <td>{{ team.palmares|slice(0,80) }}...</td>
                 <td>{{ team.ranking }}</td>
                 <td>
                     <ul>
