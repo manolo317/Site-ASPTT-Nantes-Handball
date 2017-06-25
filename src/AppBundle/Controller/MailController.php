@@ -32,7 +32,6 @@ class MailController extends Controller
 
         // Je récupère mon adresse mail et mon password dans parameters.yml
         $myappContactMail = $this->container->getParameter('mailer_user');
-        $myappContactPassword = $this->container->getParameter('mailer_password');
 
         if ($request->isMethod('POST')) {
             // Si le form a bien été envoyé
@@ -40,7 +39,7 @@ class MailController extends Controller
             // Si il est valide
             if ($form->isValid()) {
                 // J'envoie le mail
-                if ($mailer->sendEmail($form->getData(), $myappContactMail, $myappContactPassword)) {
+                if ($mailer->sendEmail($form->getData(), $myappContactMail)) {
 
                     $session = $request->getSession();
                     // J'envoie un message pour prévenir l'utilisateur

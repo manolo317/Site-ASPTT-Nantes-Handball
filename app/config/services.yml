@@ -8,3 +8,15 @@ services:
         class: AppBundle\Services\ApplicationMailer
         arguments:
             - "@mailer"
+
+    asptt.email.update_notifier:
+          class: AppBundle\Services\UpdateNotifier
+          arguments:
+              - "@mailer"
+
+    asptt.doctrine_listener.edito_update:
+        class: InfoBundle\DoctrineListener\InfoCreationListener
+        arguments:
+            - "@asptt.email.update_notifier"
+        tags:
+            - { name: doctrine.event_listener, event: postUpdate }
